@@ -1,0 +1,805 @@
+Script started on 2018-01-30 15:45:01-0500
+]0;chan@chan:~/Sources/school/214/labs/01/Java[chan@chan Java]$ script script.java
+Script started, file is script.java
+]0;chan@chan:~/Sources/school/214/labs/01/Java[chan@chan Java]$ cat circle[K[K[K[K[K[KCircleArea.java
+/* CircleArea.java computes the area of a circle.
+ *
+ * Input: The radius of the circle.
+ * Precondition: The radius is a positive number.
+ * Output: The area of the circle.
+ *
+ * Begun by: Dr. Adams, for CS 214, at Calvin College.
+ * Completed by: Chan Kim (ck45)
+ * Date: 1/31/2018
+ **********************************************************/
+
+
+import java.util.Scanner;  // include class for Scanner
+
+public class CircleArea {
+
+     /* function circleArea() computes a circle's area, given its radius.
+      * Parameter: r, a double
+      * Precondition: r is not negative.
+      * Returns: the area of the circle
+      */
+     public static double circleArea(double r) {
+        return Math.PI * r * r;               // return an expression
+     } // circleArea method
+	
+  // main program
+  public static void main(String[] args) {
+      // prompt for radius
+      System.out.println("To compute the area of a circle,");
+      System.out.print(" enter its radius: ");
+     
+      // Create a connection named keyboard to standard in
+      Scanner keyboard = new Scanner(System.in); 
+  
+      //Get the number from the user
+      double radius = keyboard.nextDouble();
+      
+      // output area
+      System.out.println("The area is " + circleArea(radius)); 
+  } // main method
+} // class CircleArea
+]0;chan@chan:~/Sources/school/214/labs/01/Java[chan@chan Java]$ javac -deprecation CircleArea.java 
+]0;chan@chan:~/Sources/school/214/labs/01/Java[chan@chan Java]$ java ci[K[KCircleArea 
+To compute the area of a circle,
+ enter its radius: 1
+The area is 3.141592653589793
+]0;chan@chan:~/Sources/school/214/labs/01/Java[chan@chan Java]$ java CircleArea 
+To compute the area of a circle,
+ enter its radius: 2
+The area is 12.566370614359172
+]0;chan@chan:~/Sources/school/214/labs/01/Java[chan@chan Java]$ java CircleArea 
+To compute the area of a circle,
+ enter its radius: 2.5
+The area is 19.634954084936208
+]0;chan@chan:~/Sources/school/214/labs/01/Java[chan@chan Java]$ java CircleArea 
+To compute the area of a circle,
+ enter its radius: 4.99999
+The area is 78.53950218079365
+]0;chan@chan:~/Sources/school/214/labs/01/Java[chan@chan Java]$ exi[K[K[Kexit
+exit
+Script done, file is script.java
+]0;chan@chan:~/Sources/school/214/labs/01/Java[chan@chan Java]$ emacs circle_area.adb &
+[1] 4132
+]0;chan@chan:~/Sources/school/214/labs/01/Java[chan@chan Java]$ ls
+CircleArea.class  CircleArea.java  script.java  typescript
+[1]+  Done                    emacs circle_area.adb
+]0;chan@chan:~/Sources/school/214/labs/01/Java[chan@chan Java]$ ls
+CircleArea.class  CircleArea.java  script.java  typescript
+]0;chan@chan:~/Sources/school/214/labs/01/Java[chan@chan Java]$ cd..
+bash: cd..: command not found
+]0;chan@chan:~/Sources/school/214/labs/01/Java[chan@chan Java]$ cd ..
+]0;chan@chan:~/Sources/school/214/labs/01[chan@chan 01]$ ls
+ [0m[01;34mAda[0m                  circle_area.adb    CircleArea.class   '#CircleArea.java#'  [01;34m'Emacs-LISP '[0m  '#q#'
+ [01;32mcircle_area[0m          circle_area.adb~  '#circle_area.el#'   CircleArea.java      [01;34mJava[0m
+'#circle_area.adb#'   circle_area.ali    circle_area.el      circle_area.o        q
+]0;chan@chan:~/Sources/school/214/labs/01[chan@chan 01]$ cd Ada/
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ ls
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ lscd Ada/ls[Kcd ..[1P..[2Plsemacs circle_area.adb &
+[1] 4151
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ gnatmake circle_area.adb 
+gcc -c circle_area.adb
+gnatbind -x circle_area.ali
+gnatlink circle_area.ali
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ gnatmake circle_area.adb [K[K[K[K[K
+gnatmake: "circle_area" up to date.
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ gnatmake circle_area.adb 
+gnatmake: "circle_area" up to date.
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ gnatmake circle_area
+gnatmake: "circle_area" up to date.
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ g[Kgnatmake circle_area.adb
+gnatmake: "circle_area" up to date.
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ ls
+[0m[01;32mcircle_area[0m  circle_area.adb  circle_area.ali  circle_area.o
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ ls [K[K[Ksudo ls
+[sudo] password for chan: 
+circle_area  circle_area.adb  circle_area.ali  circle_area.o
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ ./circle_area [K
+To compute the area of a circle,
+enter its radius: 1
+The circle's area is  3.14159E+00
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ ./circle_area[6Psudo ls./circle_area
+To compute the area of a circle,
+enter its radius: 2
+The circle's area is  1.25664E+01
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ gnatmake circle_area.adb [K[K[K[K[K
+gnatmake: "circle_area" up to date.
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ f[Kgnatmake circle_area[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[7P./circle_area
+To compute the area of a circle,
+enter its radius: 2.5
+The circle's area is  1.96350E+01
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ ./circle_area
+To compute the area of a circle,
+enter its radius: 4.99999
+The circle's area is  7.85395E+01
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ script script.ada
+Script started, file is script.ada
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ cat
+^Z
+[1]+  Stopped                 cat
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ cat circle_area.
+circle_area.adb   circle_area.adb~  circle_area.ali   circle_area.o     
+[chan@chan Ada]$ cat circle_area.
+circle_area.adb   circle_area.adb~  circle_area.ali   circle_area.o     
+[chan@chan Ada]$ cat circle_area.adb
+-- circle_area.adb computes the area of a circle.
+--
+-- Input: The radius of the circle.
+-- Precondition: The radius is a positive number.
+-- Output: The area of the circle.
+--
+-- Begun by: Dr. Adams, CS 214 at Calvin College.
+-- Completed by: Chan Kim (ck45)
+-- Date: 1/31/2018
+----------------------------------------------------
+
+with Ada.Text_IO, Ada.Float_Text_IO;
+use  Ada.Text_IO, Ada.Float_Text_IO;
+
+procedure circle_area is
+
+   radius, area : float; 
+
+   -- function circleArea computes a circle's area, given its radius
+   -- Parameter: r, a float
+   -- Precondition: r >= 0.0
+   -- Return: the area of the circle whose radius is r
+   ----------------------------------------------------
+   function circleArea(r: in float) return float is 
+      PI : constant := 3.1415927;
+   begin
+      return PI * r ** 2; -- return an expression
+   end circleArea; -- circleArea method
+   
+-- main program
+begin                           
+   -- prompt for radius
+   Put_Line("To compute the area of a circle,");
+   Put("enter its radius: ");
+   -- Get the number form the user
+   Get(radius);
+   
+   -- Get the area value from circleArea method
+   area := circleArea(radius);
+   
+   -- output area
+   Put("The circle's area is ");
+   Put(area);
+   New_Line;
+end circle_area;
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ gnatmake circle_area.adb [K[K[K[K[K.adb 
+gcc -c circle_area.adb
+gnatbind -x circle_area.ali
+gnatlink circle_area.ali
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ ./circle_area 
+circle_area       circle_area.adb   circle_area.adb~  circle_area.ali   circle_area.o     script.ada        
+[chan@chan Ada]$ ./circle_area [K
+To compute the area of a circle,
+enter its radius: 1
+The circle's area is  3.14159E+00
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ ./circle_area
+To compute the area of a circle,
+enter its radius: 2
+The circle's area is  1.25664E+01
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ ./circle_area
+To compute the area of a circle,
+enter its radius: 2.5
+The circle's area is  1.96350E+01
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ ./circle_area
+To compute the area of a circle,
+enter its radius: 4.99999
+The circle's area is  7.85395E+01
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ exit
+exit
+There are stopped jobs.
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ ls
+[0m[01;32mcircle_area[0m  circle_area.adb  circle_area.adb~  circle_area.ali  circle_area.o  script.ada
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ cat script.ada
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ script script.d[Kadb
+Script started, file is script.adb
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ cat circle_area.adb
+-- circle_area.adb computes the area of a circle.
+--
+-- Input: The radius of the circle.
+-- Precondition: The radius is a positive number.
+-- Output: The area of the circle.
+--
+-- Begun by: Dr. Adams, CS 214 at Calvin College.
+-- Completed by: Chan Kim (ck45)
+-- Date: 1/31/2018
+----------------------------------------------------
+
+with Ada.Text_IO, Ada.Float_Text_IO;
+use  Ada.Text_IO, Ada.Float_Text_IO;
+
+procedure circle_area is
+
+   radius, area : float; 
+
+   -- function circleArea computes a circle's area, given its radius
+   -- Parameter: r, a float
+   -- Precondition: r >= 0.0
+   -- Return: the area of the circle whose radius is r
+   ----------------------------------------------------
+   function circleArea(r: in float) return float is 
+      PI : constant := 3.1415927;
+   begin
+      return PI * r ** 2; -- return an expression
+   end circleArea; -- circleArea method
+   
+-- main program
+begin                           
+   -- prompt for radius
+   Put_Line("To compute the area of a circle,");
+   Put("enter its radius: ");
+   -- Get the number form the user
+   Get(radius);
+   
+   -- Get the area value from circleArea method
+   area := circleArea(radius);
+   
+   -- output area
+   Put("The circle's area is ");
+   Put(area);
+   New_Line;
+end circle_area;
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ gnatmake circle_area.adb 
+gnatmake: "circle_area" up to date.
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ gnatmake circle_area.adb [K[K[K[K[K
+gnatmake: "circle_area" up to date.
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ gnatmake circle_area.adb 
+gnatmake: "circle_area" up to date.
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ ./circle_area 
+To compute the area of a circle,
+enter its radius: 1
+The circle's area is  3.14159E+00
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ ./circle_area 
+To compute the area of a circle,
+enter its radius: 2
+The circle's area is  1.25664E+01
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ ./circle_area 
+To compute the area of a circle,
+enter its radius: 2.5
+The circle's area is  1.96350E+01
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ ./circle_area 
+To compute the area of a circle,
+enter its radius: 4.000   99999
+The circle's area is  7.85395E+01
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ exit
+exit
+Script done, file is script.adb
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ cat script.adb
+Script started on 2018-01-30 22:10:52-0500
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ cat circle_area.adb
+-- circle_area.adb computes the area of a circle.
+--
+-- Input: The radius of the circle.
+-- Precondition: The radius is a positive number.
+-- Output: The area of the circle.
+--
+-- Begun by: Dr. Adams, CS 214 at Calvin College.
+-- Completed by: Chan Kim (ck45)
+-- Date: 1/31/2018
+----------------------------------------------------
+
+with Ada.Text_IO, Ada.Float_Text_IO;
+use  Ada.Text_IO, Ada.Float_Text_IO;
+
+procedure circle_area is
+
+   radius, area : float; 
+
+   -- function circleArea computes a circle's area, given its radius
+   -- Parameter: r, a float
+   -- Precondition: r >= 0.0
+   -- Return: the area of the circle whose radius is r
+   ----------------------------------------------------
+   function circleArea(r: in float) return float is 
+      PI : constant := 3.1415927;
+   begin
+      return PI * r ** 2; -- return an expression
+   end circleArea; -- circleArea method
+   
+-- main program
+begin                           
+   -- prompt for radius
+   Put_Line("To compute the area of a circle,");
+   Put("enter its radius: ");
+   -- Get the number form the user
+   Get(radius);
+   
+   -- Get the area value from circleArea method
+   area := circleArea(radius);
+   
+   -- output area
+   Put("The circle's area is ");
+   Put(area);
+   New_Line;
+end circle_area;
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ gnatmake circle_area.adb 
+gnatmake: "circle_area" up to date.
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ gnatmake circle_area.adb [K[K[K[K[K
+gnatmake: "circle_area" up to date.
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ gnatmake circle_area.adb 
+gnatmake: "circle_area" up to date.
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ ./circle_area 
+To compute the area of a circle,
+enter its radius: 1
+The circle's area is  3.14159E+00
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ ./circle_area 
+To compute the area of a circle,
+enter its radius: 2
+The circle's area is  1.25664E+01
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ ./circle_area 
+To compute the area of a circle,
+enter its radius: 2.5
+The circle's area is  1.96350E+01
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ ./circle_area 
+To compute the area of a circle,
+enter its radius: 4.000   99999
+The circle's area is  7.85395E+01
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ exit
+exit
+
+Script done on 2018-01-30 22:12:04-0500
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ cd..
+bash: cd..: command not found
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ l[Kcd [K...
+bash: cd...: command not found
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ cd ...
+bash: cd: ...: No such file or directory
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ cd ..
+]0;chan@chan:~/Sources/school/214/labs/01[chan@chan 01]$ ls
+ [0m[01;34mAda[0m                  circle_area.adb    CircleArea.class   '#CircleArea.java#'  [01;34m'Emacs-LISP '[0m  '#q#'
+ [01;32mcircle_area[0m          circle_area.adb~  '#circle_area.el#'   CircleArea.java      [01;34mJava[0m
+'#circle_area.adb#'   circle_area.ali    circle_area.el      circle_area.o        q
+]0;chan@chan:~/Sources/school/214/labs/01[chan@chan 01]$ mkdir Ruby
+]0;chan@chan:~/Sources/school/214/labs/01[chan@chan 01]$ ls
+ [0m[01;34mAda[0m                  circle_area.adb    CircleArea.class   '#CircleArea.java#'  [01;34m'Emacs-LISP '[0m  '#q#'
+ [01;32mcircle_area[0m          circle_area.adb~  '#circle_area.el#'   CircleArea.java      [01;34mJava[0m           [01;34mRuby[0m
+'#circle_area.adb#'   circle_area.ali    circle_area.el      circle_area.o        q
+]0;chan@chan:~/Sources/school/214/labs/01[chan@chan 01]$ cd Ruby/
+]0;chan@chan:~/Sources/school/214/labs/01/Ruby[chan@chan Ruby]$ ls
+]0;chan@chan:~/Sources/school/214/labs/01/Ruby[chan@chan Ruby]$ emacs circle_area.rb &
+[2] 7862
+]0;chan@chan:~/Sources/school/214/labs/01/Ruby[chan@chan Ruby]$ 
+** (emacs:7862): [1;33mWARNING[0m **: Couldn't register with accessibility bus: Did not receive a reply. Possible causes include: the remote application did not send a reply, the message bus security policy blocked the reply, the reply timeout expired, or the network connection was broken.
+ff
+bash: ff: command not found
+[2]-  Done                    emacs circle_area.rb
+]0;chan@chan:~/Sources/school/214/labs/01/Ruby[chan@chan Ruby]$ f[Kruby circle_area.rb
+bash: ruby: command not found
+]0;chan@chan:~/Sources/school/214/labs/01/Ruby[chan@chan Ruby]$ ruby circle_area.rb
+bash: ruby: command not found
+]0;chan@chan:~/Sources/school/214/labs/01/Ruby[chan@chan Ruby]$ p Ruby
+:: Package Ruby not found in repositories, trying AUR...
+:: resolving dependencies...
+:: no results found for Ruby
+]0;chan@chan:~/Sources/school/214/labs/01/Ruby[chan@chan Ruby]$ p ruby[K[K[K[K[K[Kp ruby
+[sudo] password for chan: 
+resolving dependencies...
+looking for conflicting packages...
+
+Packages (1) ruby-2.5.0-1
+
+Total Download Size:    3.81 MiB
+Total Installed Size:  15.92 MiB
+
+:: Proceed with installation? [Y/n] y
+:: Retrieving packages...
+error: failed retrieving file 'ruby-2.5.0-1-x86_64.pkg.tar.xz' from mirrors.gigenet.com : The requested URL returned error: 404
+error: failed retrieving file 'ruby-2.5.0-1-x86_64.pkg.tar.xz' from mirror.hackingand.coffee : The requested URL returned error: 404
+error: failed retrieving file 'ruby-2.5.0-1-x86_64.pkg.tar.xz' from mirror.umd.edu : The requested URL returned error: 404
+error: failed retrieving file 'ruby-2.5.0-1-x86_64.pkg.tar.xz' from mirrors.rutgers.edu : The requested URL returned error: 404
+error: failed retrieving file 'ruby-2.5.0-1-x86_64.pkg.tar.xz' from mirrors.ocf.berkeley.edu : The requested URL returned error: 404
+error: failed retrieving file 'ruby-2.5.0-1-x86_64.pkg.tar.xz' from mirrors.sonic.net : The requested URL returned error: 404
+error: failed retrieving file 'ruby-2.5.0-1-x86_64.pkg.tar.xz' from mirror.sfo12.us.leaseweb.net : The requested URL returned error: 404
+error: failed retrieving file 'ruby-2.5.0-1-x86_64.pkg.tar.xz' from mirror.epiphyte.network : The requested URL returned error: 404
+error: failed retrieving file 'ruby-2.5.0-1-x86_64.pkg.tar.xz' from mirror.yellowfiber.net : The requested URL returned error: 404
+error: failed retrieving file 'ruby-2.5.0-1-x86_64.pkg.tar.xz' from arch.mirror.constant.com : The requested URL returned error: 404
+error: failed retrieving file 'ruby-2.5.0-1-x86_64.pkg.tar.xz' from mirror.cs.pitt.edu : The requested URL returned error: 404
+error: failed retrieving file 'ruby-2.5.0-1-x86_64.pkg.tar.xz' from mirrors.kernel.org : The requested URL returned error: 404
+error: failed retrieving file 'ruby-2.5.0-1-x86_64.pkg.tar.xz' from ftp.osuosl.org : The requested URL returned error: 404
+error: failed retrieving file 'ruby-2.5.0-1-x86_64.pkg.tar.xz' from archlinux.surlyjake.com : The requested URL returned error: 404
+error: failed retrieving file 'ruby-2.5.0-1-x86_64.pkg.tar.xz' from mirror.math.princeton.edu : The requested URL returned error: 404
+error: failed retrieving file 'ruby-2.5.0-1-x86_64.pkg.tar.xz' from mirror.lty.me : The requested URL returned error: 404
+error: failed retrieving file 'ruby-2.5.0-1-x86_64.pkg.tar.xz' from mirror.as65535.net : The requested URL returned error: 404
+error: failed retrieving file 'ruby-2.5.0-1-x86_64.pkg.tar.xz' from mirrors.acm.wpi.edu : The requested URL returned error: 404
+error: failed retrieving file 'ruby-2.5.0-1-x86_64.pkg.tar.xz' from mirrors.lug.mtu.edu : The requested URL returned error: 404
+error: failed retrieving file 'ruby-2.5.0-1-x86_64.pkg.tar.xz' from mirrors.xmission.com : The requested URL returned error: 404
+error: failed retrieving file 'ruby-2.5.0-1-x86_64.pkg.tar.xz' from mirror.cs.vt.edu : The requested URL returned error: 404
+error: failed retrieving file 'ruby-2.5.0-1-x86_64.pkg.tar.xz' from mirrors.rit.edu : The requested URL returned error: 404
+error: failed retrieving file 'ruby-2.5.0-1-x86_64.pkg.tar.xz' from mirror.cc.columbia.edu : The requested URL returned error: 404
+error: failed retrieving file 'ruby-2.5.0-1-x86_64.pkg.tar.xz' from mirror.es.its.nyu.edu : The requested URL returned error: 404
+error: failed retrieving file 'ruby-2.5.0-1-x86_64.pkg.tar.xz' from il.us.mirror.archlinux-br.org : The requested URL returned error: 404
+error: failed retrieving file 'ruby-2.5.0-1-x86_64.pkg.tar.xz' from il.mirrors.linaxe.net : The requested URL returned error: 403
+error: failed retrieving file 'ruby-2.5.0-1-x86_64.pkg.tar.xz' from mirror.wdc1.us.leaseweb.net : The requested URL returned error: 404
+error: failed retrieving file 'ruby-2.5.0-1-x86_64.pkg.tar.xz' from www.gtlib.gatech.edu : The requested URL returned error: 404
+error: failed retrieving file 'ruby-2.5.0-1-x86_64.pkg.tar.xz' from mirror.metrocast.net : The requested URL returned error: 404
+error: failed retrieving file 'ruby-2.5.0-1-x86_64.pkg.tar.xz' from mirrors.cat.pdx.edu : The requested URL returned error: 404
+error: failed retrieving file 'ruby-2.5.0-1-x86_64.pkg.tar.xz' from mirror.grig.io : The requested URL returned error: 404
+error: failed retrieving file 'ruby-2.5.0-1-x86_64.pkg.tar.xz' from mirror.vtti.vt.edu : The requested URL returned error: 404
+error: failed retrieving file 'ruby-2.5.0-1-x86_64.pkg.tar.xz' from mirror.dal10.us.leaseweb.net : The requested URL returned error: 404
+ ruby-2.5.0-1-x86_64                                     0.0   B  0.00B/s 00:00 [----------------------------------------------]   0% ruby-2.5.0-1-x86_64                                    45.0 KiB  68.2K/s 00:56 [----------------------------------------------]   1% ruby-2.5.0-1-x86_64                                   145.4 KiB   205K/s 00:18 [#---------------------------------------------]   3% ruby-2.5.0-1-x86_64                                   267.0 KiB   335K/s 00:10 [##--------------------------------------------]   6% ruby-2.5.0-1-x86_64                                   442.3 KiB   516K/s 00:06 [#####-----------------------------------------]  11% ruby-2.5.0-1-x86_64                                   684.1 KiB   735K/s 00:04 [#######---------------------------------------]  17% ruby-2.5.0-1-x86_64                                   864.2 KiB   790K/s 00:03 [##########------------------------------------]  22% ruby-2.5.0-1-x86_64                                  1190.8 KiB  1071K/s 00:02 [#############---------------------------------]  30% ruby-2.5.0-1-x86_64                                  1604.7 KiB  1200K/s 00:01 [##################----------------------------]  41% ruby-2.5.0-1-x86_64                                     2.2 MiB  1814K/s 00:00 [#########################---------------------]  56% ruby-2.5.0-1-x86_64                                     2.9 MiB  2.38M/s 00:00 [##################################------------]  75% ruby-2.5.0-1-x86_64                                     3.8 MiB  3.04M/s 00:00 [#############################################-]  98% ruby-2.5.0-1-x86_64                                     3.8 MiB  1672K/s 00:02 [##############################################] 100%
+(0/1) checking keys in keyring                                                  [----------------------------------------------]   0%(1/1) checking keys in keyring                                                  [##############################################] 100%
+(0/1) checking package integrity                                                [----------------------------------------------]   0%(1/1) checking package integrity                                                [##############################################] 100%
+(0/1) loading package files                                                     [----------------------------------------------]   0%(1/1) loading package files                                                     [##############################################] 100%
+(0/1) checking for file conflicts                                               [----------------------------------------------]   0%(1/1) checking for file conflicts                                               [##############################################] 100%
+(0/1) checking available disk space                                             [----------------------------------------------]   0%(1/1) checking available disk space                                             [##############################################] 100%
+:: Processing package changes...
+(1/1) installing ruby                                                           [----------------------------------------------]   0%(1/1) installing ruby                                                           [############################------------------]  62%(1/1) installing ruby                                                           [##############################################] 100%
+The default location of gem installs is $HOME/.gem/ruby
+Add the following line to your PATH if you plan to install using gem
+$(ruby -rubygems -e "puts Gem.user_dir")/bin
+If you want to install to the system wide location, you must either:
+edit /etc/gemrc or run gem with the --no-user-install flag.
+Optional dependencies for ruby
+    ruby-docs: Ruby documentation
+    tk: for Ruby/TK
+:: Running post-transaction hooks...
+(1/1) Arming ConditionNeedsUpdate...
+]0;chan@chan:~/Sources/school/214/labs/01/Ruby[chan@chan Ruby]$ ruby circle_area.rb
+To compute the area of a circle,
+ enter its radius: 1
+The circle's area is: 3.1415927
+]0;chan@chan:~/Sources/school/214/labs/01/Ruby[chan@chan Ruby]$ ruby circle_area.rb
+To compute the area of a circle,
+ enter its radius: 2
+The circle's area is: 12.5663708
+]0;chan@chan:~/Sources/school/214/labs/01/Ruby[chan@chan Ruby]$ ruby circle_area.rb
+To compute the area of a circle,
+ enter its radius: 2.5
+The circle's area is: 19.634954375
+]0;chan@chan:~/Sources/school/214/labs/01/Ruby[chan@chan Ruby]$ ruby circle_area.rb
+To compute the area of a circle,
+ enter its radius: 4.99999
+The circle's area is: 78.53950334104417
+]0;chan@chan:~/Sources/school/214/labs/01/Ruby[chan@chan Ruby]$ script script.ruby
+Script started, file is script.ruby
+]0;chan@chan:~/Sources/school/214/labs/01/Ruby[chan@chan Ruby]$ cat ls
+cat: ls: No such file or directory
+]0;chan@chan:~/Sources/school/214/labs/01/Ruby[chan@chan Ruby]$ cat [K[K[K[Kls
+circle_area.rb  circle_area.rb~  script.ruby
+]0;chan@chan:~/Sources/school/214/labs/01/Ruby[chan@chan Ruby]$ cat circle_area.rb
+#! /usr/bin/ruby
+# circle_area.rb computes the area of a circle given its radius
+# 
+# Input: the radius of a circle
+# Precondition: the radius is not negative
+# Output: the area of the circle.
+#
+# Begun by: Prof. Adams, for CS 214 at Calvin College.
+# Completed by: Chan Kim (ck45)
+# Date: 1/31/2018
+###############################################################
+
+# function circleArea returns a circle's area, given its radius
+# Parameters: r, a number
+# Precondition: r > 0.
+# Returns: the area of a circle whose radius is r.
+PI = 3.1415927
+def circleArea(r)
+    PI * r ** 2 
+end
+
+if __FILE__ == $0
+   puts "To compute the area of a circle,"
+   print " enter its radius: "
+   radius = gets.chomp.to_f
+   print "The circle's area is: "
+   puts circleArea(radius)
+end
+]0;chan@chan:~/Sources/school/214/labs/01/Ruby[chan@chan Ruby]$ cat circle_area.rbls[Kcat ls[2Pexit./circle_area exit[Kcat ls[4Plscat circle_area.rb[Kcat circle_area.rb[Kruby 
+circle_area.rb   circle_area.rb~  script.ruby      
+[chan@chan Ruby]$ ruby circle_area.rb
+To compute the area of a circle,
+ enter its radius: 1
+The circle's area is: 3.1415927
+]0;chan@chan:~/Sources/school/214/labs/01/Ruby[chan@chan Ruby]$ ruby circle_area.rb
+To compute the area of a circle,
+ enter its radius: 2
+The circle's area is: 12.5663708
+]0;chan@chan:~/Sources/school/214/labs/01/Ruby[chan@chan Ruby]$ ruby circle_area.rb
+To compute the area of a circle,
+ enter its radius: 2.5
+The circle's area is: 19.634954375
+]0;chan@chan:~/Sources/school/214/labs/01/Ruby[chan@chan Ruby]$ ruby circle_area.rb
+To compute the area of a circle,
+ enter its radius: 3 4.99999
+The circle's area is: 78.53950334104417
+]0;chan@chan:~/Sources/school/214/labs/01/Ruby[chan@chan Ruby]$ exit
+exit
+Script done, file is script.ruby
+]0;chan@chan:~/Sources/school/214/labs/01/Ruby[chan@chan Ruby]$ ls
+circle_area.rb  circle_area.rb~  script.ruby
+]0;chan@chan:~/Sources/school/214/labs/01/Ruby[chan@chan Ruby]$ cat script.ruby
+Script started on 2018-01-30 22:17:56-0500
+]0;chan@chan:~/Sources/school/214/labs/01/Ruby[chan@chan Ruby]$ cat ls
+cat: ls: No such file or directory
+]0;chan@chan:~/Sources/school/214/labs/01/Ruby[chan@chan Ruby]$ cat [K[K[K[Kls
+circle_area.rb  circle_area.rb~  script.ruby
+]0;chan@chan:~/Sources/school/214/labs/01/Ruby[chan@chan Ruby]$ cat circle_area.rb
+#! /usr/bin/ruby
+# circle_area.rb computes the area of a circle given its radius
+# 
+# Input: the radius of a circle
+# Precondition: the radius is not negative
+# Output: the area of the circle.
+#
+# Begun by: Prof. Adams, for CS 214 at Calvin College.
+# Completed by: Chan Kim (ck45)
+# Date: 1/31/2018
+###############################################################
+
+# function circleArea returns a circle's area, given its radius
+# Parameters: r, a number
+# Precondition: r > 0.
+# Returns: the area of a circle whose radius is r.
+PI = 3.1415927
+def circleArea(r)
+    PI * r ** 2 
+end
+
+if __FILE__ == $0
+   puts "To compute the area of a circle,"
+   print " enter its radius: "
+   radius = gets.chomp.to_f
+   print "The circle's area is: "
+   puts circleArea(radius)
+end
+]0;chan@chan:~/Sources/school/214/labs/01/Ruby[chan@chan Ruby]$ cat circle_area.rbls[Kcat ls[2Pexit./circle_area exit[Kcat ls[4Plscat circle_area.rb[Kcat circle_area.rb[Kruby 
+circle_area.rb   circle_area.rb~  script.ruby      
+[chan@chan Ruby]$ ruby circle_area.rb
+To compute the area of a circle,
+ enter its radius: 1
+The circle's area is: 3.1415927
+]0;chan@chan:~/Sources/school/214/labs/01/Ruby[chan@chan Ruby]$ ruby circle_area.rb
+To compute the area of a circle,
+ enter its radius: 2
+The circle's area is: 12.5663708
+]0;chan@chan:~/Sources/school/214/labs/01/Ruby[chan@chan Ruby]$ ruby circle_area.rb
+To compute the area of a circle,
+ enter its radius: 2.5
+The circle's area is: 19.634954375
+]0;chan@chan:~/Sources/school/214/labs/01/Ruby[chan@chan Ruby]$ ruby circle_area.rb
+To compute the area of a circle,
+ enter its radius: 3 4.99999
+The circle's area is: 78.53950334104417
+]0;chan@chan:~/Sources/school/214/labs/01/Ruby[chan@chan Ruby]$ exit
+exit
+
+Script done on 2018-01-30 22:18:48-0500
+]0;chan@chan:~/Sources/school/214/labs/01/Ruby[chan@chan Ruby]$ emacs ru[K[K[K[K[K[K[K[Kemacs circle_area.rb &
+[2] 8500
+]0;chan@chan:~/Sources/school/214/labs/01/Ruby[chan@chan Ruby]$ 
+** (emacs:8500): [1;33mWARNING[0m **: Couldn't register with accessibility bus: Did not receive a reply. Possible causes include: the remote application did not send a reply, the message bus security policy blocked the reply, the reply timeout expired, or the network connection was broken.
+ 
+]0;chan@chan:~/Sources/school/214/labs/01/Ruby[2]-  Done                    emacs circle_area.rb
+[chan@chan Ruby]$ script ru[K[Kscrip=[K[K[K[K[K[Kscript.ruby
+Script started, file is script.ruby
+]0;chan@chan:~/Sources/school/214/labs/01/Ruby[chan@chan Ruby]$ ls
+circle_area.rb  circle_area.rb~  script.ruby
+]0;chan@chan:~/Sources/school/214/labs/01/Ruby[chan@chan Ruby]$ cat circle_area.rb
+#! /usr/bin/ruby
+# circle_area.rb computes the area of a circle given its radius
+# 
+# Input: the radius of a circle
+# Precondition: the radius is not negative
+# Output: the area of the circle.
+#
+# Begun by: Prof. Adams, for CS 214 at Calvin College.
+# Completed by: Chan Kim (ck45)
+# Date: 1/31/2018
+###############################################################
+
+# function circleArea returns a circle's area, given its radius
+# Parameters: r, a number
+# Precondition: r > 0.
+# Returns: the area of a circle whose radius is r.
+PI = 3.1415927
+def circleArea(r)
+    PI * r ** 2 # an expression for the circle area
+end
+# main program
+if __FILE__ == $0
+  # prompt for radius
+   puts "To compute the area of a circle,"
+   print " enter its radius: "
+   # Get the number form the user
+   radius = gets.chomp.to_f
+   # output area
+   print "The circle's area is: "
+   puts circleArea(radius)
+end
+]0;chan@chan:~/Sources/school/214/labs/01/Ruby[chan@chan Ruby]$ ruby circle_area.rb
+To compute the area of a circle,
+ enter its radius: 1
+The circle's area is: 3.1415927
+]0;chan@chan:~/Sources/school/214/labs/01/Ruby[chan@chan Ruby]$ ruby circle_area.rb
+To compute the area of a circle,
+ enter its radius: 2
+The circle's area is: 12.5663708
+]0;chan@chan:~/Sources/school/214/labs/01/Ruby[chan@chan Ruby]$ ruby circle_area.rb
+To compute the area of a circle,
+ enter its radius: 2.5
+The circle's area is: 19.634954375
+]0;chan@chan:~/Sources/school/214/labs/01/Ruby[chan@chan Ruby]$ ruby circle_area.rb
+To compute the area of a circle,
+ enter its radius: 4.99999
+The circle's area is: 78.53950334104417
+]0;chan@chan:~/Sources/school/214/labs/01/Ruby[chan@chan Ruby]$ exit
+exit
+Script done, file is script.ruby
+]0;chan@chan:~/Sources/school/214/labs/01/Ruby[chan@chan Ruby]$ cd ..
+]0;chan@chan:~/Sources/school/214/labs/01[chan@chan 01]$ cd ada
+bash: cd: ada: No such file or directory
+]0;chan@chan:~/Sources/school/214/labs/01[chan@chan 01]$ cd Ad
+bash: cd: Ad: No such file or directory
+]0;chan@chan:~/Sources/school/214/labs/01[chan@chan 01]$ cd Ada
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ ls
+[0m[01;32mcircle_area[0m  circle_area.adb  circle_area.adb~  circle_area.ali  circle_area.o  script.adb
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ script script.ada
+Script started, file is script.ada
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ ls
+[0m[01;32mcircle_area[0m  circle_area.adb  circle_area.adb~  circle_area.ali  circle_area.o  script.ada  script.adb
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ cat circle_area.adb
+-- circle_area.adb computes the area of a circle.
+--
+-- Input: The radius of the circle.
+-- Precondition: The radius is a positive number.
+-- Output: The area of the circle.
+--
+-- Begun by: Dr. Adams, CS 214 at Calvin College.
+-- Completed by: Chan Kim (ck45)
+-- Date: 1/31/2018
+----------------------------------------------------
+
+with Ada.Text_IO, Ada.Float_Text_IO;
+use  Ada.Text_IO, Ada.Float_Text_IO;
+
+procedure circle_area is
+
+   radius, area : float; 
+
+   -- function circleArea computes a circle's area, given its radius
+   -- Parameter: r, a float
+   -- Precondition: r >= 0.0
+   -- Return: the area of the circle whose radius is r
+   ----------------------------------------------------
+   function circleArea(r: in float) return float is 
+      PI : constant := 3.1415927;
+   begin
+      return PI * r ** 2; -- return an expression
+   end circleArea; -- circleArea method
+   
+-- main program
+begin                           
+   -- prompt for radius
+   Put_Line("To compute the area of a circle,");
+   Put("enter its radius: ");
+   -- Get the number form the user
+   Get(radius);
+   
+   -- Get the area value from circleArea method
+   area := circleArea(radius);
+   
+   -- output area
+   Put("The circle's area is ");
+   Put(area);
+   New_Line;
+end circle_area;
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ f[Kgnatmake circle_area.adb 
+gnatmake: "circle_area" up to date.
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ gnatmake circle_area.adb [K[K[K[K[K
+gnatmake: "circle_area" up to date.
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ ./circle_area 
+To compute the area of a circle,
+enter its radius: 1
+The circle's area is  3.14159E+00
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ ./circle_area 
+To compute the area of a circle,
+enter its radius: 2
+The circle's area is  1.25664E+01
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ ./circle_area 
+To compute the area of a circle,
+enter its radius: 2.5
+The circle's area is  1.96350E+01
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ ./circle_area 
+To compute the area of a circle,
+enter its radius: 4.99999
+The circle's area is  7.85395E+01
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ exit
+exit
+Script done, file is script.ada
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ cd ..
+]0;chan@chan:~/Sources/school/214/labs/01[chan@chan 01]$ ls
+ [0m[01;34mAda[0m                  circle_area.adb    CircleArea.class   '#CircleArea.java#'  [01;34m'Emacs-LISP '[0m  '#q#'
+ [01;32mcircle_area[0m          circle_area.adb~  '#circle_area.el#'   CircleArea.java      [01;34mJava[0m           [01;34mRuby[0m
+'#circle_area.adb#'   circle_area.ali    circle_area.el      circle_area.o        q
+]0;chan@chan:~/Sources/school/214/labs/01[chan@chan 01]$ ls
+ [0m[01;34mAda[0m                  circle_area.adb    CircleArea.class   '#CircleArea.java#'   [01;34mEmacs-LISP[0m  '#q#'
+ [01;32mcircle_area[0m          circle_area.adb~  '#circle_area.el#'   CircleArea.java      [01;34mJava[0m         [01;34mRuby[0m
+'#circle_area.adb#'   circle_area.ali    circle_area.el      circle_area.o        q
+]0;chan@chan:~/Sources/school/214/labs/01[chan@chan 01]$ cd ..
+]0;chan@chan:~/Sources/school/214/labs[chan@chan labs]$ ls[K[Kcd ..
+]0;chan@chan:~/Sources/school/214[chan@chan 214]$ ls
+[0m[01;34mlabs[0m  [01;34mprojects[0m
+]0;chan@chan:~/Sources/school/214[chan@chan 214]$ cd pq[Krojects/
+]0;chan@chan:~/Sources/school/214/projects[chan@chan projects]$ ls
+[0m[01;34m01[0m
+]0;chan@chan:~/Sources/school/214/projects[chan@chan projects]$ cd 01
+]0;chan@chan:~/Sources/school/214/projects/01[chan@chan 01]$ mkdir Java
+]0;chan@chan:~/Sources/school/214/projects/01[chan@chan 01]$ mkdir Ruby
+]0;chan@chan:~/Sources/school/214/projects/01[chan@chan 01]$ mkdir Ada
+]0;chan@chan:~/Sources/school/214/projects/01[chan@chan 01]$ mkdir eLisp
+]0;chan@chan:~/Sources/school/214/projects/01[chan@chan 01]$ cd Java/
+]0;chan@chan:~/Sources/school/214/projects/01/Java[chan@chan Java]$ emacs rectangle_area.java &
+[2] 15069
+]0;chan@chan:~/Sources/school/214/projects/01/Java[chan@chan Java]$ 
+** (emacs:15069): [1;33mWARNING[0m **: Couldn't register with accessibility bus: Did not receive a reply. Possible causes include: the remote application did not send a reply, the message bus security policy blocked the reply, the reply timeout expired, or the network connection was broken.
+
+]0;chan@chan:~/Sources/school/214/projects/01/Java[chan@chan Java]$ cd[K[Kcd ..
+]0;chan@chan:~/Sources/school/214/projects/01[chan@chan 01]$ cd ..
+]0;chan@chan:~/Sources/school/214/projects[chan@chan projects]$ cd ..
+]0;chan@chan:~/Sources/school/214[chan@chan 214]$ cd labs/
+]0;chan@chan:~/Sources/school/214/labs[chan@chan labs]$ cd 01/a[KAda/[K[K[K[KJava/
+]0;chan@chan:~/Sources/school/214/labs/01/Java[chan@chan Java]$ ls
+CircleArea.class  CircleArea.java  script.java  typescript
+]0;chan@chan:~/Sources/school/214/labs/01/Java[chan@chan Java]$ cp ty[K[Kscript.java /home [K/
+chan/       lost+found/ 
+[chan@chan Java]$ cp script.java /home/[K/S[Kchan/
+.bash_history                          .gitconfig                             .steam/
+.bash_logout                           .gnome/                                .steampath
+.bash_profile                          .gtkrc-2.0                             .steampid
+.bashrc                                .kde4/                                 .swt/
+.cache/                                .local/                                Templates/
+.config/                               #*message*-20180115-204214#            .tooling/
+.dbus/                                 #*message*-20180115-204712#            .v8flags.6.2.414.46-node.17.chan.json
+Desktop/                               .mozilla/                              Videos/
+.directory                             Music/                                 .viminfo
+Documents/                             .node-gyp/                             Voice Of Truth - Casting Crowns.mp3
+Downloads/                             Pictures/                              .vscode-oss/
+.eclipse/                              .pki/                                  .Xauthority
+.electron/                             .PlayOnLinux/                          .xprofile
+.emacs.d/                              Public/                                .yarn/
+.esd_auth                              Sources/                               .yarnrc
+.fonts/                                .ssh/                                  
+[chan@chan Java]$ cp script.java /home/chan/Sources/school/l[K214/labs/01/
+]0;chan@chan:~/Sources/school/214/labs/01/Java[chan@chan Java]$ cd ..
+]0;chan@chan:~/Sources/school/214/labs/01[chan@chan 01]$ ls
+[0m[01;34mAda[0m  [01;34mEmacs-LISP[0m  [01;34mJava[0m  [01;34mRuby[0m  script.java
+]0;chan@chan:~/Sources/school/214/labs/01[chan@chan 01]$ cd Ruby
+]0;chan@chan:~/Sources/school/214/labs/01/Ruby[chan@chan Ruby]$ cp script.ruby /home/chan/Sources//school/214/labs/01/
+]0;chan@chan:~/Sources/school/214/labs/01/Ruby[chan@chan Ruby]$ ls ..
+[0m[01;34mAda[0m  [01;34mEmacs-LISP[0m  [01;34mJava[0m  [01;34mRuby[0m  script.java  script.ruby
+]0;chan@chan:~/Sources/school/214/labs/01/Ruby[chan@chan Ruby]$ ls[K[Kcd ..
+]0;chan@chan:~/Sources/school/214/labs/01[chan@chan 01]$ ls
+[0m[01;34mAda[0m  [01;34mEmacs-LISP[0m  [01;34mJava[0m  [01;34mRuby[0m  script.java  script.ruby
+]0;chan@chan:~/Sources/school/214/labs/01[chan@chan 01]$ cd Ada
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ cd[K[Kcp script.ada /home/chan/Sources/c[Kschool/214/labs/01/
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ ls
+[0m[01;32mcircle_area[0m  circle_area.adb  circle_area.adb~  circle_area.ali  circle_area.o  script.ada
+]0;chan@chan:~/Sources/school/214/labs/01/Ada[chan@chan Ada]$ cd .. [K
+]0;chan@chan:~/Sources/school/214/labs/01[chan@chan 01]$ ls
+[0m[01;34mAda[0m  [01;34mEmacs-LISP[0m  [01;34mJava[0m  [01;34mRuby[0m  script.ada  script.java  script.ruby
+]0;chan@chan:~/Sources/school/214/labs/01[chan@chan 01]$ l[Kls
+[0m[01;34mAda[0m  circle_area.el  [01;34mEmacs-LISP[0m  [01;34mJava[0m  [01;34mRuby[0m  script.ada  script.e-lisp  script.java  script.ruby
+]0;chan@chan:~/Sources/school/214/labs/01[chan@chan 01]$ cat script.java script.ada script.el[K-lisp script.ruby > lab01-results
+]0;chan@chan:~/Sources/school/214/labs/01[chan@chan 01]$ ls
+[0m[01;34mAda[0m  circle_area.el  [01;34mEmacs-LISP[0m  [01;34mJava[0m  lab01-results  [01;34mRuby[0m  script.ada  script.e-lisp  script.java  script.ruby
+]0;chan@chan:~/Sources/school/214/labs/01[chan@chan 01]$ c[Kls
+[0m[01;34mAda[0m  circle_area.el  [01;34mEmacs-LISP[0m  [01;34mJava[0m  lab01-results  [01;34mRuby[0m  script.ada  script.e-lisp  script.java  script.ruby
+]0;chan@chan:~/Sources/school/214/labs/01[chan@chan 01]$ git[K[K[Kcp lab01-results home[K[K[K[K/home/chan/g[Kg[K
+.bash_history                          .gitconfig                             .steam/
+.bash_logout                           .gnome/                                .steampath
+.bash_profile                          .gtkrc-2.0                             .steampid
+.bashrc                                .kde4/                                 .swt/
+.cache/                                .local/                                Templates/
+.config/                               #*message*-20180115-204214#            .tooling/
+.dbus/                                 #*message*-20180115-204712#            .v8flags.6.2.414.46-node.17.chan.json
+Desktop/                               .mozilla/                              Videos/
+.directory  
