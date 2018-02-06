@@ -1,0 +1,7 @@
+Lab 10 Grade:
+97/100
+
+Parallelism used in ImageConverter
+Header comments not updated
+-3
+Spreadsheet looks fine

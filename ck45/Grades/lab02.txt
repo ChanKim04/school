@@ -1,0 +1,8 @@
+Lab 02 Grade:
+95/100
+
+Spreadsheet generally good, but should have decimal number of bytes used
+-3
+array.average() method works as expected
+Some header comments missing
+-2

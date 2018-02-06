@@ -1,0 +1,6 @@
+Lab 3 Grade:
+100/100
+
+Header comments good
+All tests passed
+Destructor method appropriately releases memory

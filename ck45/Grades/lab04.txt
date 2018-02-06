@@ -1,0 +1,9 @@
+Lab 04 Grade:
+93/100
+
+Header comments missing sometimes
+-2
+Method comments in Matrix.cpp and/or Vec.h are missing or incomplete
+-5
+Matrix class passes all tests
+Vec converted to template successfully
