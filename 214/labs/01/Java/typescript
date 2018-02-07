@@ -802,4 +802,331 @@ Downloads/                             Pictures/                              .v
 .config/                               #*message*-20180115-204214#            .tooling/
 .dbus/                                 #*message*-20180115-204712#            .v8flags.6.2.414.46-node.17.chan.json
 Desktop/                               .mozilla/                              Videos/
-.directory  
+.directory                             Music/                                 .viminfo
+Documents/                             .node-gyp/                             Voice Of Truth - Casting Crowns.mp3
+Downloads/                             Pictures/                              .vscode-oss/
+.eclipse/                              .pki/                                  .Xauthority
+.electron/                             .PlayOnLinux/                          .xprofile
+.emacs.d/                              Public/                                .yarn/
+.esd_auth                              Sources/                               .yarnrc
+.fonts/                                .ssh/                                  
+[chan@chan 01]$ cp lab01-results /home/chan/[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kg
+Display all 242 possibilities? (y or n)
+[chan@chan 01]$ g[Kn
+bash: n: command not found
+]0;chan@chan:~/Sources/school/214/labs/01[chan@chan 01]$ gi
+gif2rgb              gifecho              giftogd2             gio-querymodules-32  git-receive-pack     
+gif2webp             giffix               giftool              git                  git-shell            
+gifbuild             gifinto              gio                  git-cvsserver        git-upload-archive   
+gifclrmp             giftext              gio-querymodules     gitk                 git-upload-pack      
+[chan@chan 01]$ git
+git                 gitk                git-shell           git-upload-pack     
+git-cvsserver       git-receive-pack    git-upload-archive  
+[chan@chan 01]$ git[K[K[K
+]0;chan@chan:~/Sources/school/214/labs/01[chan@chan 01]$ 
+]0;chan@chan:~/Sources/school/214/labs/01[chan@chan 01]$ 
+]0;chan@chan:~/Sources/school/214/labs/01[chan@chan 01]$ git-upload-
+git-upload-archive  git-upload-pack     
+[chan@chan 01]$ git-upload-
+git-upload-archive  git-upload-pack     
+[chan@chan 01]$ git-upload-pack 
+usage: git upload-pack [<options>] <dir>
+
+    --stateless-rpc       quit after a single request/response exchange
+    --advertise-refs      exit immediately after initial ref advertisement
+    --strict              do not try <directory>/.git/ if <directory> is no Git directory
+    --timeout <n>         interrupt transfer after <n> seconds of inactivity
+
+]0;chan@chan:~/Sources/school/214/labs/01[chan@chan 01]$ gitadd[K[K[K add.[K .
+]0;chan@chan:~/Sources/school/214/labs/01[chan@chan 01]$ git c
+checkout      cherry        cherry-pick   citool        clean         clone         commit        config        
+[chan@chan 01]$ git c
+checkout      cherry        cherry-pick   citool        clean         clone         commit        config        
+[chan@chan 01]$ git commit -[K-m ;[K:[K""[Khello"
+[master 34392a3] hello
+ 22 files changed, 1814 insertions(+)
+ create mode 100644 214/labs/01/.directory
+ create mode 100644 214/labs/01/.~lock.script.java#
+ create mode 100755 214/labs/01/Ada/circle_area
+ create mode 100644 214/labs/01/Ada/circle_area.adb
+ create mode 100644 214/labs/01/Ada/circle_area.adb~
+ create mode 100644 214/labs/01/Ada/circle_area.ali
+ create mode 100644 214/labs/01/Ada/circle_area.o
+ create mode 100644 214/labs/01/Ada/script.ada
+ create mode 100644 214/labs/01/Emacs-LISP/circle_area.el
+ create mode 100644 214/labs/01/Emacs-LISP/script.e-lisp
+ create mode 100644 214/labs/01/Java/CircleArea.class
+ create mode 100644 214/labs/01/Java/CircleArea.java
+ create mode 100644 214/labs/01/Java/script.java
+ create mode 100644 214/labs/01/Java/typescript
+ create mode 100644 214/labs/01/Ruby/circle_area.rb
+ create mode 100644 214/labs/01/Ruby/circle_area.rb~
+ create mode 100644 214/labs/01/Ruby/script.ruby
+ create mode 100644 214/labs/01/lab01-results
+ create mode 100644 214/labs/01/script.ada
+ create mode 100644 214/labs/01/script.e-lisp
+ create mode 100644 214/labs/01/script.java
+ create mode 100644 214/labs/01/script.ruby
+]0;chan@chan:~/Sources/school/214/labs/01[chan@chan 01]$ git push origint [K[K[K[K[K[K[K[Korigin 
+HEAD            master          origin/master   
+[chan@chan 01]$ git push origin master
+Username for 'https://github.com': Chan  Kim04
+Password for 'https://ChanKim04@github.com': 
+Counting objects: 26, done.
+Delta compression using up to 8 threads.
+Compressing objects:   4% (1/24)   Compressing objects:   8% (2/24)   Compressing objects:  12% (3/24)   Compressing objects:  16% (4/24)   Compressing objects:  20% (5/24)   Compressing objects:  25% (6/24)   Compressing objects:  29% (7/24)   Compressing objects:  33% (8/24)   Compressing objects:  37% (9/24)   Compressing objects:  41% (10/24)   Compressing objects:  45% (11/24)   Compressing objects:  50% (12/24)   Compressing objects:  54% (13/24)   Compressing objects:  58% (14/24)   Compressing objects:  62% (15/24)   Compressing objects:  66% (16/24)   Compressing objects:  70% (17/24)   Compressing objects:  75% (18/24)   Compressing objects:  79% (19/24)   Compressing objects:  83% (20/24)   Compressing objects:  87% (21/24)   Compressing objects:  91% (22/24)   Compressing objects:  95% (23/24)   Compressing objects: 100% (24/24)   Compressing objects: 100% (24/24), done.
+Writing objects:   3% (1/26)   Writing objects:   7% (2/26)   Writing objects:  11% (3/26)   Writing objects:  15% (4/26)   Writing objects:  19% (5/26)   Writing objects:  23% (6/26)   Writing objects:  26% (7/26)   Writing objects:  30% (8/26)   Writing objects:  34% (9/26)   Writing objects:  42% (11/26)   Writing objects:  46% (12/26)   Writing objects:  50% (13/26)   Writing objects:  53% (14/26)   Writing objects:  57% (15/26)   Writing objects:  61% (16/26)   Writing objects:  65% (17/26)   Writing objects:  69% (18/26)   Writing objects:  73% (19/26)   Writing objects:  80% (21/26)   Writing objects:  84% (22/26)   Writing objects:  88% (23/26)   Writing objects:  96% (25/26)   Writing objects: 100% (26/26)   Writing objects: 100% (26/26), 127.57 KiB | 2.45 MiB/s, done.
+Total 26 (delta 6), reused 0 (delta 0)
+remote: Resolving deltas:   0% (0/6)   [Kremote: Resolving deltas:  83% (5/6)   [Kremote: Resolving deltas: 100% (6/6)   [Kremote: Resolving deltas: 100% (6/6), done.[K
+To https://github.com/ChanKim04/school
+   e0483a8..34392a3  master -> master
+]0;chan@chan:~/Sources/school/214/labs/01[chan@chan 01]$ cd ..
+]0;chan@chan:~/Sources/school/214/labs[chan@chan labs]$ ls
+[0m[01;34m01[0m
+]0;chan@chan:~/Sources/school/214/labs[chan@chan labs]$ cd ..
+]0;chan@chan:~/Sources/school/214[chan@chan 214]$ cd projects/
+]0;chan@chan:~/Sources/school/214/projects[chan@chan projects]$ ls
+[0m[01;34m01[0m
+]0;chan@chan:~/Sources/school/214/projects[chan@chan projects]$ cd 01
+]0;chan@chan:~/Sources/school/214/projects/01[chan@chan 01]$ ls
+ [0m[01;34mAda[0m  '#cd..#'   [01;34meLisp[0m   [01;34mJava[0m   [01;34mRuby[0m
+]0;chan@chan:~/Sources/school/214/projects/01[chan@chan 01]$ cd J
+bash: cd: J: No such file or directory
+]0;chan@chan:~/Sources/school/214/projects/01[chan@chan 01]$ cd Java/
+]0;chan@chan:~/Sources/school/214/projects/01/Java[chan@chan Java]$ ls
+rectangle_area.java
+]0;chan@chan:~/Sources/school/214/projects/01/Java[chan@chan Java]$ javac -deprecation rectangle_area.java
+rectangle_area.java:15: error: class recArea is public, should be declared in a file named recArea.java
+public class recArea {
+       ^
+rectangle_area.java:41: error: variable keyboard is already defined in method main(String[])
+      Scanner keyboard = new Scanner(System.in); 
+              ^
+2 errors
+]0;chan@chan:~/Sources/school/214/projects/01/Java[chan@chan Java]$ javac -deprecation rectangle_area.java
+rectangle_area.java:15: error: class RectangleArea is public, should be declared in a file named RectangleArea.java
+public class RectangleArea {
+       ^
+rectangle_area.java:41: error: variable keyboard is already defined in method main(String[])
+      Scanner keyboard = new Scanner(System.in); 
+              ^
+2 errors
+]0;chan@chan:~/Sources/school/214/projects/01/Java[chan@chan Java]$ javac -deprecation rectangle_area.java
+rectangle_area.java:15: error: class RectangleArea is public, should be declared in a file named RectangleArea.java
+public class RectangleArea {
+       ^
+1 error
+]0;chan@chan:~/Sources/school/214/projects/01/Java[chan@chan Java]$ javac -deprecation rectangle_area.java
+]0;chan@chan:~/Sources/school/214/projects/01/Java[chan@chan Java]$ javac -deprecation rectangle_area.java
+]0;chan@chan:~/Sources/school/214/projects/01/Java[chan@chan Java]$ java rectangle_area 
+To compute the area of a rectangle,
+ enter its width: 1
+ enter its height: 1
+The area is 1.0
+]0;chan@chan:~/Sources/school/214/projects/01/Java[chan@chan Java]$ java rectangle_area 
+To compute the area of a rectangle,
+ enter its width: 2
+ enter its height: 2
+The area is 4.0
+]0;chan@chan:~/Sources/school/214/projects/01/Java[chan@chan Java]$ java rectangle_area 
+To compute the area of a rectangle,
+ enter its width: 3
+ enter its height: 2
+The area is 6.0
+]0;chan@chan:~/Sources/school/214/projects/01/Java[chan@chan Java]$ java rectangle_area 
+To compute the area of a rectangle,
+ enter its width: 4
+ enter its height: 5
+The area is 20.0
+]0;chan@chan:~/Sources/school/214/projects/01/Java[chan@chan Java]$ cd ..
+]0;chan@chan:~/Sources/school/214/projects/01[2]-  Done                    emacs rectangle_area.java  (wd: ~/Sources/school/214/projects/01/Java)
+(wd now: ~/Sources/school/214/projects/01)
+[chan@chan 01]$ ls
+ [0m[01;34mAda[0m  '#cd..#'   [01;34meLisp[0m   [01;34mJava[0m   [01;34mRuby[0m
+]0;chan@chan:~/Sources/school/214/projects/01[chan@chan 01]$ cd Ada/
+]0;chan@chan:~/Sources/school/214/projects/01/Ada[chan@chan Ada]$ emacs rectangle_area.adb &
+[2] 17888
+]0;chan@chan:~/Sources/school/214/projects/01/Ada[chan@chan Ada]$ 
+** (emacs:17888): [1;33mWARNING[0m **: Couldn't register with accessibility bus: Did not receive a reply. Possible causes include: the remote application did not send a reply, the message bus security policy blocked the reply, the reply timeout expired, or the network connection was broken.
+
+]0;chan@chan:~/Sources/school/214/projects/01/Ada[chan@chan Ada]$ f[Kf[Kls
+rectangle_area.adb  rectangle_area.adb~
+]0;chan@chan:~/Sources/school/214/projects/01/Ada[chan@chan Ada]$ gnatmake rectangle_area.adb [K[K[K[K[K
+gcc -c rectangle_area.adb
+rectangle_area.adb:24:32: "," should be ";"
+rectangle_area.adb:26:18: "h" is undefined
+rectangle_area.adb:42:12: too many arguments in call to "recArea"
+gnatmake: "rectangle_area.adb" compilation error
+]0;chan@chan:~/Sources/school/214/projects/01/Ada[chan@chan Ada]$ gnatmake rectangle_area
+gcc -c rectangle_area.adb
+gnatbind -x rectangle_area.ali
+gnatlink rectangle_area.ali
+]0;chan@chan:~/Sources/school/214/projects/01/Ada[chan@chan Ada]$ ./gnatmake rectangle_area[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C./[Krectangle_area 
+To compute the area of a circle,
+enter its width: 2
+enter its height: 2
+The rectangle's area is  4.00000E+00
+]0;chan@chan:~/Sources/school/214/projects/01/Ada[chan@chan Ada]$ ./rectangle_area 
+To compute the area of a circle,
+enter its width: 1
+enter its height: 2
+The rectangle's area is  2.00000E+00
+]0;chan@chan:~/Sources/school/214/projects/01/Ada[chan@chan Ada]$ ./rectangle_area 
+To compute the area of a circle,
+enter its width: 4
+enter its height: 3
+The rectangle's area is  1.20000E+01
+]0;chan@chan:~/Sources/school/214/projects/01/Ada[chan@chan Ada]$ ./rectangle_area 
+To compute the area of a circle,
+enter its width: 2
+enter its height: 5
+The rectangle's area is  1.00000E+01
+]0;chan@chan:~/Sources/school/214/projects/01/Ada[chan@chan Ada]$ cd ..
+]0;chan@chan:~/Sources/school/214/projects/01[chan@chan 01]$ cd eLisp/
+]0;chan@chan:~/Sources/school/214/projects/01/eLisp[chan@chan eLisp]$ emacs rectangle.[K_area.e[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K&
+[3] 18326
+]0;chan@chan:~/Sources/school/214/projects/01/eLisp[chan@chan eLisp]$ 
+** (emacs:18326): [1;33mWARNING[0m **: Couldn't register with accessibility bus: Did not receive a reply. Possible causes include: the remote application did not send a reply, the message bus security policy blocked the reply, the reply timeout expired, or the network connection was broken.
+
+]0;chan@chan:~/Sources/school/214/projects/01/eLisp[chan@chan eLisp]$ emacs &
+[4] 18491
+]0;chan@chan:~/Sources/school/214/projects/01/eLisp[chan@chan eLisp]$ 
+** (emacs:18491): [1;33mWARNING[0m **: Couldn't register with accessibility bus: Did not receive a reply. Possible causes include: the remote application did not send a reply, the message bus security policy blocked the reply, the reply timeout expired, or the network connection was broken.
+
+]0;chan@chan:~/Sources/school/214/projects/01/eLisp[3]   Done                    emacs
+[chan@chan eLisp]$ ls[K[Kcd ..
+]0;chan@chan:~/Sources/school/214/projects/01[chan@chan 01]$ cd Ruby/
+]0;chan@chan:~/Sources/school/214/projects/01/Ruby[chan@chan Ruby]$ ema[K[K[Kemacs rectangle_area.rb
+
+** (emacs:20019): [1;33mWARNING[0m **: Couldn't register with accessibility bus: Did not receive a reply. Possible causes include: the remote application did not send a reply, the message bus security policy blocked the reply, the reply timeout expired, or the network connection was broken.
+
+
+
+
+    ^Z
+[5]+  Stopped                 emacs rectangle_area.rb
+]0;chan@chan:~/Sources/school/214/projects/01/Ruby[chan@chan Ruby]$ ls
+rectangle_area.rb
+]0;chan@chan:~/Sources/school/214/projects/01/Ruby[chan@chan Ruby]$ ruby rectangle_area.rb 
+To compute the area of a circle,
+ enter its width: 1
+ enter its height: 2
+The rectangle's area is: 2.0
+]0;chan@chan:~/Sources/school/214/projects/01/Ruby[chan@chan Ruby]$ ruby rectangle_area.rb 
+To compute the area of a circle,
+ enter its width: 2
+ enter its height: 2
+The rectangle's area is: 4.0
+]0;chan@chan:~/Sources/school/214/projects/01/Ruby[chan@chan Ruby]$ ruby rectangle_area.rb 
+To compute the area of a circle,
+ enter its width: 2
+ enter its height: 3
+The rectangle's area is: 6.0
+]0;chan@chan:~/Sources/school/214/projects/01/Ruby[chan@chan Ruby]$ ls
+rectangle_area.rb
+[2]   Done                    emacs rectangle_area.adb  (wd: ~/Sources/school/214/projects/01/Ada)
+(wd now: ~/Sources/school/214/projects/01/Ruby)
+[4]   Done                    emacs  (wd: ~/Sources/school/214/projects/01/eLisp)
+(wd now: ~/Sources/school/214/projects/01/Ruby)
+[5]+  Killed                  emacs rectangle_area.rb
+]0;chan@chan:~/Sources/school/214/projects/01/Ruby[chan@chan Ruby]$ ls
+rectangle_area.rb
+]0;chan@chan:~/Sources/school/214/projects/01/Ruby[chan@chan Ruby]$ cd ..
+]0;chan@chan:~/Sources/school/214/projects/01[chan@chan 01]$ cd ..
+]0;chan@chan:~/Sources/school/214/projects[chan@chan projects]$ cd ..
+]0;chan@chan:~/Sources/school/214[chan@chan 214]$ cd labs/
+]0;chan@chan:~/Sources/school/214/labs[chan@chan labs]$ mkdir 02
+]0;chan@chan:~/Sources/school/214/labs[chan@chan labs]$ cd 02
+]0;chan@chan:~/Sources/school/214/labs/02[chan@chan 02]$ mkdir f[K[K[K[K[K[K[Kemacs observation.txt *[K&
+[2] 4645
+]0;chan@chan:~/Sources/school/214/labs/02[chan@chan 02]$ 
+** (emacs:4645): [1;33mWARNING[0m **: Couldn't register with accessibility bus: Did not receive a reply. Possible causes include: the remote application did not send a reply, the message bus security policy blocked the reply, the reply timeout expired, or the network connection was broken.
+
+]0;chan@chan:~/Sources/school/214/labs/02[2]-  Done                    emacs observation.txt
+[chan@chan 02]$ emacs examplel.lex &
+[2] 4883
+]0;chan@chan:~/Sources/school/214/labs/02[chan@chan 02]$ 
+** (emacs:4883): [1;33mWARNING[0m **: Couldn't register with accessibility bus: Did not receive a reply. Possible causes include: the remote application did not send a reply, the message bus security policy blocked the reply, the reply timeout expired, or the network connection was broken.
+
+]0;chan@chan:~/Sources/school/214/labs/02[2]-  Done                    emacs examplel.lex
+[chan@chan 02]$ l[Kflex examplel.lex 
+]0;chan@chan:~/Sources/school/214/labs/02[chan@chan 02]$ gcc [K[K[K[Kls
+examplel.lex  lex.yy.c
+]0;chan@chan:~/Sources/school/214/labs/02[chan@chan 02]$ gcc lex.yy.c -o examplel.lex [K[K[K[K[K -lfl
+]0;chan@chan:~/Sources/school/214/labs/02[chan@chan 02]$ ls
+[0m[01;32mexamplel[0m  examplel.lex  lex.yy.c
+]0;chan@chan:~/Sources/school/214/labs/02[chan@chan 02]$ e[Kemacs lex.yy.c &
+[2] 5014
+]0;chan@chan:~/Sources/school/214/labs/02[chan@chan 02]$ 
+** (emacs:5014): [1;33mWARNING[0m **: Couldn't register with accessibility bus: Did not receive a reply. Possible causes include: the remote application did not send a reply, the message bus security policy blocked the reply, the reply timeout expired, or the network connection was broken.
+
+]0;chan@chan:~/Sources/school/214/labs/02[2]-  Done                    emacs lex.yy.c
+[chan@chan 02]$ mv examplel.txt examl[K[K[K[K[Kexample1.txt
+mv: cannot stat 'examplel.txt': No such file or directory
+]0;chan@chan:~/Sources/school/214/labs/02[chan@chan 02]$ mv examplel.lex example1.lex
+]0;chan@chan:~/Sources/school/214/labs/02[chan@chan 02]$ ls
+example1.lex  [0m[01;32mexamplel[0m  lex.yy.c
+]0;chan@chan:~/Sources/school/214/labs/02[chan@chan 02]$ rm lex.yy.c
+]0;chan@chan:~/Sources/school/214/labs/02[chan@chan 02]$ ls
+example1.lex  [0m[01;32mexamplel[0m
+]0;chan@chan:~/Sources/school/214/labs/02[chan@chan 02]$ rm examplel
+]0;chan@chan:~/Sources/school/214/labs/02[chan@chan 02]$ ls
+example1.lex
+]0;chan@chan:~/Sources/school/214/labs/02[chan@chan 02]$ flex example1.lex 
+]0;chan@chan:~/Sources/school/214/labs/02[chan@chan 02]$ gcc lex.yy.c -o example1.lex [K[K[K[K[K -lfl
+]0;chan@chan:~/Sources/school/214/labs/02[chan@chan 02]$ ls
+[0m[01;32mexample1[0m  example1.lex  lex.yy.c
+]0;chan@chan:~/Sources/school/214/labs/02[chan@chan 02]$ ./example1 
+
+
+f 1
+1
+2
+2
+3
+3
+a
+a
+^Z
+[2]+  Stopped                 ./example1
+]0;chan@chan:~/Sources/school/214/labs/02[chan@chan 02]$ emas[K[K[K[Kemacs example1
+
+** (emacs:5294): [1;33mWARNING[0m **: Couldn't register with accessibility bus: Did not receive a reply. Possible causes include: the remote application did not send a reply, the message bus security policy blocked the reply, the reply timeout expired, or the network connection was broken.
+]0;chan@chan:~/Sources/school/214/labs/02[chan@chan 02]$ emacs example1.lex 
+
+** (emacs:5326): [1;33mWARNING[0m **: Couldn't register with accessibility bus: Did not receive a reply. Possible causes include: the remote application did not send a reply, the message bus security policy blocked the reply, the reply timeout expired, or the network connection was broken.
+]0;chan@chan:~/Sources/school/214/labs/02[chan@chan 02]$ emacs example1.lex [K[3P./example1 
+start
+Start command received
+
+stop
+Stop command received
+
+a
+a
+s
+s
+e0  E0f F
+E0F
+^C
+^C
+
+
+
+
+^Z
+[3]+  Stopped                 ./example1
+]0;chan@chan:~/Sources/school/214/labs/02[chan@chan 02]$ ./example1 
+^C
+]0;chan@chan:~/Sources/school/214/labs/02[chan@chan 02]$ ./example1 
+^Z]0;chan@chan:~/Sources/school/214/labs/02[chan@chan 02]$ 
+]0;chan@chan:~/Sources/school/214/labs/02[chan@chan 02]$ 
+]0;chan@chan:~/Sources/school/214/labs/02[chan@chan 02]$ ./example1 
+]0;chan@chan:~/Sources/school/214/labs/02[chan@chan 02]$ 
+]0;chan@chan:~/Sources/school/214/labs/02[chan@chan 02]$ f[Kl
+bash: l: command not found
+]0;chan@chan:~/Sources/school/214/labs/02[chan@chan 02]$ ls
+[0m[01;32mexample1[0m  example1.lex  lex.yy.c
+]0;chan@chan:~/Sources/school/214/labs/02[chan@chan 02]$ emacs lex.yy.c 
+
+** (emacs:5459): [1;33mWARNING[0m **: Couldn't register with accessibility bus: Did not receive a reply. Possible causes include: the remote application did not send a reply, the message bus security policy blocked the reply, the reply timeout expired, or 
