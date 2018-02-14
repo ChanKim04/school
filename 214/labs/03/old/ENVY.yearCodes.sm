@@ -1,0 +1,20 @@
+| year code |
+"get year and display equivalent code"
+year := (CwTextPrompter new
+		title: 'Input Box';
+		messageString: 'Enter the your academic year: ';
+		answerString: 'freshman';
+		prompt).
+
+code := year asYearCode.
+ 
+CwMessagePrompter new
+	title: 'Output Box';
+	messageString: 'The academic code for ',
+			year,
+			' is ',
+			code;
+	buttonType: XmOK;
+	defaultButtonType: XmDEFAULTBUTTON1;
+	iconType: XmICONINFO;
+	prompt.
