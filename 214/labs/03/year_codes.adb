@@ -1,6 +1,8 @@
 -- year_codes.adb converts academic year codes to corresponding years.
 --
 -- Begun by: Dr. Adams, for CS 214 at Calvin College.
+-- Completed by: Chan Kim(ck45)
+-- Date: 2/16/2018
 --
 -- Input: year, a string
 -- Precondition: year is one of "freshman", "sophomore", "junior", "senior"
@@ -16,6 +18,20 @@ procedure year_codes is
    charsRead : Natural;
 
    -- replace this comment with the definition of yearCode()
+function yearCode(year: in String) return String is
+begin
+   if year = "freshman " then
+        return "1";
+        elsif year = "sophomore" then
+            return "2";
+            elsif year = "junior   " then
+                return "3";
+                elsif year = "senior   " then
+                    return "4";
+        else
+             return "0";
+   end if;
+end yearCode;
 
 begin                                          
    Put("Enter your academic year: ");           -- Prompt for input
@@ -23,4 +39,5 @@ begin
    Put( yearCode(year) );                       -- Convert and output
    New_Line;
 end year_codes;
+
 
