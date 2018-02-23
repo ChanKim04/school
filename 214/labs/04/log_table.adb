@@ -6,15 +6,15 @@
 --         ending with log(stop), with intervals of increment.
 --
 -- Begun by: Prof. Adams, for CS 214 at Calvin College.
--- Completed by:
+-- Completed by: Chan Kim (ck45)
 --------------------------------------------------------------
 
-with Ada.Text_IO, Ada.Float_Text_IO;
-use  Ada.Text_IO, Ada.Float_Text_IO;
+with Ada.Text_IO, Ada.Float_Text_IO, Ada.Numerics.Elementary_Functions;
+use  Ada.Text_IO, Ada.Float_Text_IO, Ada.Numerics.Elementary_Functions;
 
 procedure log_table is
 
-   Start, Stop, Increment : Float;
+   Start, Stop, Increment: Float;
 
 begin                                           -- Prompt for input
    Put_Line("To print a table of logarithms,");
@@ -22,6 +22,13 @@ begin                                           -- Prompt for input
    Get(Start); Get(Stop); Get(Increment);
 
    -- Replace this line with a loop to generate the table of logs.
-
+while Start<=Stop loop
+    Put("The logarithm of ");
+    Put(Start);
+    Put(" is ");
+    Put(Log(Start, Base => 10.0));
+    Put_Line("");
+    Start := Start + Increment;
+end loop;
 end log_table;
 

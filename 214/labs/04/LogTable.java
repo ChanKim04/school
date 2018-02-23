@@ -5,7 +5,7 @@
  * Output: A table of logarithms from start to stop,
  *         with increment as the step value.
  * Begun by: Nelesen, for CS 214 at Calvin College.
- * Completed by:
+ * Completed by: Chan Kim (ck45)
  ********************************************************/
 import java.util.Scanner; 		// Get input
 
@@ -21,7 +21,11 @@ class LogTable{
     increment = keyboard.nextDouble();
 
     //Replace this line with a while loop to generate the table of logs
-
+  while (start <= stop)
+  {
+    System.out.println("The logarithm of " + start + " is " + java.lang.Math.log10(start));
+    start = start + increment;
+  }
   }
 }
 
