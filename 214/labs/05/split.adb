@@ -7,12 +7,12 @@
 --                        Astring(Pos..Astring'Last).
 --
 -- Begun by: Dr. Adams, for CS 214 at Calvin College.
--- Completed by:
--- Date:
+-- Completed by: Chan Kim (ck45)
+-- Date: 3/2/2018
 --------------------------------------------------------------
 
-with Ada.Text_IO, Ada.Integer_Text_IO;
-use  Ada.Text_IO, Ada.Integer_Text_IO;
+with Ada.Text_IO, Ada.Integer_Text_IO, Ada.Strings.Fixed;
+use  Ada.Text_IO, Ada.Integer_Text_IO, Ada.Strings.Fixed;
 
 procedure split is
 
@@ -31,7 +31,11 @@ procedure split is
    --           Last_Part - the second substring.
    ------------------------------------------------
    -- Replace this line with definition of split() 
-
+procedure Split(The_String: in string; Position: in integer; First_Part: out string; Last_Part: out string) is
+    begin
+    Move(The_String(The_String'First .. Position), First_Part);
+    Move(The_String(Position+1 .. The_String'Last), Last_Part);
+    end Split;
 
 begin                                           -- Prompt for input
    Put("To split a string, enter the string: ");

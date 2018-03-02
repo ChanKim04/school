@@ -2,7 +2,7 @@
  * into two substrings.
  * 
  * Begun by: Serita Nelesen
- * Completed by: 
+ * Completed by: Chan Kim (ck45)
  ***************************************************************/
 
 import java.util.Scanner;
@@ -35,6 +35,9 @@ public class Split
    *            resList - an array of strings in which to place results
    *****************************************************/
   // replace this line with a definition for splitter
-
-
+  public static void splitter(String theString, int pos, String[] results)
+  {
+      results[0] = theString.substring(0, pos);
+      results[1] = theString.substring(pos, theString.length());
+  }
 }

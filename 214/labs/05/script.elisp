@@ -7,7 +7,7 @@
 ;;;
 ;;; Begun by: Dr. Adams, for CS 214 at Calvin College.
 ;;; Completed by: Chan Kim (ck45)
-;;; Date:
+;;; Date: 3/2/2018
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:;
@@ -36,12 +36,18 @@
 
 
 (main "hello" 0)
+"The first part is  and the second part is hello"
+
 
 
 (main "hello" 3)
+"The first part is hel and the second part is lo"
+
 
 
 (main "hello" 5)
+"The first part is hello and the second part is "
+
 
 
 

@@ -6,8 +6,8 @@
 #   aString(pos, length() - 1).
 #
 # Begun by: Prof. Adams, for CS 214 at Calvin College.
-# Completed by:
-# Date:
+# Completed by: Chan Kim (ck45)
+# Date: 3/2/2018
 #################################################################
 
 
@@ -20,6 +20,12 @@
 ######################################################
 
 # Replace this line with the definition of split()
+def split(aString, pos)
+  substrings = []
+  substrings[0] = aString[0, pos]
+  substrings[1] = aString[pos, aString.size]
+  substrings
+end
 
 
 def main
