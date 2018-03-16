@@ -1,26 +1,29 @@
 1. Where is the PCB class defined?
-In calos.py
+	- In calos.py
 
 2. What information does a PCB object contain?
-	States of process
-	Quantum which gives that how long this process runs before being interrupted
-
+	- States of process
+	- Quantum which gives that how long this process runs before being interrupted
 
 3. When is a PCB created? Which line in which file creates a PCB?
-	When it loads a program into memory from a stored tape (a file) starting at address startaddr, it creates a PCB for the program and add to ready queue.
-	In main.py line 176 defines PCB, and line 179 creates PCB.
+	1) When it loads a program into memory from a stored tape (a file) starting at address startaddr, it creates a PCB for the program and add to ready queue.
+	2) In main.py line 176 defines PCB, and line 179 creates PCB.
 
 4. What process states have been defined?
-	NEW, READY, RUNNING, WAITING, DONE
+	- NEW, READY, RUNNING, WAITING, DONE
 
 5. Regarding the variable current_proc: Where has it been defined and what is its significance?
-	current_proc is defined in calos.py line 7. 
-
+	1) current_proc is defined in calos.py line 7. 
+	2) current_proc is holding the executed process which is not on the ready queue. 
+ 
 6. In the TimerController class, what does code that reads 
-with self._mutex
-  code here... 
-do?
+   with self._mutex
+   	code here... 
+   Do?
+	- To protect setting/getting the countdown. 
+	  It menangis threads so that it can avoid a case to use resource concurrently.	
 
 7. In the TimerController class, explain what the code does when the countdown goes to 0 (i.e., the time expires).
-	Interrupt the CPU
+	1) Interrupt the CPU whenever the timer runs down to 0.
+	2) When the countdown goes to 0, timer is expired, and it doesn’t generate another interrupt until the previous one is handled and the interrupt is rest. 
 
