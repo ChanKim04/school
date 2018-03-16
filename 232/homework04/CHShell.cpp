@@ -30,6 +30,7 @@ void CHShell::run() {
 
 		if (strcmp(cmd.getCommand(), "exit") == 0) {
 			break; // exit with the exit command
+			
 		} else if (strcmp(cmd.getCommand(), "cd") == 0) {
 			chdir(cmd.getArgVector(1));
 
