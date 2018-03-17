@@ -20,6 +20,8 @@
           0.0
         (+ (aref anArray (- itsSize 1)) (sum anArray (- itsSize 1))))
     nil))
+sum
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; average() computes the average of an array of numbers.;;
@@ -34,15 +36,26 @@
 	  0.0
 	(/ (sum anArray itsSize) itsSize))
     nil))
+average
+
 
 ;;; Test function sum
-(sum [])
+(sum [] 0)
+0.0
 
-(sum [9.0 8.0 7.0 6.0])
+
+
+(sum [9.0 8.0 7.0 6.0] 4)
+30.0
+
 
 
 ;;; Test function average
-(average [])
+(average [] 0)
+0.0
 
-(average [9.0 8.0 7.0 6.0])
+
+(average [9.0 8.0 7.0 6.0] 4)
+7.5
+
 
