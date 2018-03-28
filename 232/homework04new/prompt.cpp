@@ -15,7 +15,7 @@ Prompt::Prompt() {
     directory = getcwd(buf, PATH_MAX + 1);
     if (directory != NULL)
     {
-        strcat(directory, "/CHShell/$ "); //gain current working directory
+        strcat(directory, "CHShell/$ "); //gain current working directory
     }
 }
 
