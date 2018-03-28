@@ -1,0 +1,372 @@
+Script started on 2018-03-08 00:09:43-0500
+]0;chan@chan:~/Sources/school/232/homework04[chan@chan homework04]$ ls
+CHShell.cpp  CHShell.h  CommandLine.cpp  CommandLine.h  [0m[01;32mmain[0m  main.cpp  path.cpp  path.h  prompt.cpp  prompt.h  typescript
+]0;chan@chan:~/Sources/school/232/homework04[chan@chan homework04]$ lsexitg++ main.cpp CommandLine.cpp KEShell.cpp path.cpp prompt.cpp -o main[1P[1P[1@C[1@H[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+]0;chan@chan:~/Sources/school/232/homework04[chan@chan homework04]$ ./main
+/home/chan/Sources/school/232/homework04CHShell/$ ls
+
+CHShell.cpp  CHShell.h	CommandLine.cpp  CommandLine.h	main  main.cpp	path.cpp  path.h  prompt.cpp  prompt.h	typescript
+/home/chan/Sources/school/232/homework04CHShell/$ cd ..
+/home/chan/Sources/school/232/homework04CHShell/$ ls
+
+etc  homework01  homework02  homework03  homework04
+/home/chan/Sources/school/232/homework04CHShell/$ cd homework04
+/home/chan/Sources/school/232/homework04CHShell/$ ls
+
+CHShell.cpp  CHShell.h	CommandLine.cpp  CommandLine.h	main  main.cpp	path.cpp  path.h  prompt.cpp  prompt.h	typescript
+/home/chan/Sources/school/232/homework04CHShell/$ pwd
+
+/home/chan/Sources/school/232/homework04
+/home/chan/Sources/school/232/homework04CHShell/$ ls -a
+
+.   CHShell.cpp  CommandLine.cpp  main	    path.cpp  prompt.cpp  typescript
+..  CHShell.h	 CommandLine.h	  main.cpp  path.h    prompt.h
+/home/chan/Sources/school/232/homework04CHShell/$ ls -l
+
+total 92
+-rw-r--r-- 1 chan chan  1472 Mar  8 00:04 CHShell.cpp
+-rw-r--r-- 1 chan chan   357 Mar  8  2018 CHShell.h
+-rw-r--r-- 1 chan chan  1768 Mar  8 00:04 CommandLine.cpp
+-rw-r--r-- 1 chan chan   658 Mar  8  2018 CommandLine.h
+-rwxr-xr-x 1 chan chan 53592 Mar  8 00:10 main
+-rw-r--r-- 1 chan chan   188 Mar  8  2018 main.cpp
+-rw-r--r-- 1 chan chan  1466 Mar  8 00:06 path.cpp
+-rw-r--r-- 1 chan chan   543 Mar  8  2018 path.h
+-rw-r--r-- 1 chan chan   503 Mar  8  2018 prompt.cpp
+-rw-r--r-- 1 chan chan   417 Mar  8  2018 prompt.h
+-rw-r--r-- 1 chan chan     0 Mar  8 00:09 typescript
+/home/chan/Sources/school/232/homework04CHShell/$ pwd
+
+/home/chan/Sources/school/232/homework04
+/home/chan/Sources/school/232/homework04CHShell/$ ps -ax
+
+  PID TTY      STAT   TIME COMMAND
+    1 ?        Ss     0:00 /sbin/init
+    2 ?        S      0:00 [kthreadd]
+    4 ?        I<     0:00 [kworker/0:0H]
+    6 ?        I<     0:00 [mm_percpu_wq]
+    7 ?        S      0:00 [ksoftirqd/0]
+    8 ?        I      0:00 [rcu_preempt]
+    9 ?        I      0:00 [rcu_sched]
+   10 ?        I      0:00 [rcu_bh]
+   11 ?        S      0:00 [rcuc/0]
+   12 ?        S      0:00 [rcub/0]
+   13 ?        S      0:00 [migration/0]
+   14 ?        S      0:00 [watchdog/0]
+   15 ?        S      0:00 [cpuhp/0]
+   16 ?        S      0:00 [cpuhp/1]
+   17 ?        S      0:00 [watchdog/1]
+   18 ?        S      0:00 [migration/1]
+   19 ?        S      0:00 [rcuc/1]
+   20 ?        S      0:00 [ksoftirqd/1]
+   22 ?        I<     0:00 [kworker/1:0H]
+   23 ?        S      0:00 [cpuhp/2]
+   24 ?        S      0:00 [watchdog/2]
+   25 ?        S      0:00 [migration/2]
+   26 ?        S      0:00 [rcuc/2]
+   27 ?        S      0:00 [ksoftirqd/2]
+   28 ?        I      0:00 [kworker/2:0]
+   29 ?        I<     0:00 [kworker/2:0H]
+   30 ?        S      0:00 [cpuhp/3]
+   31 ?        S      0:00 [watchdog/3]
+   32 ?        S      0:00 [migration/3]
+   33 ?        S      0:00 [rcuc/3]
+   34 ?        S      0:00 [ksoftirqd/3]
+   36 ?        I<     0:00 [kworker/3:0H]
+   37 ?        S      0:00 [cpuhp/4]
+   38 ?        S      0:00 [watchdog/4]
+   39 ?        S      0:00 [migration/4]
+   40 ?        S      0:00 [rcuc/4]
+   41 ?        S      0:00 [ksoftirqd/4]
+   43 ?        I<     0:00 [kworker/4:0H]
+   44 ?        S      0:00 [cpuhp/5]
+   45 ?        S      0:00 [watchdog/5]
+   46 ?        S      0:00 [migration/5]
+   47 ?        S      0:00 [rcuc/5]
+   48 ?        S      0:00 [ksoftirqd/5]
+   50 ?        I<     0:00 [kworker/5:0H]
+   51 ?        S      0:00 [cpuhp/6]
+   52 ?        S      0:00 [watchdog/6]
+   53 ?        S      0:00 [migration/6]
+   54 ?        S      0:00 [rcuc/6]
+   55 ?        S      0:00 [ksoftirqd/6]
+   57 ?        I<     0:00 [kworker/6:0H]
+   58 ?        S      0:00 [cpuhp/7]
+   59 ?        S      0:00 [watchdog/7]
+   60 ?        S      0:00 [migration/7]
+   61 ?        S      0:00 [rcuc/7]
+   62 ?        S      0:00 [ksoftirqd/7]
+   64 ?        I<     0:00 [kworker/7:0H]
+   65 ?        S      0:00 [kdevtmpfs]
+   66 ?        I<     0:00 [netns]
+   67 ?        S      0:00 [rcu_tasks_kthre]
+   69 ?        I      0:00 [kworker/1:1]
+   71 ?        S      0:00 [khungtaskd]
+   72 ?        S      0:00 [oom_reaper]
+   73 ?        I<     0:00 [writeback]
+   74 ?        S      0:00 [kcompactd0]
+   75 ?        SN     0:00 [ksmd]
+   76 ?        SN     0:00 [khugepaged]
+   77 ?        I<     0:00 [crypto]
+   78 ?        I<     0:00 [kintegrityd]
+   79 ?        I<     0:00 [kblockd]
+   81 ?        I      0:00 [kworker/5:1]
+   82 ?        I      0:00 [kworker/6:1]
+   84 ?        I<     0:00 [edac-poller]
+   85 ?        I<     0:00 [devfreq_wq]
+   86 ?        I<     0:00 [watchdogd]
+   88 ?        S      0:00 [kswapd0]
+   94 ?        I      0:00 [kworker/3:1]
+  128 ?        I<     0:00 [kthrotld]
+  129 ?        I<     0:00 [acpi_thermal_pm]
+  130 ?        I<     0:00 [nvme-wq]
+  131 ?        I<     0:00 [ipv6_addrconf]
+  140 ?        I<     0:00 [kstrp]
+  149 ?        I<     0:00 [charger_manager]
+  180 ?        I<     0:00 [ata_sff]
+  181 ?        S      0:00 [scsi_eh_0]
+  182 ?        I<     0:00 [scsi_tmf_0]
+  183 ?        S      0:00 [scsi_eh_1]
+  184 ?        I<     0:00 [scsi_tmf_1]
+  185 ?        I      0:00 [kworker/u16:2]
+  191 ?        I<     0:00 [kworker/4:1H]
+  210 ?        S      0:00 [jbd2/sda4-8]
+  211 ?        I<     0:00 [ext4-rsv-conver]
+  237 ?        I<     0:00 [kworker/3:1H]
+  240 ?        Ss     0:00 /usr/lib/systemd/systemd-journald
+  249 ?        Ss     0:00 /usr/bin/lvmetad -f
+  257 ?        Ss     0:00 /usr/lib/systemd/systemd-udevd
+  259 ?        I<     0:00 [kworker/5:1H]
+  260 ?        I<     0:00 [kworker/2:1H]
+  270 ?        I<     0:00 [kworker/6:1H]
+  271 ?        I<     0:00 [kworker/0:1H]
+  272 ?        I<     0:00 [kworker/1:1H]
+  273 ?        I<     0:00 [kworker/7:1H]
+  289 ?        I      0:00 [kworker/7:2]
+  291 ?        S      0:02 [irq/84-SYN2602:]
+  295 ?        S      0:00 [irq/124-mei_me]
+  297 ?        I      0:00 [kworker/4:2]
+  301 ?        I<     0:00 [kworker/u17:0]
+  305 ?        I<     0:00 [kworker/u17:1]
+  323 ?        I<     0:00 [cfg80211]
+  350 ?        I      0:00 [kworker/0:4]
+  367 ?        I<     0:00 [nvkm-disp]
+  368 ?        I<     0:00 [ath10k_wq]
+  369 ?        I<     0:00 [ath10k_aux_wq]
+  372 ?        S      0:00 [jbd2/sda6-8]
+  373 ?        I<     0:00 [ext4-rsv-conver]
+  376 ?        Ssl    0:00 /usr/lib/systemd/systemd-timesyncd
+  377 ?        S      0:00 [i915/signal:0]
+  378 ?        S      0:00 [i915/signal:1]
+  379 ?        S      0:00 [i915/signal:2]
+  380 ?        S      0:00 [i915/signal:4]
+  382 ?        Ss     0:02 /usr/bin/dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation --syslog-o
+  383 ?        Ss     0:00 /usr/lib/bluetooth/bluetoothd
+  384 ?        Ss     0:00 /usr/lib/systemd/systemd-logind
+  385 ?        Ssl    0:02 /usr/bin/NetworkManager --no-daemon
+  393 ?        Ssl    0:00 /usr/bin/sddm
+  400 ?        Ssl    0:00 /usr/lib/polkit-1/polkitd --no-debug
+  407 ?        I<     0:00 [ttm_swap]
+  408 tty1     Ssl+   1:01 /usr/lib/xorg-server/Xorg -nolisten tcp -dpi 192 -auth /var/run/sddm/{6ad6ea7e-a092-4e76-859d-a3bebe4
+  417 ?        Ss     0:00 /usr/bin/wpa_supplicant -u
+  458 ?        S      0:00 /usr/lib/sddm/sddm-helper --socket /tmp/sddm-authce47b219-d569-40c6-9cbf-b737a881b62d --id 1 --start 
+  459 ?        Ss     0:00 /usr/lib/systemd/systemd --user
+  460 ?        S      0:00 (sd-pam)
+  468 ?        Sl     0:00 /usr/bin/kwalletd5 --pam-login 15 18
+  469 ?        S      0:00 /bin/sh /usr/bin/startkde
+  475 ?        Ss     0:00 /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile --systemd-activation --syslog-
+  504 ?        S      0:00 /usr/lib/kf5/start_kdeinit --kded +kcminit_startup
+  505 ?        Ss     0:00 kdeinit5: Running...
+  506 ?        Sl     0:00 /usr/lib/kf5/klauncher --fd=9
+  509 ?        Sl     0:01 kded5 [kdeinit5]
+  524 ?        Sl     0:00 /usr/bin/kactivitymanagerd start-daemon
+  525 ?        Sl     0:00 /usr/bin/kaccess
+  527 ?        S      0:00 kwrapper5 /usr/bin/ksmserver
+  529 ?        Sl     0:00 /usr/bin/ksmserver
+  537 ?        Ssl    0:00 /usr/lib/udisks2/udisksd
+  551 ?        Sl     0:00 /usr/bin/kglobalaccel5
+  559 ?        Sl     0:00 /usr/lib/dconf/dconf-service
+  560 ?        Ssl    0:00 /usr/lib/upower/upowerd
+  569 ?        Sl     0:58 /usr/bin/kwin_x11 -session 106368616e000151607017600000005500004_1520467657_189119
+  572 ?        SNl    0:00 /usr/bin/baloo_file
+  575 ?        Sl     0:01 /usr/bin/krunner
+  578 ?        Sl     0:28 /usr/bin/plasmashell
+  584 ?        Sl     0:00 /usr/lib/polkit-kde-authentication-agent-1
+  590 ?        Sl     0:00 /usr/bin/xembedsniproxy
+  604 ?        Sl     0:00 /usr/lib/org_kde_powerdevil -session 106368616e000151607017600000005500008_1520467657_93959
+  608 ?        S<sl   0:00 /usr/bin/pulseaudio --daemonize=no
+  610 ?        SNsl   0:00 /usr/lib/rtkit-daemon
+  617 ?        Sl     0:00 /usr/lib/kf5/kscreen_backend_launcher
+  625 ?        Sl     0:59 /usr/lib/firefox/firefox --sm-client-id 106368616e000151719953100000005820015
+  638 ?        S      0:00 /usr/lib/pulse/gconf-helper
+  641 ?        S      0:00 /usr/lib/GConf/gconfd-2
+  654 ?        Rl     0:03 /usr/bin/konsole -session 106368616e000152000174900000005500042_1520467657_94372
+  680 ?        Sl     0:02 /usr/bin/dolphin -session 106368616e000152013775300000005500008_1520467657_92261
+  690 pts/0    Ss     0:00 /bin/bash
+  693 ?        Sl     0:11 /usr/bin/dolphin -session 106368616e000152032179800000005430025_1520467657_92259
+  704 ?        Ssl    0:00 /usr/lib/at-spi-bus-launcher
+  716 ?        Sl     0:06 /usr/bin/dolphin -session 106368616e000152046580100000006640010_1520467657_92276
+  745 ?        Sl     0:04 /usr/share/skypeforlinux/skypeforlinux --executed-from=/home/chan --pid=733
+  764 ?        S      0:00 /usr/share/skypeforlinux/skypeforlinux --type=zygote --no-sandbox
+  766 ?        Sl     0:00 /usr/lib/libreoffice/program/oosplash
+  784 ?        Sl     0:05 /usr/lib/firefox/firefox -contentproc -childID 1 -isForBrowser -intPrefs 5:50|6:-1|18:0|28:1000|34:20
+  787 ?        Sl     0:02 /usr/lib/libreoffice/program/soffice.bin --splash-pipe=5
+  809 ?        Ss     0:00 /usr/lib/bluetooth/obexd
+  811 ?        S<     0:00 [krfcommd]
+  830 ?        S      0:00 file.so [kdeinit5] file local:/run/user/1000/klauncherHstaWy.1.slave-socket local:/run/user/1000/dolp
+  844 ?        S      0:00 file.so [kdeinit5] file local:/run/user/1000/klauncherHstaWy.1.slave-socket local:/run/user/1000/dolp
+  849 ?        S      0:00 fcitx
+  857 ?        Ss     0:00 /usr/bin/dbus-daemon --syslog --fork --print-pid 5 --print-address 7 --config-file /usr/share/fcitx/d
+  861 ?        SN     0:00 /usr/bin/fcitx-dbus-watcher unix:abstract=/tmp/dbus-EsiRyoRGZz,guid=f7ccd3496014aaa320d0f75e5aa0c12b 
+  881 ?        Sl     0:00 /usr/bin/kuiserver5
+  883 ?        S      0:00 /usr/bin/dbus-daemon --config-file=/usr/share/defaults/at-spi2/accessibility.conf --nofork --print-ad
+  885 ?        Sl     0:00 /usr/lib/at-spi2-registryd --use-gnome-session
+  917 ?        Sl     0:00 /usr/share/skypeforlinux/skypeforlinux --type=gpu-process --no-sandbox --supports-dual-gpus=false --g
+  921 ?        S      0:00 file.so [kdeinit5] file local:/run/user/1000/klauncherHstaWy.1.slave-socket local:/run/user/1000/dolp
+  964 ?        Sl     0:04 /usr/share/skypeforlinux/skypeforlinux --type=renderer --no-sandbox --primordial-pipe-token=40B26E488
+ 1000 ?        Sl     0:02 /usr/lib/firefox/firefox -contentproc -childID 3 -isForBrowser -intPrefs 5:50|6:-1|18:0|28:1000|34:20
+ 1104 ?        Sl     2:14 /usr/lib/firefox/firefox -contentproc -childID 4 -isForBrowser -intPrefs 5:50|6:-1|18:0|28:1000|34:20
+ 1149 ?        Sl     0:02 /usr/lib/firefox/firefox -contentproc -childID 5 -isForBrowser -intPrefs 5:50|6:-1|18:0|28:1000|34:20
+ 1213 ?        Ssl    0:49 /usr/share/code-oss/code-oss --unity-launch
+ 1215 ?        S      0:00 /usr/share/code-oss/code-oss --type=zygote --no-sandbox
+ 1244 ?        Sl     0:47 /usr/share/code-oss/code-oss --type=gpu-process --no-sandbox --supports-dual-gpus=false --gpu-driver-
+ 1261 ?        Sl     0:01 /usr/share/code-oss/code-oss --type=renderer --js-flags=--nolazy --no-sandbox --primordial-pipe-token
+ 1536 ?        Sl     0:58 /usr/share/code-oss/code-oss --type=renderer --js-flags=--nolazy --no-sandbox --primordial-pipe-token
+ 1561 ?        Sl     0:00 /usr/share/code-oss/code-oss /usr/share/code-oss/resources/app/out/bootstrap --type=watcherService
+ 1569 ?        Sl     0:02 /usr/share/code-oss/code-oss --nolazy --inspect=9335 /usr/share/code-oss/resources/app/out/bootstrap 
+ 1648 ?        Sl     0:03 /home/chan/.vscode-oss/extensions/ms-vscode.cpptools-0.15.0/bin/Microsoft.VSCode.CPP.Extension.linux
+ 1665 ?        Sl     0:02 /home/chan/.vscode-oss/extensions/ms-vscode.cpptools-0.15.0/bin/Microsoft.VSCode.CPP.IntelliSense.Msv
+ 1690 ?        Sl     0:00 /home/chan/.vscode-oss/extensions/ms-vscode.cpptools-0.15.0/bin/Microsoft.VSCode.CPP.IntelliSense.Msv
+ 1716 ?        Sl     0:00 /home/chan/.vscode-oss/extensions/ms-vscode.cpptools-0.15.0/bin/Microsoft.VSCode.CPP.IntelliSense.Msv
+ 1745 ?        Sl     0:00 /home/chan/.vscode-oss/extensions/ms-vscode.cpptools-0.15.0/bin/Microsoft.VSCode.CPP.IntelliSense.Msv
+ 1785 pts/0    T      0:00 ./main
+ 1787 pts/0    Z      0:00 [ls] <defunct>
+ 1826 pts/0    T      0:00 ./main
+ 1827 pts/0    Z      0:00 [ls] <defunct>
+ 1859 pts/0    T      0:00 ./main
+ 1860 pts/0    Z      0:00 [ls] <defunct>
+ 1891 pts/0    T      0:00 ./main
+ 1892 pts/0    Z      0:00 [ls] <defunct>
+ 1900 ?        I      0:00 [kworker/7:0]
+ 1924 pts/0    T      0:00 ./main
+ 1928 pts/0    Z      0:00 [ls] <defunct>
+ 1953 pts/0    T      0:00 ./main
+ 1955 pts/0    Z      0:00 [ls] <defunct>
+ 2015 ?        I      0:00 [kworker/u16:1]
+ 2016 ?        I      0:00 [kworker/u16:3]
+ 2019 ?        Sl     0:10 /usr/bin/dolphin --select /home/chan/Downloads/??????_??????_?????????.zip
+ 2026 ?        S      0:00 file.so [kdeinit5] file local:/run/user/1000/klauncherHstaWy.1.slave-socket local:/run/user/1000/dolp
+ 5270 ?        I      0:00 [kworker/6:2]
+ 5271 ?        I      0:00 [kworker/4:0]
+ 5272 ?        I      0:00 [kworker/0:1]
+ 5273 ?        I      0:00 [kworker/1:2]
+ 5274 ?        I      0:00 [kworker/5:2]
+ 5286 ?        Sl     0:37 /usr/share/code-oss/code-oss --type=renderer --js-flags=--nolazy --no-sandbox --primordial-pipe-token
+ 5313 ?        Sl     0:00 /usr/share/code-oss/code-oss /usr/share/code-oss/resources/app/out/bootstrap --type=watcherService
+ 5321 ?        Sl     0:03 /usr/share/code-oss/code-oss --nolazy --inspect=9334 /usr/share/code-oss/resources/app/out/bootstrap 
+ 5388 ?        Sl     0:06 /home/chan/.vscode-oss/extensions/ms-vscode.cpptools-0.15.0/bin/Microsoft.VSCode.CPP.Extension.linux
+ 5406 ?        Sl     0:00 /home/chan/.vscode-oss/extensions/ms-vscode.cpptools-0.15.0/bin/Microsoft.VSCode.CPP.IntelliSense.Msv
+ 5430 ?        Sl     0:01 /home/chan/.vscode-oss/extensions/ms-vscode.cpptools-0.15.0/bin/Microsoft.VSCode.CPP.IntelliSense.Msv
+ 5537 ?        I      0:00 [kworker/3:2]
+ 5570 ?        I      0:00 [kworker/2:2]
+ 5735 ?        Sl     0:00 /home/chan/.vscode-oss/extensions/ms-vscode.cpptools-0.15.0/bin/Microsoft.VSCode.CPP.IntelliSense.Msv
+ 5778 ?        I      0:00 [kworker/u16:0]
+ 5779 ?        I      0:00 [kworker/u16:4]
+ 5791 ?        I      0:00 [kworker/7:1]
+ 5792 ?        I      0:00 [kworker/5:0]
+ 5793 ?        I      0:00 [kworker/4:1]
+ 5794 ?        I      0:00 [kworker/1:0]
+ 5795 ?        I      0:00 [kworker/0:0]
+ 5796 ?        I      0:00 [kworker/6:0]
+ 5833 ?        I      0:00 [kworker/3:0]
+ 5860 pts/0    S+     0:00 script
+ 5861 pts/2    Ss     0:00 bash -i
+ 5900 pts/2    S+     0:00 ./main
+ 5910 pts/2    R+     0:00 ps -ax
+/home/chan/Sources/school/232/homework04CHShell/$ ls &
+/home/chan/Sources/school/232/homework04CHShell/$ 
+CHShell.cpp  CHShell.h	CommandLine.cpp  CommandLine.h	main  main.cpp	path.cpp  path.h  prompt.cpp  prompt.h	typescript
+
+Command not found...
+/home/chan/Sources/school/232/homework04CHShell/$ pwd &
+/home/chan/Sources/school/232/homework04CHShell/$ 
+/home/chan/Sources/school/232/homework04
+
+Command not found...
+/home/chan/Sources/school/232/homework04CHShell/$ ps &
+/home/chan/Sources/school/232/homework04CHShell/$ 
+  PID TTY          TIME CMD
+ 5861 pts/2    00:00:00 bash
+ 5900 pts/2    00:00:00 main
+ 5917 pts/2    00:00:00 ls <defunct>
+ 5926 pts/2    00:00:00 pwd <defunct>
+ 5927 pts/2    00:00:00 ps
+
+Command not found...
+/home/chan/Sources/school/232/homework04CHShell/$ exit    cal
+
+     March 2018     
+Su Mo Tu We Th Fr Sa
+             1  2  3 
+ 4  5  6  7  8  9 10 
+11 12 13 14 15 16 17 
+18 19 20 21 22 23 24 
+25 26 27 28 29 30 31 
+                     
+/home/chan/Sources/school/232/homework04CHShell/$ cal &
+/home/chan/Sources/school/232/homework04CHShell/$ 
+     March 2018     
+Su Mo Tu We Th Fr Sa
+             1  2  3 
+ 4  5  6  7  8  9 10 
+11 12 13 14 15 16 17 
+18 19 20 21 22 23 24 
+25 26 27 28 29 30 31 
+                     
+cal     
+Command not found...
+/home/chan/Sources/school/232/homework04CHShell/$ cal 2017
+
+                               2017                               
+
+       January               February                 March       
+Su Mo Tu We Th Fr Sa   Su Mo Tu We Th Fr Sa   Su Mo Tu We Th Fr Sa
+ 1  2  3  4  5  6  7             1  2  3  4             1  2  3  4   
+ 8  9 10 11 12 13 14    5  6  7  8  9 10 11    5  6  7  8  9 10 11   
+15 16 17 18 19 20 21   12 13 14 15 16 17 18   12 13 14 15 16 17 18   
+22 23 24 25 26 27 28   19 20 21 22 23 24 25   19 20 21 22 23 24 25   
+29 30 31               26 27 28               26 27 28 29 30 31      
+                                                                     
+        April                   May                   June        
+Su Mo Tu We Th Fr Sa   Su Mo Tu We Th Fr Sa   Su Mo Tu We Th Fr Sa
+                   1       1  2  3  4  5  6                1  2  3   
+ 2  3  4  5  6  7  8    7  8  9 10 11 12 13    4  5  6  7  8  9 10   
+ 9 10 11 12 13 14 15   14 15 16 17 18 19 20   11 12 13 14 15 16 17   
+16 17 18 19 20 21 22   21 22 23 24 25 26 27   18 19 20 21 22 23 24   
+23 24 25 26 27 28 29   28 29 30 31            25 26 27 28 29 30      
+30                                                                   
+        July                  August                September     
+Su Mo Tu We Th Fr Sa   Su Mo Tu We Th Fr Sa   Su Mo Tu We Th Fr Sa
+                   1          1  2  3  4  5                   1  2   
+ 2  3  4  5  6  7  8    6  7  8  9 10 11 12    3  4  5  6  7  8  9   
+ 9 10 11 12 13 14 15   13 14 15 16 17 18 19   10 11 12 13 14 15 16   
+16 17 18 19 20 21 22   20 21 22 23 24 25 26   17 18 19 20 21 22 23   
+23 24 25 26 27 28 29   27 28 29 30 31         24 25 26 27 28 29 30   
+30 31                                                                
+       October               November               December      
+Su Mo Tu We Th Fr Sa   Su Mo Tu We Th Fr Sa   Su Mo Tu We Th Fr Sa
+ 1  2  3  4  5  6  7             1  2  3  4                   1  2   
+ 8  9 10 11 12 13 14    5  6  7  8  9 10 11    3  4  5  6  7  8  9   
+15 16 17 18 19 20 21   12 13 14 15 16 17 18   10 11 12 13 14 15 16   
+22 23 24 25 26 27 28   19 20 21 22 23 24 25   17 18 19 20 21 22 23   
+29 30 31               26 27 28 29 30         24 25 26 27 28 29 30   
+                                              31                     
+
+/home/chan/Sources/school/232/homework04CHShell/$ ls
+
+CHShell.cpp  CHShell.h	CommandLine.cpp  CommandLine.h	main  main.cpp	path.cpp  path.h  prompt.cpp  prompt.h	typescript
+/home/chan/Sources/school/232/homework04CHShell/$ exit
+]0;chan@chan:~/Sources/school/232/homework04[chan@chan homework04]$ exit
+exit
+
+Script done on 2018-03-08 00:12:01-0500
