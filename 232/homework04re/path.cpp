@@ -11,7 +11,7 @@ using namespace std;
  * Path constructor
  */ 
 Path::Path() {
-
+    /*
     char* tok;
     const char* Path = getenv("PATH");
     char* copy = (char*)malloc(strlen(Path) + 1);
@@ -28,6 +28,15 @@ Path::Path() {
         }
         free(copy);
         copy = NULL;
+    }
+    */
+    char* tok;
+    char* Path = getenv("PATH");
+    tok = strtok (Path, ":");
+    while (tok != NULL)
+    {
+        directory.push_back(tok); 
+        tok = strtok (NULL, ":");  
     }
 }
 
