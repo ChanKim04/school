@@ -25,7 +25,7 @@ CHShell::CHShell() { }
 void CHShell::run() {
 
 	while (true) {
-		cout << prompt.get() << endl; // display the prompt
+		cout << prompt.get(); // display the prompt
 		CommandLine cmd = CommandLine(cin); //create the commandline for the user
 
 		if (strcmp(cmd.getCommand(), "exit") == 0) {
