@@ -25,7 +25,7 @@ CHShell::CHShell() { }
 void CHShell::run() {
 
 	while (true) {
-		cout << prompt.get(); // display the prompt
+		cout << prompt.get() << endl; // display the prompt
 		CommandLine cmd = CommandLine(cin); //create the commandline for the user
 
 		if (strcmp(cmd.getCommand(), "exit") == 0) {
@@ -43,7 +43,7 @@ void CHShell::run() {
 			if (pid == 0) {
 				int index = path.find(cmd.getCommand());
 				char* temp_char = path.getDirectory(index);
-				//strcat(temp_char, "/");
+				strcat(temp_char, "/");
 				strcat(temp_char, cmd.getCommand());
 				cout << endl;				
 				execve(temp_char, cmd.getArgVector(), NULL);
