@@ -36,8 +36,7 @@ Path::Path() {
   finds the directory of the program in the commandline
  */
 int Path::find(const string& program) const {
-    struct dirp;
-    dirent *dp;
+    struct dirent *dp;
     for (unsigned i = 0; i < directory.size(); i++)
     {   DIR* dirp = opendir(directory[i]);
         if ((dirp) != NULL)

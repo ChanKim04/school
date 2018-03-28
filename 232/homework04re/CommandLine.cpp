@@ -71,7 +71,7 @@ char** CommandLine::getArgVector() const {
 	}
 	else
 	{
-		return argv+1;
+		return argv;
 	} //moves the pointer to the next argument in the argv, which is char++
 
 }
