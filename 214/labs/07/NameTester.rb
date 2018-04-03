@@ -14,7 +14,6 @@ class Name
         @first, @middle, @last = first, middle, last
     end
 
-    attr_reader :first, :middle, :last
     attr_accessor :first, :middle, :last
 
     def fullName
@@ -22,7 +21,7 @@ class Name
     end
 
     def print
-        puts fullName()
+        puts fullName
     end
 end
 
