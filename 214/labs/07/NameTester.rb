@@ -22,6 +22,7 @@ class Name
 
     def print
         puts fullName
+        return fullName
     end
 end
 
@@ -31,8 +32,7 @@ def testName
    assert name.middle == "Paul", "middle failed"
    assert name.last == "Jones", "last failed"
    assert name.fullName == "John Paul Jones", "fullName failed"
-#   assert name.print == "John Paul Jones", "print failed"
-   name.print 
+   assert name.print == "John Paul Jones", "print failed"
    print "All tests passed!\n"
 end
 
