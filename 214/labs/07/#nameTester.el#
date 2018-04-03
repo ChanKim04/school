@@ -13,6 +13,8 @@
   (list first middle last))
 Name
 
+Name
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; getFirst extracts the first name of a name object.;
 ;;; Receive: theName, a Name.                       
@@ -20,6 +22,8 @@ Name
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defun getFirst (theName)
   (car theName))
+getFirst
+
 getFirst
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -31,6 +35,8 @@ getFirst
   (car (cdr theName)))
 getMiddle
 
+getMiddle
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; getLast extracts the last name of a name object.
 ;;; Receive: theName, a Name.                    
@@ -38,6 +44,8 @@ getMiddle
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defun getLast (theName)
   (car (cdr (cdr theName))))
+getLast
+
 getLast
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -48,6 +56,8 @@ getLast
   (concat (getFirst aName) " " (getMiddle aName) " " (getLast aName)))
 getFullName
 
+getFullName
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; printName displays a name object.         
 ;;; Receive: theName, a Name,                 
@@ -56,6 +66,8 @@ getFullName
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defun printName (aName buf)
   (princ aName buf))
+printName
+
 printName
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -75,9 +87,7 @@ printName
   (terpri buf)                               ; newline
   (princ "All tests passed!" buf)            ; feedback
   (terpri buf))                              ; newline
-(John Paul Jones)
-All tests passed!
-t
+
 
 
 
