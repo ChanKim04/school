@@ -5,7 +5,7 @@
 # Date: 3/29/2018
 ####################################################
 
-require 'test/unit/assertions.rb'   # needed for assert
+require 'test/unit/assertions'   # needed for assert
 include Test::Unit::Assertions
 
 # Replace this line with the declaration of class Name
