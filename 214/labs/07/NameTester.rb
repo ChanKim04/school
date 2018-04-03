@@ -22,7 +22,7 @@ class Name
     end
 
     def print
-        puts fullName
+        puts fullName()
     end
 end
 
