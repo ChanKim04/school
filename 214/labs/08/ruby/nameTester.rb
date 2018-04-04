@@ -5,8 +5,7 @@
 # Date: 4/4/2018
 ####################################################
 
-require 'Name.rb'
-require 'test/unit/assertions'
+require 'test/unit/assertions', './Name.rb'
 include Test::Unit::Assertions
 
 def testName
