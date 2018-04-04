@@ -1,33 +1,15 @@
 # nameTester.rb tests class Name and its operations
 #
 # Begun by: Dr. Adams, for CS 214 at Calvin College.
-# Completed by:
-# Date:
+# Completed by: Chan Kim (ck45)
+# Date: 4/4/2018
 ####################################################
 
-require 'test/unit/assertions'
+require 'test/unit/assertions', './Name.rb'
 include Test::Unit::Assertions
 
-class Name
-
-  def initialize(first, middle, last)
-    @first, @middle, @last = first, middle, last
-  end
-
-  attr_reader :first, :middle, :last
-
-  def fullName
-    @first + " " + @middle + " " + @last
-  end
-
-  def print
-    puts fullName
-    fullName
-  end
-end
-
 def testName
-   name = Name.new("John", "Paul", "Jones")
+   name = Name::Name.new("John", "Paul", "Jones")
 
    assert name.first == "John", 
            "first failed"
