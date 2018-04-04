@@ -5,7 +5,7 @@
 # Date: 4/4/2018
 ####################################################
 
-module NAME
+module Names
 
 class Name
 

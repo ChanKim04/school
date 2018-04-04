@@ -10,7 +10,7 @@ require 'test/unit/assertions'
 include Test::Unit::Assertions
 
 def testName
-   name = NAME::Name.new("John", "Paul", "Jones")
+   name = Names::Name.new("John", "Paul", "Jones")
 
    assert name.first == "John", 
            "first failed"
