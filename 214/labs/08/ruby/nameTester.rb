@@ -9,7 +9,7 @@ require 'test/unit/assertions', './Name.rb'
 include Test::Unit::Assertions
 
 def testName
-   name = Name::Name.new("John", "Paul", "Jones")
+   name = NAME::Name.new("John", "Paul", "Jones")
 
    assert name.first == "John", 
            "first failed"
