@@ -1,0 +1,1557 @@
+Script started on 2018-04-09 10:20:29-0400
+]0;chan@chan:~/Sources/school/214/projects/08/java[chan@chan java]$ make java
+make: *** No rule to make target 'java'.  Stop.
+]0;chan@chan:~/Sources/school/214/projects/08/java[chan@chan java]$ cat Temp.java 
+/* Temp.java implements class Name.
+ * Prof: Dr. Adams, for CS 214 at Calvin College.
+ * Student: Chan Kim (ck45)
+ * Date: 4/9/2018
+ ************************************************************/
+
+import java.io.*;
+import java.util.Scanner;
+
+class Temp {
+  
+    /*
+     * Temp(degrees, scale) initializes a Temp variable          
+     * Receive: degrees, the degrees ;         
+     *          scale, the scale .         
+     * Return: set to degrees, and scale if it is valid 
+      *        otherwise prints an invalid message.    
+     */
+    public Temp(double degrees, char scale) {
+
+        char capScale = Character.toUpperCase(scale);
+
+        if (isValid(degrees, capScale))
+        {
+            myDegrees = degrees;
+            myScale = capScale;
+        }
+        else
+        {
+            System.out.println("Invalid value");
+        }
+    }
+
+    /*
+     * isValid(degrees, scale) checks the validation.        
+     * Receive: degrees, float; scale, a character.                      
+     * PRE: degrees and scale have been initialized.            
+     * Return: true or false.     
+     */
+
+    public boolean isValid(double degrees, char scale)
+    {
+        if (scale == 'F')
+        {
+            if (degrees < -459.67)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+        else if (scale == 'C')
+        {
+            if (degrees < -273.15)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+        else if (scale == 'K')
+        {
+            if (degrees < 0.0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+        else
+        {
+            return false;
+        }                 
+    }
+
+    // extractor for first name of a Name object
+    public  double getDegrees() {
+        return myDegrees;
+    }
+
+    // extractor for middle name of a Name object
+    public  char getScale() {
+        return myScale;
+    }
+
+    /*
+     * isValid(degrees, scale) checks the validation.        
+     * Receive: degrees, float; scale, a character.                      
+     * PRE: degrees and scale have been initialized.            
+     * Return: true or false.
+     */
+
+    public void setFahrenheit()
+    {
+        if (getScale() == 'C')
+        {
+            myDegrees = ((getDegrees() * 1.8) + 32.0);
+            myScale = 'F';
+        }
+        else if (getScale() == 'K')
+        {
+            myDegrees = ((getDegrees() * 1.8) - 459.67);
+            myScale = 'F';
+        }
+    }
+
+    public void setCelsius()
+    {
+        if (getScale() == 'F')
+        {
+            myDegrees = ((getDegrees() - 32.0) / 1.8);
+            myScale = 'C';
+        }
+        else if (getScale() == 'K')
+        {
+            myDegrees = (getDegrees() - 273.15);
+            myScale = 'C';
+        }
+    }
+
+    public void setKelvin()
+    {
+        if (getScale() == 'C')
+        {
+            myDegrees = (getDegrees() + 273.15);
+            myScale = 'K';
+        }
+        else if (getScale() == 'F')
+        {
+            myDegrees = ((getDegrees() + 459.67) * (5.0/9.0));
+            myScale = 'K';
+        }
+    }
+
+    /*
+     * read(keyboard) reads degrees and scale   
+     * Receive: keyboard, Scanner.
+     * PRE: keyboard ahs been initialized.                                  
+     * Return: sets up degrees and scale if it is valid 
+     *          otherwise prints an invalid message.    
+    */
+
+    public void read(Scanner keyboard)
+    {
+        String values = keyboard.nextLine();
+        String [] parts = values.split(" ");
+        double degrees = Double.parseDouble(parts[0]);
+        char scale = parts[1].charAt(0);
+        char capScale = Character.toUpperCase(scale);
+        if (isValid(degrees, capScale))
+        {
+            myDegrees = degrees;
+            myScale = capScale;
+        }
+        else
+        {
+            System.out.println("Invalid value");
+        }    
+    }
+
+    /*
+     * raise(degree) incriments degrees                  
+     * Receive: degree, number.                     
+     * PRE: degrees has been initialized.             
+     * Return: incriments degrees otherwise prints an invalid message.    
+    */
+
+    public void raise(double degrees)
+    {
+        myDegrees = myDegrees + degrees;
+    }
+
+    /*
+     * lower(degree) decriments degrees                  
+     * Receive: degree, number.                     
+     * PRE: degrees has been initialized.               
+     * Return: decriments degrees otherwise prints an invalid message. 
+    */
+
+    public void lower(double degrees)
+    {
+        double Degrees = myDegrees - degrees;
+        if (isValid(Degrees, myScale))
+        {
+            myDegrees = Degrees;
+        }
+        else
+        {
+            System.out.println("Invalid value");
+        }          
+    }
+
+    /*
+     * equals(temp) retrieves baseTemp = limitTemp        
+     * Receive: temp, a Temp.                      
+     * PRE: baseTemp and limitTemp have been initialized.            
+     * Return: true or false. 
+    */
+    public boolean equals(Temp temp)
+    {
+        temp.setCelsius();
+        setCelsius();
+        if (temp.getDegrees() == getDegrees())
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    /*
+     * less_than(temp) retrieves baseTemp < limitTemp        
+     * Receive: temp, a Temp.                      
+     * PRE: baseTemp and limitTemp have been initialized.            
+     * Return: true or false.     
+    */
+
+    public boolean less_than(Temp temp)
+    {
+        temp.setCelsius();
+        setCelsius();
+        if (temp.getDegrees() > getDegrees())
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }        
+    }    
+
+    /*
+     * toString() retrieves Temp as a String                                       
+     * PRE: temp has been initialized.           
+     * Return: a String representation of Temp.      
+    */
+
+    public String toString() {
+        return Double.toString(myDegrees) + ' ' + Character.toString(myScale);
+    }
+
+    // private instance variables
+    private double myDegrees;
+    private char myScale;  
+    }
+
+]0;chan@chan:~/Sources/school/214/projects/08/java[chan@chan java]$ cat TempTester.java 
+/* TempTester.java is a 'driver' to test class Temp.
+ * Prof: Dr. Adams, for CS 214 at Calvin College.
+ * Student: Chan Kim (ck45)
+ * Date: 4/9/2018
+ ************************************************************/
+
+import java.io.*;
+import java.util.Scanner;
+
+public class TempTester  
+{
+  public static void main(String[] args)
+  {
+    Scanner keyboard = new Scanner(System.in);
+    
+    Temp baseTemp = new Temp(0.0, 'C');
+    baseTemp.read(keyboard);
+    Temp limitTemp = new Temp(0.0, 'C');
+    limitTemp.read(keyboard);
+
+    double stepValue = keyboard.nextDouble();
+    
+    char scale = baseTemp.getScale();
+
+    while (baseTemp.equals(limitTemp) || baseTemp.less_than(limitTemp))
+    {
+      baseTemp.setFahrenheit();
+      System.out.print(baseTemp.toString() + "\t");
+      baseTemp.setCelsius();
+      System.out.print(baseTemp.toString() + "\t");
+      baseTemp.setKelvin();
+      System.out.print(baseTemp.toString() + "\n");
+
+      if (scale == 'F')
+      {
+        baseTemp.setFahrenheit();        
+      }
+      else if (scale == 'C')
+      {
+        baseTemp.setCelsius();
+      }
+      else if (scale == 'K')
+      {
+        baseTemp.setKelvin();
+      }
+
+      baseTemp.raise(stepValue);
+    }
+  }
+}
+
+]0;chan@chan:~/Sources/school/214/projects/08/java[chan@chan java]$ ls
+Makefile  script.java  Temp.class  Temp.java  TempTester.class  [0m[01;32mTempTester.java[0m
+]0;chan@chan:~/Sources/school/214/projects/08/java[chan@chan java]$ ./TempTester.java [K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kjava TempTester 
+w 0 F
+100 C
+2.5
+0.0 F	-17.77777777777778 C	255.3722222222222 K
+2.4999999999999396 F	-16.38888888888892 C	256.76111111111106 K
+4.999999999999886 F	-15.000000000000062 C	258.1499999999999 K
+7.4999999999998295 F	-13.611111111111205 C	259.5388888888888 K
+9.999999999999773 F	-12.222222222222348 C	260.92777777777764 K
+12.499999999999716 F	-10.83333333333349 C	262.3166666666665 K
+14.999999999999659 F	-9.444444444444633 C	263.70555555555535 K
+17.499999999999602 F	-8.055555555555776 C	265.0944444444442 K
+19.999999999999545 F	-6.666666666666919 C	266.48333333333306 K
+22.49999999999949 F	-5.277777777778062 C	267.8722222222219 K
+24.99999999999943 F	-3.8888888888892046 C	269.2611111111108 K
+27.499999999999375 F	-2.5000000000003473 C	270.64999999999964 K
+29.999999999999318 F	-1.11111111111149 C	272.0388888888885 K
+32.49999999999926 F	0.27777777777736723 C	273.42777777777735 K
+34.999999999999204 F	1.6666666666662244 C	274.8166666666662 K
+37.49999999999915 F	3.055555555555082 C	276.20555555555507 K
+39.99999999999909 F	4.444444444443939 C	277.5944444444439 K
+42.499999999999034 F	5.833333333332797 C	278.9833333333328 K
+44.99999999999898 F	7.222222222221654 C	280.37222222222164 K
+47.49999999999892 F	8.61111111111051 C	281.7611111111105 K
+49.99999999999886 F	9.999999999999368 C	283.14999999999935 K
+52.499999999998806 F	11.388888888888225 C	284.5388888888882 K
+54.999999999998806 F	12.777777777777114 C	285.92777777777707 K
+57.49999999999869 F	14.16666666666594 C	287.3166666666659 K
+59.99999999999869 F	15.555555555554829 C	288.7055555555548 K
+62.49999999999858 F	16.944444444443654 C	290.09444444444364 K
+64.99999999999858 F	18.333333333332543 C	291.4833333333325 K
+67.49999999999847 F	19.72222222222137 C	292.87222222222135 K
+69.99999999999847 F	21.111111111110258 C	294.2611111111102 K
+72.49999999999835 F	22.499999999999083 C	295.64999999999907 K
+74.99999999999835 F	23.888888888887973 C	297.0388888888879 K
+77.49999999999824 F	25.277777777776798 C	298.4277777777768 K
+79.99999999999824 F	26.666666666665687 C	299.81666666666564 K
+82.49999999999812 F	28.055555555554513 C	301.2055555555545 K
+84.99999999999812 F	29.444444444443402 C	302.59444444444335 K
+87.49999999999801 F	30.833333333332227 C	303.9833333333322 K
+89.99999999999801 F	32.22222222222111 C	305.37222222222107 K
+92.4999999999979 F	33.61111111110994 C	306.7611111111099 K
+94.9999999999979 F	34.99999999999883 C	308.1499999999988 K
+97.49999999999778 F	36.38888888888766 C	309.53888888888764 K
+99.99999999999778 F	37.77777777777654 C	310.9277777777765 K
+102.49999999999767 F	39.16666666666537 C	312.31666666666536 K
+104.99999999999767 F	40.55555555555426 C	313.7055555555542 K
+107.49999999999756 F	41.944444444443086 C	315.09444444444307 K
+109.99999999999756 F	43.33333333333197 C	316.4833333333319 K
+112.49999999999744 F	44.7222222222208 C	317.8722222222208 K
+114.99999999999744 F	46.111111111109686 C	319.26111111110964 K
+117.49999999999733 F	47.499999999998515 C	320.6499999999985 K
+119.99999999999733 F	48.8888888888874 C	322.03888888888736 K
+122.49999999999721 F	50.27777777777623 C	323.4277777777762 K
+124.99999999999721 F	51.666666666665115 C	324.81666666666507 K
+127.4999999999971 F	53.055555555553944 C	326.20555555555393 K
+129.9999999999971 F	54.44444444444283 C	327.5944444444428 K
+132.499999999997 F	55.83333333333166 C	328.98333333333164 K
+134.999999999997 F	57.222222222220545 C	330.3722222222205 K
+137.49999999999687 F	58.61111111110937 C	331.76111111110936 K
+139.99999999999687 F	59.99999999999826 C	333.1499999999982 K
+142.49999999999676 F	61.38888888888709 C	334.5388888888871 K
+144.99999999999676 F	62.777777777775974 C	335.92777777777593 K
+147.49999999999665 F	64.1666666666648 C	337.3166666666648 K
+149.99999999999665 F	65.5555555555537 C	338.7055555555537 K
+152.49999999999665 F	66.94444444444258 C	340.09444444444256 K
+154.99999999999665 F	68.33333333333147 C	341.4833333333314 K
+157.49999999999653 F	69.7222222222203 C	342.8722222222203 K
+159.99999999999653 F	71.11111111110918 C	344.26111111110913 K
+162.49999999999642 F	72.49999999999801 C	345.649999999998 K
+164.99999999999642 F	73.8888888888869 C	347.03888888888685 K
+167.4999999999963 F	75.27777777777573 C	348.4277777777757 K
+169.9999999999963 F	76.66666666666461 C	349.81666666666456 K
+172.4999999999962 F	78.05555555555344 C	351.2055555555534 K
+174.9999999999962 F	79.44444444444233 C	352.5944444444423 K
+177.49999999999608 F	80.83333333333115 C	353.98333333333113 K
+179.99999999999608 F	82.22222222222004 C	355.37222222222 K
+182.49999999999596 F	83.61111111110887 C	356.76111111110885 K
+184.99999999999596 F	84.99999999999775 C	358.1499999999977 K
+187.49999999999585 F	86.38888888888658 C	359.53888888888656 K
+189.99999999999585 F	87.77777777777547 C	360.9277777777754 K
+192.49999999999574 F	89.1666666666643 C	362.3166666666643 K
+194.99999999999574 F	90.55555555555318 C	363.70555555555313 K
+197.49999999999562 F	91.94444444444201 C	365.094444444442 K
+199.99999999999562 F	93.3333333333309 C	366.48333333333085 K
+202.4999999999955 F	94.72222222221973 C	367.8722222222197 K
+204.9999999999955 F	96.11111111110861 C	369.26111111110856 K
+207.4999999999954 F	97.49999999999744 C	370.6499999999974 K
+209.9999999999954 F	98.88888888888633 C	372.0388888888863 K
+]0;chan@chan:~/Sources/school/214/projects/08/java[chan@chan java]$ java[K[K[K[Kjava TempTester 
+0 K k
+212 f
+20.0
+-459.66999999999996 F	-273.15 C	0.0 K
+-423.66999999999996 F	-253.14999999999998 C	20.0 K
+-387.66999999999996 F	-233.14999999999998 C	40.0 K
+-351.66999999999996 F	-213.14999999999998 C	60.0 K
+-315.66999999999996 F	-193.14999999999998 C	80.0 K
+-279.66999999999996 F	-173.14999999999998 C	100.0 K
+-243.66999999999996 F	-153.14999999999998 C	120.0 K
+-207.66999999999996 F	-133.14999999999998 C	140.0 K
+-171.66999999999996 F	-113.14999999999998 C	160.0 K
+-135.66999999999996 F	-93.14999999999998 C	180.0 K
+-99.66999999999996 F	-73.14999999999998 C	200.0 K
+-63.66999999999996 F	-53.14999999999998 C	220.0 K
+-27.66999999999996 F	-33.14999999999998 C	240.0 K
+8.330000000000041 F	-13.149999999999977 C	260.0 K
+44.33000000000004 F	6.850000000000023 C	280.0 K
+80.33000000000004 F	26.850000000000023 C	300.0 K
+116.33000000000004 F	46.85000000000002 C	320.0 K
+152.33000000000004 F	66.85000000000002 C	340.0 K
+188.33000000000004 F	86.85000000000002 C	360.0 K
+]0;chan@chan:~/Sources/school/214/projects/08/java[chan@chan java]$ exit
+exit
+
+Script done on 2018-04-09 10:21:50-0400
+Script started on 2018-04-09 10:33:38-0400
+]0;chan@chan:~/Sources/school/214/projects/08/ada[chan@chan ada]$ ls
+Makefile  script.ada        temp_package.ads  temp_package.o  temp_tester.adb  temp_tester.o
+[0m[01;34mold[0m       temp_package.adb  temp_package.ali  [01;32mtemp_tester[0m     temp_tester.ali
+]0;chan@chan:~/Sources/school/214/projects/08/ada[chan@chan ada]$ lsexitjava TempTester ls[Kcat TempTester.java [6P[C[C[C[C[C[C[5Pmake java[5Pexitcat Temp.java [5Pmake java[5Pexitscript script.javals[Kscript script.javaexit[Kmake javacat Temp.java exit[Kmake javacat Temp.java [6@Tester[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cls[Kjava TempTester exit[K[2Pls[Kgcc -c temp_tester.adb
+]0;chan@chan:~/Sources/school/214/projects/08/ada[chan@chan ada]$ gcc -c temp_package..adb[K[K[K[Kadb
+]0;chan@chan:~/Sources/school/214/projects/08/ada[chan@chan ada]$ gnatbind temp_tester.ali
+]0;chan@chan:~/Sources/school/214/projects/08/ada[chan@chan ada]$ gnatlink temp_tester.ali
+]0;chan@chan:~/Sources/school/214/projects/08/ada[chan@chan ada]$ ls
+Makefile  script.ada        temp_package.ads  temp_package.o  temp_tester.adb  temp_tester.o
+[0m[01;34mold[0m       temp_package.adb  temp_package.ali  [01;32mtemp_tester[0m     temp_tester.ali
+]0;chan@chan:~/Sources/school/214/projects/08/ada[chan@chan ada]$ ./temp_tester 
+Enter the baseTemp...
+Enter the degree of temp: 0f 
+Enter the scale of temp: f
+Enter the limitTemp...
+Enter the degree of temp: 100
+Enter the scale of temp: c
+Enter the stepValue: 2.5
+ 0.00000E+00 F     -1.77778E+01 C      2.55372E+02 K
+ 2.49997E+00 F     -1.63889E+01 C      2.56761E+02 K
+ 4.99991E+00 F     -1.50001E+01 C      2.58150E+02 K
+ 7.49985E+00 F     -1.36112E+01 C      2.59539E+02 K
+ 9.99979E+00 F     -1.22223E+01 C      2.60928E+02 K
+ 1.24997E+01 F     -1.08335E+01 C      2.62316E+02 K
+ 1.49997E+01 F     -9.44463E+00 C      2.63705E+02 K
+ 1.74996E+01 F     -8.05578E+00 C      2.65094E+02 K
+ 1.99995E+01 F     -6.66692E+00 C      2.66483E+02 K
+ 2.24995E+01 F     -5.27807E+00 C      2.67872E+02 K
+ 2.49994E+01 F     -3.88921E+00 C      2.69261E+02 K
+ 2.74994E+01 F     -2.50036E+00 C      2.70650E+02 K
+ 2.99993E+01 F     -1.11150E+00 C      2.72038E+02 K
+ 3.24992E+01 F      2.77354E-01 C      2.73427E+02 K
+ 3.49992E+01 F      1.66621E+00 C      2.74816E+02 K
+ 3.74991E+01 F      3.05506E+00 C      2.76205E+02 K
+ 3.99991E+01 F      4.44392E+00 C      2.77594E+02 K
+ 4.24990E+01 F      5.83277E+00 C      2.78983E+02 K
+ 4.49989E+01 F      7.22163E+00 C      2.80372E+02 K
+ 4.74989E+01 F      8.61048E+00 C      2.81760E+02 K
+ 4.99988E+01 F      9.99934E+00 C      2.83149E+02 K
+ 5.24987E+01 F      1.13882E+01 C      2.84538E+02 K
+ 5.49987E+01 F      1.27770E+01 C      2.85927E+02 K
+ 5.74986E+01 F      1.41659E+01 C      2.87316E+02 K
+ 5.99986E+01 F      1.55548E+01 C      2.88705E+02 K
+ 6.24985E+01 F      1.69436E+01 C      2.90094E+02 K
+ 6.49984E+01 F      1.83325E+01 C      2.91482E+02 K
+ 6.74984E+01 F      1.97213E+01 C      2.92871E+02 K
+ 6.99983E+01 F      2.11102E+01 C      2.94260E+02 K
+ 7.24983E+01 F      2.24990E+01 C      2.95649E+02 K
+ 7.49982E+01 F      2.38879E+01 C      2.97038E+02 K
+ 7.74981E+01 F      2.52767E+01 C      2.98427E+02 K
+ 7.99981E+01 F      2.66656E+01 C      2.99816E+02 K
+ 8.24980E+01 F      2.80545E+01 C      3.01204E+02 K
+ 8.49980E+01 F      2.94433E+01 C      3.02593E+02 K
+ 8.74979E+01 F      3.08322E+01 C      3.03982E+02 K
+ 8.99978E+01 F      3.22210E+01 C      3.05371E+02 K
+ 9.24978E+01 F      3.36099E+01 C      3.06760E+02 K
+ 9.49977E+01 F      3.49987E+01 C      3.08149E+02 K
+ 9.74977E+01 F      3.63876E+01 C      3.09538E+02 K
+ 9.99976E+01 F      3.77764E+01 C      3.10926E+02 K
+ 1.02498E+02 F      3.91653E+01 C      3.12315E+02 K
+ 1.04997E+02 F      4.05541E+01 C      3.13704E+02 K
+ 1.07497E+02 F      4.19430E+01 C      3.15093E+02 K
+ 1.09997E+02 F      4.33319E+01 C      3.16482E+02 K
+ 1.12497E+02 F      4.47207E+01 C      3.17871E+02 K
+ 1.14997E+02 F      4.61096E+01 C      3.19260E+02 K
+ 1.17497E+02 F      4.74984E+01 C      3.20648E+02 K
+ 1.19997E+02 F      4.88873E+01 C      3.22037E+02 K
+ 1.22497E+02 F      5.02761E+01 C      3.23426E+02 K
+ 1.24997E+02 F      5.16650E+01 C      3.24815E+02 K
+ 1.27497E+02 F      5.30538E+01 C      3.26204E+02 K
+ 1.29997E+02 F      5.44427E+01 C      3.27593E+02 K
+ 1.32497E+02 F      5.58316E+01 C      3.28982E+02 K
+ 1.34997E+02 F      5.72204E+01 C      3.30370E+02 K
+ 1.37497E+02 F      5.86093E+01 C      3.31759E+02 K
+ 1.39997E+02 F      5.99981E+01 C      3.33148E+02 K
+ 1.42497E+02 F      6.13870E+01 C      3.34537E+02 K
+ 1.44996E+02 F      6.27758E+01 C      3.35926E+02 K
+ 1.47496E+02 F      6.41647E+01 C      3.37315E+02 K
+ 1.49996E+02 F      6.55536E+01 C      3.38704E+02 K
+ 1.52496E+02 F      6.69424E+01 C      3.40092E+02 K
+ 1.54996E+02 F      6.83313E+01 C      3.41481E+02 K
+ 1.57496E+02 F      6.97201E+01 C      3.42870E+02 K
+ 1.59996E+02 F      7.11090E+01 C      3.44259E+02 K
+ 1.62496E+02 F      7.24978E+01 C      3.45648E+02 K
+ 1.64996E+02 F      7.38867E+01 C      3.47037E+02 K
+ 1.67496E+02 F      7.52756E+01 C      3.48426E+02 K
+ 1.69996E+02 F      7.66644E+01 C      3.49814E+02 K
+ 1.72496E+02 F      7.80533E+01 C      3.51203E+02 K
+ 1.74996E+02 F      7.94421E+01 C      3.52592E+02 K
+ 1.77496E+02 F      8.08310E+01 C      3.53981E+02 K
+ 1.79996E+02 F      8.22198E+01 C      3.55370E+02 K
+ 1.82496E+02 F      8.36087E+01 C      3.56759E+02 K
+ 1.84996E+02 F      8.49975E+01 C      3.58148E+02 K
+ 1.87496E+02 F      8.63864E+01 C      3.59536E+02 K
+ 1.89995E+02 F      8.77753E+01 C      3.60925E+02 K
+ 1.92495E+02 F      8.91641E+01 C      3.62314E+02 K
+ 1.94995E+02 F      9.05530E+01 C      3.63703E+02 K
+ 1.97495E+02 F      9.19418E+01 C      3.65092E+02 K
+ 1.99995E+02 F      9.33307E+01 C      3.66481E+02 K
+ 2.02495E+02 F      9.47195E+01 C      3.67870E+02 K
+ 2.04995E+02 F      9.61084E+01 C      3.69258E+02 K
+ 2.07495E+02 F      9.74972E+01 C      3.70647E+02 K
+ 2.09995E+02 F      9.88861E+01 C      3.72036E+02 K
+]0;chan@chan:~/Sources/school/214/projects/08/ada[chan@chan ada]$ ./temp_tester 
+Enter the baseTemp...
+Enter the degree of temp: 0
+Enter the scale of temp: K
+Enter the limitTemp...
+Enter the degree of temp: 212
+Enter the scale of temp: F
+Enter the stepValue: 20.0
+-4.59670E+02 F     -2.73150E+02 C     -3.05176E-05 K
+-4.23670E+02 F     -2.53150E+02 C      1.99999E+01 K
+-3.87670E+02 F     -2.33150E+02 C      3.99999E+01 K
+-3.51670E+02 F     -2.13150E+02 C      5.99999E+01 K
+-3.15670E+02 F     -1.93150E+02 C      7.99999E+01 K
+-2.79670E+02 F     -1.73150E+02 C      9.99998E+01 K
+-2.43670E+02 F     -1.53150E+02 C      1.20000E+02 K
+-2.07670E+02 F     -1.33150E+02 C      1.40000E+02 K
+-1.71670E+02 F     -1.13150E+02 C      1.60000E+02 K
+-1.35670E+02 F     -9.31502E+01 C      1.80000E+02 K
+-9.96705E+01 F     -7.31503E+01 C      2.00000E+02 K
+-6.36705E+01 F     -5.31503E+01 C      2.20000E+02 K
+-2.76706E+01 F     -3.31503E+01 C      2.40000E+02 K
+ 8.32944E+00 F     -1.31503E+01 C      2.60000E+02 K
+ 4.43294E+01 F      6.84969E+00 C      2.80000E+02 K
+ 8.03294E+01 F      2.68497E+01 C      3.00000E+02 K
+ 1.16329E+02 F      4.68497E+01 C      3.20000E+02 K
+ 1.52329E+02 F      6.68497E+01 C      3.40000E+02 K
+ 1.88329E+02 F      8.68497E+01 C      3.60000E+02 K
+]0;chan@chan:~/Sources/school/214/projects/08/ada[chan@chan ada]$ ex[K[Kls
+Makefile  script.ada        temp_package.ads  temp_package.o  temp_tester.adb  temp_tester.o
+[0m[01;34mold[0m       temp_package.adb  temp_package.ali  [01;32mtemp_tester[0m     temp_tester.ali
+]0;chan@chan:~/Sources/school/214/projects/08/ada[chan@chan ada]$ cat temp_tester.adb
+-- temp_tester.adb "test-drives" the Temp type.
+--
+-- Prof: Dr. Adams, for CS 214 at Calvin College.
+-- Student: Chan Kim (ck45)
+-- Date: 4/9/2018
+----------------------------------------------
+
+with Ada.Text_IO, temp_package, Ada.Float_Text_IO; 
+use Ada.Text_IO, temp_package, Ada.Float_Text_IO;
+
+procedure temp_tester is
+
+  baseTemp, limitTemp : temp_package.Temp;
+  stepValue : float;
+  scale : character;
+
+begin
+  Put("Enter the baseTemp...");
+  New_Line;
+  read(baseTemp);
+  Put("Enter the limitTemp...");
+  New_Line;
+  read(limitTemp);
+  Put("Enter the stepValue: ");  
+  Get(stepValue);
+  scale := getScale(baseTemp);   
+  while ( equals(baseTemp, limitTemp) or less_than(baseTemp, limitTemp)) loop
+    setFahrenheit(baseTemp);
+    write(baseTemp);
+    Put("     ");
+
+    setCelsius(baseTemp);
+    write(baseTemp);
+    Put("     ");
+
+    setKelvin(baseTemp);
+    write(baseTemp);
+    New_Line;
+
+    if scale = 'F' then
+      setFahrenheit(baseTemp);
+    elsif scale = 'C' then
+      setCelsius(baseTemp);
+    elsif scale = 'K' then
+      setKelvin(baseTemp);
+    end if;
+
+    raiseTemp(baseTemp, stepValue);
+  end loop;
+end temp_tester;
+
+]0;chan@chan:~/Sources/school/214/projects/08/ada[chan@chan ada]$ cat temp_package.ads
+-- temp_package.ads declares the Temp type and its operations.
+--
+-- Prof: Dr. Adams, for CS 214 at Calvin College.
+-- Student: Chan Kim (ck45)
+-- Date: 4/9/2018
+--------------------------------------------------------------
+
+package temp_package is
+
+  type Temp is private;
+  procedure Init(Tm: out Temp; degrees: in float; scale: in character);
+  function isValid(degrees: in float; scale: in character) return boolean;
+  function getDegrees( Tm: in Temp) return float;
+  function getScale( Tm: in Temp) return character;
+  procedure setFahrenheit( Tm: in out Temp);
+  procedure setCelsius( Tm: in out Temp);
+  procedure setKelvin( Tm: in out Temp);
+  procedure read ( Tm: out Temp);
+  procedure raiseTemp ( Tm: in out Temp; degrees: in float);
+  procedure lower( Tm: in out Temp; degrees: in float);
+  function equals( baseTemp: in Temp; limitTemp: in Temp) return boolean;
+  function less_than( baseTemp: in Temp; limitTemp: in Temp) return boolean;
+  procedure write( Tm: in Temp);
+
+private 
+
+  type Temp is
+      record
+         myDegrees : float;
+         myScale : character;
+      end record;
+
+end temp_package;]0;chan@chan:~/Sources/school/214/projects/08/ada[chan@chan ada]$ cat temp_package.adb
+-- name_package.adb defines operations for the Name type.
+--
+-- Prof: Dr. Adams, for CS 214 at Calvin College.
+-- Student: Chan Kim (ck45)
+-- Date: 4/9/2018
+---------------------------------------------------------
+
+with Ada.Text_IO, Ada.Characters.Handling, Ada.Float_Text_IO; 
+use Ada.Text_IO, Ada.Characters.Handling, Ada.Float_Text_IO;
+
+package body temp_package is
+
+  ----------------------------------------------
+  -- Init initializes a Temp variable          
+  -- Receive: Tm, the Temp variable;          
+  --          degrees, the degrees ;         
+  --          scale, the scale .         
+  -- Return: Tm, its fields set to degrees, and scale.     
+  ----------------------------------------------
+
+  procedure Init(Tm: out Temp; degrees: in float; scale: in character) is
+  capScale : character := To_Upper(scale);
+  begin
+    if isValid(degrees, capScale) then
+      Tm.MyDegrees := degrees;
+      Tm.MyScale := capScale;
+    else
+      Put("Invalid value");
+    end if;
+  end Init;
+
+  ----------------------------------------------
+  -- isValid(degrees, scale) checks the validation.        
+  -- Receive: degrees, float; scale, a character.                      
+  -- PRE: degrees and scale have been initialized.            
+  -- Return: true or false.                     
+  ----------------------------------------------
+
+  function isValid(degrees: in float; scale: in character) return boolean is
+  begin
+    if scale = 'F' then
+      if  degrees < -459.67 then
+        return false;
+      else
+        return true;
+      end if;
+    elsif scale = 'C' then
+      if degrees < -273.15 then
+        return false;
+      else
+        return true;
+      end if;
+    elsif scale = 'K' then
+      if degrees < 0.0 then
+        return false;
+      else
+        return true;
+      end if;
+    else
+      return false;
+    end if;
+  end isValid;
+  
+  ----------------------------------------------
+  -- getDegrees(Temp) retrieves Tm.MyDegrees        
+  -- Receive: Tm, a Temp.                      
+  -- PRE: Tm has been initialized.            
+  -- Return: Tm.MyDegrees.                     
+  ----------------------------------------------
+  function getDegrees( Tm: in Temp) return float is
+  begin
+    return Tm.MyDegrees;
+  end getDegrees;
+
+  ----------------------------------------------
+  -- getScale(Temp) retrieves Tm.MyScale        
+  -- Receive: Tm, a Temp.                      
+  -- PRE: Tm has been initialized.            
+  -- Return: Tm.MyScale.                     
+  ----------------------------------------------
+  function getScale( Tm: in Temp) return character is
+  begin
+     return Tm.MyScale;
+  end getScale;
+
+  ----------------------------------------------
+  -- setFahrenheit(Temp), setCelsius(Temp), setKelvin(Temp)              
+  -- Receive: Tm, a Temp.                     
+  -- PRE: Tm has been initialized.             
+  -- Return: sets to those scales    
+  ----------------------------------------------
+
+  procedure setFahrenheit( Tm: in out Temp) is
+  begin
+    if getScale(Tm) = 'C' then
+      Tm.MyDegrees := ((getDegrees(Tm) * 1.8) + 32.0);
+      Tm.MyScale := 'F';
+    elsif getScale(Tm) = 'K' then
+      Tm.MyDegrees := ((getDegrees(Tm) * 1.8) - 459.67);
+      Tm.MyScale := 'F';
+    end if;
+  end setFahrenheit;
+
+  procedure setCelsius( Tm: in out Temp) is
+  begin
+    if getScale(Tm) = 'F' then
+      Tm.MyDegrees := ((getDegrees(Tm) - 32.0) / 1.8);
+      Tm.MyScale := 'C';
+    elsif getScale(Tm) = 'K' then
+      Tm.MyDegrees := (getDegrees(Tm) - 273.15);
+      Tm.MyScale := 'C';
+    end if;
+  end setCelsius;
+
+  procedure setKelvin( Tm: in out Temp) is
+  begin
+    if getScale(Tm) = 'C' then
+      Tm.MyDegrees := (getDegrees(Tm) + 273.15);
+      Tm.MyScale := 'K';
+    elsif getScale(Tm) = 'F' then
+      Tm.MyDegrees := ((getDegrees(Tm) + 459.67) * (5.0/9.0));
+      Tm.MyScale := 'K';
+    end if;
+  end setKelvin;
+
+  ----------------------------------------------
+  -- read(Temp) reads Degrees and Scale                
+  -- Receive: Tm, a Temp.                     
+  -- PRE: Tm has been initialized.             
+  -- Return: sets up Degrees and Scale if it is valid 
+  --          otherwise prints an invalid message.    
+  ----------------------------------------------
+
+  procedure read ( Tm: out Temp) is
+  Degrees : float;
+  Scale : character;
+  capScale : character;
+  begin
+    Put("Enter the degree of temp: ");
+    Get(Degrees);
+    Put("Enter the scale of temp: ");
+    Get(Scale);
+    capScale := To_Upper(Scale);
+    if isValid(Degrees, capScale) then
+      Tm.MyDegrees := Degrees;
+      Tm.MyScale := capScale;
+    else
+      Put("Invalid value");
+    end if;    
+  end read;
+
+  ----------------------------------------------
+  -- raiseTemp(Temp, degrees) incriments degrees                  
+  -- Receive: Tm, a Temp; degrees, float.                     
+  -- PRE: Tm and degrees have been initialized.             
+  -- Return: incriments degrees otherwise prints an invalid message.    
+  ----------------------------------------------
+
+  procedure raiseTemp ( Tm: in out Temp; degrees: in float) is
+  begin
+    Tm.MyDegrees := Tm.MyDegrees + degrees;
+  end raiseTemp;
+
+  ----------------------------------------------
+  -- lower(Temp, degrees) decriments degrees                  
+  -- Receive: Tm, a Temp; degrees, float.                     
+  -- PRE: Tm and degrees have been initialized.             
+  -- Return: decriments degrees otherwise prints an invalid message.    
+  ----------------------------------------------
+
+  procedure lower( Tm: in out Temp; degrees: in float) is
+  begin
+    if isValid((Tm.MyDegrees - degrees), Tm.MyScale) then
+      Tm.MyDegrees := Tm.MyDegrees - degrees;
+    else
+      Put("Invalid value");
+    end if;
+  end lower;
+
+  ----------------------------------------------
+  -- equals(Temp, Temp) retrieves baseTemp = limitTemp        
+  -- Receive: baseTemp, a Temp; limitTemp, a Temp.                      
+  -- PRE: baseTemp and limitTemp have been initialized.            
+  -- Return: true or false.                     
+  ----------------------------------------------
+
+  function equals( baseTemp: in Temp; limitTemp: in Temp) return boolean is
+  newBaseTemp, newLimitTemp : Temp;
+  begin
+    Init(newBaseTemp, getDegrees(baseTemp), getScale(baseTemp));
+    Init(newLimitTemp, getDegrees(limitTemp), getScale(limitTemp));
+    setCelsius(newBaseTemp);
+    setCelsius(newLimitTemp);
+    if getDegrees(newLimitTemp) = getDegrees(newBaseTemp) then
+      return true;
+    else
+      return false;
+    end if;
+  end equals;
+
+  ----------------------------------------------
+  -- less_than(Temp, Temp) retrieves baseTemp < limitTemp        
+  -- Receive: baseTemp, a Temp; limitTemp, a Temp.                      
+  -- PRE: baseTemp and limitTemp have been initialized.            
+  -- Return: true or false.                     
+  ----------------------------------------------
+
+  function less_than( baseTemp: in Temp; limitTemp: in Temp) return boolean is
+  newBaseTemp, newLimitTemp : Temp;
+  begin
+    Init(newBaseTemp, getDegrees(baseTemp), getScale(baseTemp));
+    Init(newLimitTemp, getDegrees(limitTemp), getScale(limitTemp));
+    setCelsius(newBaseTemp);
+    setCelsius(newLimitTemp);
+    if getDegrees(newLimitTemp) > getDegrees(newBaseTemp) then
+      return true;
+    else
+      return false;
+    end if;
+  end less_than;  
+
+  ----------------------------------------------
+  -- write(Temp) writes Temp                   
+  -- Receive: Tm, a Temp.                      
+  -- PRE: Tm has been initialized.             
+  -- Return: prints Temp.                      
+  ----------------------------------------------
+  procedure write( Tm: in Temp) is
+  begin
+    Put(getDegrees(Tm));
+    Put(" ");
+    Put(getScale(Tm));
+  end write;
+
+end temp_package;]0;chan@chan:~/Sources/school/214/projects/08/ada[chan@chan ada]$ exit
+exit
+
+Script done on 2018-04-09 10:35:57-0400
+;;; tempTester.el simulates and tests an e-LISP Temp type.
+;;;
+;;; Prof: Dr. Adams, for CS 214 at Calvin College.
+;;; Student: Chan Kim (ck45)
+;;; Date: 4/9/2018
+;;;
+
+(setq load-path (cons "." load-path))
+("." "/usr/share/emacs/25.3/site-lisp" "/usr/share/emacs/site-lisp" "/usr/share/emacs/25.3/lisp" "/usr/share/emacs/25.3/lisp/vc" "/usr/share/emacs/25.3/lisp/url" "/usr/share/emacs/25.3/lisp/textmodes" "/usr/share/emacs/25.3/lisp/progmodes" "/usr/share/emacs/25.3/lisp/play" "/usr/share/emacs/25.3/lisp/org" "/usr/share/emacs/25.3/lisp/nxml" "/usr/share/emacs/25.3/lisp/net" ...)
+
+
+(load "Temp.el")
+t
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; A simple driver for our Temp functions. ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(progn
+  (require 'cl)                              
+  (setq baseTemp (Temp 0.0 ?C))
+  (setq limitTemp (Temp 0.0 ?C))  ; build Temps
+
+  (readTemp baseTemp)
+  (readTemp limitTemp)
+  (setq stepValue (string-to-number (read-from-minibuffer "Enter the setp value: ")))
+
+  (setq buf (get-buffer "tempTester.el"))    ; buf = this buffer
+  (princ (getFullTemp baseTemp) buf)
+  (princ "\n" buf)
+  (princ (getFullTemp limitTemp) buf)
+  (princ "\n" buf)
+  (princ stepValue buf)
+  (princ "\n" buf)      
+  (while (lessThan baseTemp limitTemp)
+    (printTemp baseTemp buf)           
+    (raise baseTemp stepValue))
+)
+   0.00 F
+ 100.00 C
+2.5
+   0.00 F	 -17.78 C	 255.37 K
+   4.50 F	 -15.28 C	 257.87 K
+   9.00 F	 -12.78 C	 260.37 K
+  13.50 F	 -10.28 C	 262.87 K
+  18.00 F	  -7.78 C	 265.37 K
+  22.50 F	  -5.28 C	 267.87 K
+  27.00 F	  -2.78 C	 270.37 K
+  31.50 F	  -0.28 C	 272.87 K
+  36.00 F	   2.22 C	 275.37 K
+  40.50 F	   4.72 C	 277.87 K
+  45.00 F	   7.22 C	 280.37 K
+  49.50 F	   9.72 C	 282.87 K
+  54.00 F	  12.22 C	 285.37 K
+  58.50 F	  14.72 C	 287.87 K
+  63.00 F	  17.22 C	 290.37 K
+  67.50 F	  19.72 C	 292.87 K
+  72.00 F	  22.22 C	 295.37 K
+  76.50 F	  24.72 C	 297.87 K
+  81.00 F	  27.22 C	 300.37 K
+  85.50 F	  29.72 C	 302.87 K
+  90.00 F	  32.22 C	 305.37 K
+  94.50 F	  34.72 C	 307.87 K
+  99.00 F	  37.22 C	 310.37 K
+ 103.50 F	  39.72 C	 312.87 K
+ 108.00 F	  42.22 C	 315.37 K
+ 112.50 F	  44.72 C	 317.87 K
+ 117.00 F	  47.22 C	 320.37 K
+ 121.50 F	  49.72 C	 322.87 K
+ 126.00 F	  52.22 C	 325.37 K
+ 130.50 F	  54.72 C	 327.87 K
+ 135.00 F	  57.22 C	 330.37 K
+ 139.50 F	  59.72 C	 332.87 K
+ 144.00 F	  62.22 C	 335.37 K
+ 148.50 F	  64.72 C	 337.87 K
+ 153.00 F	  67.22 C	 340.37 K
+ 157.50 F	  69.72 C	 342.87 K
+ 162.00 F	  72.22 C	 345.37 K
+ 166.50 F	  74.72 C	 347.87 K
+ 171.00 F	  77.22 C	 350.37 K
+ 175.50 F	  79.72 C	 352.87 K
+ 180.00 F	  82.22 C	 355.37 K
+ 184.50 F	  84.72 C	 357.87 K
+ 189.00 F	  87.22 C	 360.37 K
+ 193.50 F	  89.72 C	 362.87 K
+ 198.00 F	  92.22 C	 365.37 K
+ 202.50 F	  94.72 C	 367.87 K
+ 207.00 F	  97.22 C	 370.37 K
+ 211.50 F	  99.72 C	 372.87 K
+nil
+
+   0.00 K
+ 212.00 F
+20.0
+-459.67 F	-273.15 C	   0.00 K
+-423.67 F	-253.15 C	  20.00 K
+-387.67 F	-233.15 C	  40.00 K
+-351.67 F	-213.15 C	  60.00 K
+-315.67 F	-193.15 C	  80.00 K
+-279.67 F	-173.15 C	 100.00 K
+-243.67 F	-153.15 C	 120.00 K
+-207.67 F	-133.15 C	 140.00 K
+-171.67 F	-113.15 C	 160.00 K
+-135.67 F	 -93.15 C	 180.00 K
+ -99.67 F	 -73.15 C	 200.00 K
+ -63.67 F	 -53.15 C	 220.00 K
+ -27.67 F	 -33.15 C	 240.00 K
+   8.33 F	 -13.15 C	 260.00 K
+  44.33 F	   6.85 C	 280.00 K
+  80.33 F	  26.85 C	 300.00 K
+ 116.33 F	  46.85 C	 320.00 K
+ 152.33 F	  66.85 C	 340.00 K
+ 188.33 F	  86.85 C	 360.00 K
+nil
+
+
+;;; Temp.el simulates an e-LISP Temp type and operations on that type.
+;;;
+;;; Prof: Dr. Adams, for CS 214 at Calvin College.
+;;; Student: Chan Kim (ck45)
+;;; Date: 4/9/2018
+;;;
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; Temp constructs a Temp from two values.         ;;
+;;; Receive: degrees, float; scale, char            ;;
+;;; Return: set to degrees, and scale.              ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defun Temp(degrees scale)
+  (list degrees scale) )
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; isValid(degrees, scale) checks the validation.        
+;;; Receive: degrees, float; scale, a character.                      
+;;; PRE: degrees and scale have been initialized.            
+;;; Return: t or nil.   
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defun isValid(degrees scale)
+  (if (and (>= degrees -459.6) (char-equal scale ?F))
+      (setq return t)
+    (if (and (>= degrees -273.15) (char-equal scale ?C))
+	(setq return t)
+      (if (and (>= degrees 0.0) (char-equal scale ?K))
+	  (setq return t)
+	(setq return nil))))
+  return)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; getDegrees extracts the degrees of a Temp object.;
+;;; Receive: theTemp, a Temp.                       
+;;; Return: the degrees in theTemp.           
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defun getDegrees(theTemp)
+  (car theTemp) )
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; getScale extracts the scale of a Temp object.;
+;;; Receive: theTemp, a Temp.                       
+;;; Return: the scale in theTemp.             
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defun getScale(theTemp)
+  (car (cdr theTemp) ) )
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; setDegrees sets the degrees of a Temp object.;
+;;; Receive: theTemp, a Temp; degrees, float.                       
+;;; Return: theTemp with new degrees.           
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defun setDegrees(theTemp degrees)
+  (setcar theTemp degrees)
+theTemp)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; setScale sets the scale of a Temp object.;
+;;; Receive: theTemp, a Temp; scale, char.                       
+;;; Return: theTemp with a new scale.             
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defun setScale(theTemp scale)
+  (setf (car (cdr theTemp)) scale)
+theTemp)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; setFahrenheit(theTemp), setCelsius(theTemp), setKelvin(theTemp)              
+;;; Receive: theTemp, a Temp.                     
+;;; PRE: theTemp has been initialized.             
+;;; Return: sets to those scales
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defun setFahrenheit(theTemp)
+  (if (char-equal (getScale theTemp) ?C)
+    (progn (setScale theTemp ?F)
+      (setDegrees theTemp (+ 32.0 (* 1.8 (getDegrees theTemp)))))
+  (if (char-equal (getScale theTemp) ?K)
+    (progn (setScale theTemp ?F)
+      (setDegrees theTemp (- (* 1.8 (getDegrees theTemp)) 459.67))
+      )))        
+theTemp)
+
+(defun setCelsius(theTemp)
+  (if (char-equal (getScale theTemp) ?F)
+    (progn (setScale theTemp ?C)
+      (setDegrees theTemp (/ (- (getDegrees theTemp) 32.0) 1.8)))
+  (if (char-equal (getScale theTemp) ?K)
+    (progn (setScale theTemp ?C)
+      (setDegrees theTemp (- (getDegrees theTemp) 273.15)))
+  ))        
+theTemp)
+
+(defun setKelvin(theTemp)
+  (if (char-equal (getScale theTemp) ?C)
+    (progn (setScale theTemp ?K)
+      (setDegrees theTemp (+ 273.15 (getDegrees theTemp))))
+  (if (char-equal (getScale theTemp) ?F)
+    (progn (setScale theTemp ?K)
+      (setDegrees theTemp (* (+ 459.67 (getDegrees theTemp)) (/ 5.0 9.0))))
+  ))        
+theTemp)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; readTemp(theTemp) reads degrees and scale                
+;;; Receive: theTemp, a Temp.                     
+;;; PRE: theTemp has been initialized.             
+;;; Return: sets up degrees and scale if it is valid 
+;;;         otherwise prints an invalid message.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defun readTemp(theTemp)
+  (setq newDegrees 0.0)
+  (setq newScale ?C)
+  (setq values (upcase (read-from-minibuffer "Enter a temperature with its scale: ")))
+  (setq newDegrees (string-to-number values))
+  (setq newScale (string-to-char (byte-to-string (aref values (- (length values) 1)))))
+  (if (isValid newDegrees newScale)
+    (progn (setDegrees theTemp newDegrees)
+      (setScale theTemp newScale))
+    (princ "Invalid value"))
+theTemp)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; raise(theTemp degrees) incriments degrees               
+;;; Receive: theTemp, a Temp; degrees, float.                     
+;;; PRE: theTemp and degrees have been initialized.             
+;;; Return: incriments degrees.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defun raise(theTemp degrees)
+  (setDegrees theTemp (+ (getDegrees theTemp) degrees))
+)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; lower(theTemp degrees) decriments degrees               
+;;; Receive: theTemp, a Temp; degrees, float.                     
+;;; PRE: theTemp and degrees have been initialized.             
+;;; Return: decriments degrees otherwise prints an invalid message. 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defun lower(theTemp degrees)
+  (if (isValid (- (getDegrees theTemp) degrees) (getScale theTemp))
+    (setDegrees theTemp (- (getDegrees theTemp) degrees)))
+theTemp)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; equals(baseTemp limitTemp) retrieves baseTemp = limitTemp               
+;;; Receive: baseTemp, a Temp; limitTemp, a Temp.                     
+;;; PRE: baseTemp and limitTemp have been initialized.             
+;;; Return: true or false.  
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defun equals(baseTemp limitTemp)
+  (let ((copyBase (copy-sequence baseTemp))
+    (copyLimit (copy-sequence limitTemp)))
+    (setCelsius copyBase)
+    (setCelsius copyLimit)
+    (= (getDegrees copyBase) (getDegrees copyLimit)))
+)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; lessThan(baseTemp limitTemp) retrieves baseTemp < limitTemp               
+;;; Receive: baseTemp, a Temp; limitTemp, a Temp.                     
+;;; PRE: baseTemp and limitTemp have been initialized.             
+;;; Return: true or false.  
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defun lessThan(baseTemp limitTemp)
+  (let ((copyBase (copy-sequence baseTemp))
+    (copyLimit (copy-sequence limitTemp)))
+    (setCelsius copyBase)
+    (setCelsius copyLimit)
+    (< (getDegrees copyBase) (getDegrees copyLimit)))
+)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; getFullTemp returns a full Temp in degrees scale order. 
+;;; Return: degrees, scale.           
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defun getFullTemp (theTemp)
+   (concat (format "%7.2f" (getDegrees theTemp)) " " (char-to-string (getScale theTemp))))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; printTemp displays a Temp object.         
+;;; Receive: theTemp, a Temp,                 
+;;;          buffer, the Temp of a buffer.   
+;;; Output: the strings in theTemp to buffer. ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defun printTemp (theTemp buf)
+  (let ((copyTemp (copy-sequence theTemp)))
+   (princ (getFullTemp (setFahrenheit theTemp)) buf)
+   (princ "\t" buf)
+   (princ (getFullTemp (setCelsius theTemp)) buf)
+   (princ "\t" buf)
+   (princ (getFullTemp (setKelvin theTemp)) buf)
+   (princ "\n" buf))      
+   theTemp )
+Script started on 2018-04-09 10:36:56-0400
+]0;chan@chan:~/Sources/school/214/projects/08/ruby[chan@chan ruby]$ ls
+script.ruby  Temp.rb  tempTester.rb
+]0;chan@chan:~/Sources/school/214/projects/08/ruby[chan@chan ruby]$ cat Temp.rb 
+# Temp.rb implements class Temp.
+#
+# Prof: Dr. Adams, for CS 214 at Calvin College.
+# Student: Chan Kim (ck45)
+# Date: 4/9/2018
+####################################################
+
+module Temps
+
+    class Temp
+
+        ####################################################
+        # initialize(degrees, scale) initializes a Temp variable          
+        # Receive: degrees, the degrees ;         
+        #          scale, the scale .         
+        # Return: set to degrees, and scale if it is valid.
+        ####################################################
+
+        def initialize(degrees, scale)
+            if (isValid(degrees, scale.upcase)) then
+                @degrees, @scale = degrees, scale.upcase
+            else
+                print "Invalid value"
+            end
+        end
+
+        attr_reader :degrees, :scale
+
+        ####################################################
+        # isValid(degrees, scale) checks the validation.        
+        # Receive: degrees, float; scale, a character.                      
+        # PRE: degrees and scale have been initialized.            
+        # Return: true or false.
+        ####################################################
+
+        def isValid(degrees, scale)
+            if (scale == 'F') then
+                if (degrees < -459.67)
+                    return false;
+                else
+                    return true;
+                end
+            elsif (scale == 'C') then
+                if (degrees < -273.15)
+                    return false;
+                else
+                    return true;
+                end
+            elsif (scale == 'K') then
+                if (degrees < 0.0)
+                    return false;
+                else
+                    return true;
+                end
+            else
+                return false;
+            end
+        end
+
+        ####################################################
+        # setFahrenheit(), setCelsius(), setKelvin()                                  
+        # PRE: degrees and scale have been initialized.             
+        # Return: sets to those scales    
+        ####################################################
+
+        def setFahrenheit()
+            if (@scale == 'C')
+                @degrees = ((@degrees * 1.8) + 32.0)
+                @scale = 'F'
+            elsif (@scale == 'K')
+                @degrees = ((@degrees * 1.8) - 459.67)
+                @scale = 'F'
+            end
+        end
+
+        def setCelsius()
+            if (@scale == 'F')
+                @degrees = ((@degrees - 32.0) / 1.8)
+                @scale = 'C'
+            elsif (@scale == 'K')
+                @degrees = (@degrees - 273.15)
+                @scale = 'C'
+            end
+        end
+
+        def setKelvin()
+            if (@scale == 'C')
+                @degrees = (@degrees + 273.15)
+                @scale = 'K'
+            elsif (@scale == 'F')
+                @degrees = ((@degrees + 459.67) * (5.0/9.0))
+                @scale = 'K'
+            end
+        end
+
+        ####################################################
+        # read() reads degrees and scale                                     
+        # Return: sets up degrees and scale if it is valid 
+        #          otherwise prints an invalid message. 
+        ####################################################
+
+        def read()
+            values = gets
+            parts = values.split(" ")
+            degrees = parts[0].to_f
+            scale = parts[1].to_s
+            if (isValid(degrees, scale.upcase)) then
+                @degrees, @scale = degrees, scale.upcase
+            else
+                print "Invalid value"
+            end
+        end
+        
+        ####################################################
+        # raiseTemp(degree) incriments degrees                  
+        # Receive: degree, number.                     
+        # PRE: degrees has been initialized.             
+        # Return: incriments degrees otherwise prints an invalid message.
+        ####################################################
+        
+        def raise(degree)
+            @degrees = @degrees + degree
+        end
+
+        ####################################################
+        # lower(degree) decriments degrees                  
+        # Receive: degree, number.                     
+        # PRE: degrees has been initialized.               
+        # Return: decriments degrees otherwise prints an invalid message. 
+        ####################################################
+
+        def lower(degree)
+            if (isValid((@degrees - degree), @scale)) then
+                @degrees = @degrees - degree
+            else
+                print "Invalid value"
+            end            
+        end
+
+        ####################################################
+        # equals(temp) retrieves baseTemp = limitTemp        
+        # Receive: temp, a Temp.                      
+        # PRE: baseTemp and limitTemp have been initialized.            
+        # Return: true or false. 
+        ####################################################
+
+        def equals(temp)
+            temp.setCelsius
+            setCelsius
+            if (temp.degrees == @degrees) then
+                return false;
+            else
+                return true;
+            end
+        end
+
+        ####################################################
+        # less_than(temp) retrieves baseTemp < limitTemp        
+        # Receive: temp, a Temp.                      
+        # PRE: baseTemp and limitTemp have been initialized.            
+        # Return: true or false. 
+        ####################################################
+
+        def less_than(temp)
+            temp.setCelsius
+            setCelsius
+            if (temp.degrees > @degrees) then
+                return true;
+            else
+                return false;
+            end
+        end            
+        ####################################################
+        # write() writes Temp                                       
+        # PRE: degrees has been initialized.           
+        # Return: prints Temp.                     
+        ####################################################
+
+        def write()
+            print @degrees.to_s + " " + @scale
+        end
+    end
+end]0;chan@chan:~/Sources/school/214/projects/08/ruby[chan@chan ruby]$ cat tempTester.rb 
+# tempTester.rb tests class Temp and its operations
+#
+# Prof: Dr. Adams, for CS 214 at Calvin College.
+# Student: Chan Kim (ck45)
+# Date: 4/9/2018
+####################################################
+
+require './Temp.rb'
+
+def testTemp
+        baseTemp = Temps::Temp.new(0.0, 'C')
+        baseTemp.read
+        limitTemp = Temps::Temp.new(0.0, 'C')
+        limitTemp.read
+        
+        stepValue = gets.to_f
+
+        scale = baseTemp.scale
+
+        while (baseTemp.equals(limitTemp) && baseTemp.less_than(limitTemp)) do
+                
+                baseTemp.setFahrenheit
+                baseTemp.write
+                print("\t")
+                baseTemp.setCelsius
+                baseTemp.write
+                print("\t")
+                baseTemp.setKelvin
+                baseTemp.write
+                print("\n")
+
+                if (scale == 'F') then
+                        baseTemp.setFahrenheit
+                elsif (scale == 'C') then
+                        baseTemp.setCelsius
+                elsif (scale == 'K') then
+                        baseTemp.setKelvin
+                end
+
+                baseTemp.raise(stepValue)
+        end
+end
+
+testTemp
+
+]0;chan@chan:~/Sources/school/214/projects/08/ruby[chan@chan ruby]$ ruby tempTester.rb 
+0 F
+100 C
+2.5
+0.0 F	-17.77777777777778 C	255.3722222222222 K
+2.4999999999999396 F	-16.38888888888892 C	256.76111111111106 K
+4.999999999999886 F	-15.000000000000062 C	258.1499999999999 K
+7.4999999999998295 F	-13.611111111111205 C	259.5388888888888 K
+9.999999999999773 F	-12.222222222222348 C	260.92777777777764 K
+12.499999999999716 F	-10.83333333333349 C	262.3166666666665 K
+14.999999999999659 F	-9.444444444444633 C	263.70555555555535 K
+17.499999999999602 F	-8.055555555555776 C	265.0944444444442 K
+19.999999999999545 F	-6.666666666666919 C	266.48333333333306 K
+22.49999999999949 F	-5.277777777778062 C	267.8722222222219 K
+24.99999999999943 F	-3.8888888888892046 C	269.2611111111108 K
+27.499999999999375 F	-2.5000000000003473 C	270.64999999999964 K
+29.999999999999318 F	-1.11111111111149 C	272.0388888888885 K
+32.49999999999926 F	0.27777777777736723 C	273.42777777777735 K
+34.999999999999204 F	1.6666666666662244 C	274.8166666666662 K
+37.49999999999915 F	3.055555555555082 C	276.20555555555507 K
+39.99999999999909 F	4.444444444443939 C	277.5944444444439 K
+42.499999999999034 F	5.833333333332797 C	278.9833333333328 K
+44.99999999999898 F	7.222222222221654 C	280.37222222222164 K
+47.49999999999892 F	8.61111111111051 C	281.7611111111105 K
+49.99999999999886 F	9.999999999999368 C	283.14999999999935 K
+52.499999999998806 F	11.388888888888225 C	284.5388888888882 K
+54.999999999998806 F	12.777777777777114 C	285.92777777777707 K
+57.49999999999869 F	14.16666666666594 C	287.3166666666659 K
+59.99999999999869 F	15.555555555554829 C	288.7055555555548 K
+62.49999999999858 F	16.944444444443654 C	290.09444444444364 K
+64.99999999999858 F	18.333333333332543 C	291.4833333333325 K
+67.49999999999847 F	19.72222222222137 C	292.87222222222135 K
+69.99999999999847 F	21.111111111110258 C	294.2611111111102 K
+72.49999999999835 F	22.499999999999083 C	295.64999999999907 K
+74.99999999999835 F	23.888888888887973 C	297.0388888888879 K
+77.49999999999824 F	25.277777777776798 C	298.4277777777768 K
+79.99999999999824 F	26.666666666665687 C	299.81666666666564 K
+82.49999999999812 F	28.055555555554513 C	301.2055555555545 K
+84.99999999999812 F	29.444444444443402 C	302.59444444444335 K
+87.49999999999801 F	30.833333333332227 C	303.9833333333322 K
+89.99999999999801 F	32.22222222222111 C	305.37222222222107 K
+92.4999999999979 F	33.61111111110994 C	306.7611111111099 K
+94.9999999999979 F	34.99999999999883 C	308.1499999999988 K
+97.49999999999778 F	36.38888888888766 C	309.53888888888764 K
+99.99999999999778 F	37.77777777777654 C	310.9277777777765 K
+102.49999999999767 F	39.16666666666537 C	312.31666666666536 K
+104.99999999999767 F	40.55555555555426 C	313.7055555555542 K
+107.49999999999756 F	41.944444444443086 C	315.09444444444307 K
+109.99999999999756 F	43.33333333333197 C	316.4833333333319 K
+112.49999999999744 F	44.7222222222208 C	317.8722222222208 K
+114.99999999999744 F	46.111111111109686 C	319.26111111110964 K
+117.49999999999733 F	47.499999999998515 C	320.6499999999985 K
+119.99999999999733 F	48.8888888888874 C	322.03888888888736 K
+122.49999999999721 F	50.27777777777623 C	323.4277777777762 K
+124.99999999999721 F	51.666666666665115 C	324.81666666666507 K
+127.4999999999971 F	53.055555555553944 C	326.20555555555393 K
+129.9999999999971 F	54.44444444444283 C	327.5944444444428 K
+132.499999999997 F	55.83333333333166 C	328.98333333333164 K
+134.999999999997 F	57.222222222220545 C	330.3722222222205 K
+137.49999999999687 F	58.61111111110937 C	331.76111111110936 K
+139.99999999999687 F	59.99999999999826 C	333.1499999999982 K
+142.49999999999676 F	61.38888888888709 C	334.5388888888871 K
+144.99999999999676 F	62.777777777775974 C	335.92777777777593 K
+147.49999999999665 F	64.1666666666648 C	337.3166666666648 K
+149.99999999999665 F	65.5555555555537 C	338.7055555555537 K
+152.49999999999665 F	66.94444444444258 C	340.09444444444256 K
+154.99999999999665 F	68.33333333333147 C	341.4833333333314 K
+157.49999999999653 F	69.7222222222203 C	342.8722222222203 K
+159.99999999999653 F	71.11111111110918 C	344.26111111110913 K
+162.49999999999642 F	72.49999999999801 C	345.649999999998 K
+164.99999999999642 F	73.8888888888869 C	347.03888888888685 K
+167.4999999999963 F	75.27777777777573 C	348.4277777777757 K
+169.9999999999963 F	76.66666666666461 C	349.81666666666456 K
+172.4999999999962 F	78.05555555555344 C	351.2055555555534 K
+174.9999999999962 F	79.44444444444233 C	352.5944444444423 K
+177.49999999999608 F	80.83333333333115 C	353.98333333333113 K
+179.99999999999608 F	82.22222222222004 C	355.37222222222 K
+182.49999999999596 F	83.61111111110887 C	356.76111111110885 K
+184.99999999999596 F	84.99999999999775 C	358.1499999999977 K
+187.49999999999585 F	86.38888888888658 C	359.53888888888656 K
+189.99999999999585 F	87.77777777777547 C	360.9277777777754 K
+192.49999999999574 F	89.1666666666643 C	362.3166666666643 K
+194.99999999999574 F	90.55555555555318 C	363.70555555555313 K
+197.49999999999562 F	91.94444444444201 C	365.094444444442 K
+199.99999999999562 F	93.3333333333309 C	366.48333333333085 K
+202.4999999999955 F	94.72222222221973 C	367.8722222222197 K
+204.9999999999955 F	96.11111111110861 C	369.26111111110856 K
+207.4999999999954 F	97.49999999999744 C	370.6499999999974 K
+209.9999999999954 F	98.88888888888633 C	372.0388888888863 K
+]0;chan@chan:~/Sources/school/214/projects/08/ruby[chan@chan ruby]$ ruby tempTester.rb 
+0 k
+212 f
+20.0
+-459.66999999999996 F	-273.15 C	0.0 K
+-423.66999999999996 F	-253.14999999999998 C	20.0 K
+-387.66999999999996 F	-233.14999999999998 C	40.0 K
+-351.66999999999996 F	-213.14999999999998 C	60.0 K
+-315.66999999999996 F	-193.14999999999998 C	80.0 K
+-279.66999999999996 F	-173.14999999999998 C	100.0 K
+-243.66999999999996 F	-153.14999999999998 C	120.0 K
+-207.66999999999996 F	-133.14999999999998 C	140.0 K
+-171.66999999999996 F	-113.14999999999998 C	160.0 K
+-135.66999999999996 F	-93.14999999999998 C	180.0 K
+-99.66999999999996 F	-73.14999999999998 C	200.0 K
+-63.66999999999996 F	-53.14999999999998 C	220.0 K
+-27.66999999999996 F	-33.14999999999998 C	240.0 K
+8.330000000000041 F	-13.149999999999977 C	260.0 K
+44.33000000000004 F	6.850000000000023 C	280.0 K
+80.33000000000004 F	26.850000000000023 C	300.0 K
+116.33000000000004 F	46.85000000000002 C	320.0 K
+152.33000000000004 F	66.85000000000002 C	340.0 K
+188.33000000000004 F	86.85000000000002 C	360.0 K
+]0;chan@chan:~/Sources/school/214/projects/08/ruby[chan@chan ruby]$ e[Kls
+script.ruby  Temp.rb  tempTester.rb
+]0;chan@chan:~/Sources/school/214/projects/08/ruby[chan@chan ruby]$ x[Kexit
+exit
+
+Script done on 2018-04-09 10:37:43-0400

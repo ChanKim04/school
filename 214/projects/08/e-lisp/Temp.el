@@ -22,11 +22,11 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defun isValid(degrees scale)
-  (if (and (char-equal scale ?F) (>= degrees -459.6))
+  (if (and (>= degrees -459.6) (char-equal scale ?F))
       (setq return t)
-    (if (and (char-equal scale ?C) (>= degrees -273.15))
+    (if (and (>= degrees -273.15) (char-equal scale ?C))
 	(setq return t)
-      (if (and (char-equal scale ?K) (>= degrees 0.0))
+      (if (and (>= degrees 0.0) (char-equal scale ?K))
 	  (setq return t)
 	(setq return nil))))
   return)
@@ -41,7 +41,7 @@
   (car theTemp) )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; getDegrees extracts the scale of a Temp object.;
+;;; getScale extracts the scale of a Temp object.;
 ;;; Receive: theTemp, a Temp.                       
 ;;; Return: the scale in theTemp.             
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -49,9 +49,21 @@
 (defun getScale(theTemp)
   (car (cdr theTemp) ) )
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; setDegrees sets the degrees of a Temp object.;
+;;; Receive: theTemp, a Temp; degrees, float.                       
+;;; Return: theTemp with new degrees.           
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (defun setDegrees(theTemp degrees)
   (setcar theTemp degrees)
 theTemp)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; setScale sets the scale of a Temp object.;
+;;; Receive: theTemp, a Temp; scale, char.                       
+;;; Return: theTemp with a new scale.             
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defun setScale(theTemp scale)
   (setf (car (cdr theTemp)) scale)
@@ -67,40 +79,42 @@ theTemp)
 (defun setFahrenheit(theTemp)
   (if (char-equal (getScale theTemp) ?C)
     (progn (setScale theTemp ?F)
-      (setDegrees theTemp (+ 32.0 (* 1.8 (getDegrees theTemp))))
-      (theTemp))
+      (setDegrees theTemp (+ 32.0 (* 1.8 (getDegrees theTemp)))))
   (if (char-equal (getScale theTemp) ?K)
     (progn (setScale theTemp ?F)
-      (setDegrees theTemp (- 459.67 (* 1.8 (getDegrees theTemp))))
-      (theTemp))
-  ))        
+      (setDegrees theTemp (- (* 1.8 (getDegrees theTemp)) 459.67))
+      )))        
 theTemp)
 
 (defun setCelsius(theTemp)
   (if (char-equal (getScale theTemp) ?F)
     (progn (setScale theTemp ?C)
-      (setDegrees theTemp (- 32.0 (/ 1.8 (getDegrees theTemp))))
-      (theTemp))
+      (setDegrees theTemp (/ (- (getDegrees theTemp) 32.0) 1.8)))
   (if (char-equal (getScale theTemp) ?K)
     (progn (setScale theTemp ?C)
-      (setDegrees theTemp (- 273.15 (getDegrees theTemp)))
-      (theTemp))
+      (setDegrees theTemp (- (getDegrees theTemp) 273.15)))
   ))        
 theTemp)
 
 (defun setKelvin(theTemp)
   (if (char-equal (getScale theTemp) ?C)
     (progn (setScale theTemp ?K)
-      (setDegrees theTemp (+ 273.15 (getDegrees theTemp)))
-      (theTemp))
+      (setDegrees theTemp (+ 273.15 (getDegrees theTemp))))
   (if (char-equal (getScale theTemp) ?F)
     (progn (setScale theTemp ?K)
-      (setDegrees theTemp (+ 459.67 (/ 1.8 (getDegrees theTemp))))
-      (theTemp))
+      (setDegrees theTemp (* (+ 459.67 (getDegrees theTemp)) (/ 5.0 9.0))))
   ))        
 theTemp)
 
-(defun read(theTemp)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; readTemp(theTemp) reads degrees and scale                
+;;; Receive: theTemp, a Temp.                     
+;;; PRE: theTemp has been initialized.             
+;;; Return: sets up degrees and scale if it is valid 
+;;;         otherwise prints an invalid message.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defun readTemp(theTemp)
   (setq newDegrees 0.0)
   (setq newScale ?C)
   (setq values (upcase (read-from-minibuffer "Enter a temperature with its scale: ")))
@@ -112,34 +126,66 @@ theTemp)
     (princ "Invalid value"))
 theTemp)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; raise(theTemp degrees) incriments degrees               
+;;; Receive: theTemp, a Temp; degrees, float.                     
+;;; PRE: theTemp and degrees have been initialized.             
+;;; Return: incriments degrees.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (defun raise(theTemp degrees)
   (setDegrees theTemp (+ (getDegrees theTemp) degrees))
 )
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; lower(theTemp degrees) decriments degrees               
+;;; Receive: theTemp, a Temp; degrees, float.                     
+;;; PRE: theTemp and degrees have been initialized.             
+;;; Return: decriments degrees otherwise prints an invalid message. 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defun lower(theTemp degrees)
   (if (isValid (- (getDegrees theTemp) degrees) (getScale theTemp))
     (setDegrees theTemp (- (getDegrees theTemp) degrees)))
 theTemp)
 
-(defun equals(baseTemp, limitTemp)
-  (let (setCelsius baseTemp)
-    (setCelsius limitTemp)
-    (= (getDegrees baseTemp) (getDegrees limitTemp)))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; equals(baseTemp limitTemp) retrieves baseTemp = limitTemp               
+;;; Receive: baseTemp, a Temp; limitTemp, a Temp.                     
+;;; PRE: baseTemp and limitTemp have been initialized.             
+;;; Return: true or false.  
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defun equals(baseTemp limitTemp)
+  (let ((copyBase (copy-sequence baseTemp))
+    (copyLimit (copy-sequence limitTemp)))
+    (setCelsius copyBase)
+    (setCelsius copyLimit)
+    (= (getDegrees copyBase) (getDegrees copyLimit)))
 )
 
-(defun less_than(baseTemp, limitTemp)
-  (let (setCelsius baseTemp)
-    (setCelsius limitTemp)
-    (< (getDegrees baseTemp) (getDegrees limitTemp)))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; lessThan(baseTemp limitTemp) retrieves baseTemp < limitTemp               
+;;; Receive: baseTemp, a Temp; limitTemp, a Temp.                     
+;;; PRE: baseTemp and limitTemp have been initialized.             
+;;; Return: true or false.  
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defun lessThan(baseTemp limitTemp)
+  (let ((copyBase (copy-sequence baseTemp))
+    (copyLimit (copy-sequence limitTemp)))
+    (setCelsius copyBase)
+    (setCelsius copyLimit)
+    (< (getDegrees copyBase) (getDegrees copyLimit)))
 )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; getFullTemp returns a full Temp in F-M-L order. 
-;;; Return: myFirst, myMiddle, myLast.           
+;;; getFullTemp returns a full Temp in degrees scale order. 
+;;; Return: degrees, scale.           
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defun getFullTemp (theTemp)
-   (concat (getDegrees theTemp) " " (getScale theTemp)))
+   (concat (format "%7.2f" (getDegrees theTemp)) " " (char-to-string (getScale theTemp))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; printTemp displays a Temp object.         
@@ -149,5 +195,11 @@ theTemp)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defun printTemp (theTemp buf)
-   (princ (getFullTemp theTemp) buf)
+  (let ((copyTemp (copy-sequence theTemp)))
+   (princ (getFullTemp (setFahrenheit theTemp)) buf)
+   (princ "\t" buf)
+   (princ (getFullTemp (setCelsius theTemp)) buf)
+   (princ "\t" buf)
+   (princ (getFullTemp (setKelvin theTemp)) buf)
+   (princ "\n" buf))      
    theTemp )

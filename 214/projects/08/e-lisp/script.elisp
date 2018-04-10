@@ -1,99 +1,321 @@
-;;; nameTester.el simulates and tests an e-LISP Name type.
+;;; tempTester.el simulates and tests an e-LISP Temp type.
 ;;;
-;;; Begun by: Dr. Adams, CS 214 at Calvin College.
-;;; Completed by: Chan Kim (ck45)
-;;; Date: 4/4/2018
+;;; Prof: Dr. Adams, for CS 214 at Calvin College.
+;;; Student: Chan Kim (ck45)
+;;; Date: 4/9/2018
 ;;;
 
 (setq load-path (cons "." load-path))
 ("." "/usr/share/emacs/25.3/site-lisp" "/usr/share/emacs/site-lisp" "/usr/share/emacs/25.3/lisp" "/usr/share/emacs/25.3/lisp/vc" "/usr/share/emacs/25.3/lisp/url" "/usr/share/emacs/25.3/lisp/textmodes" "/usr/share/emacs/25.3/lisp/progmodes" "/usr/share/emacs/25.3/lisp/play" "/usr/share/emacs/25.3/lisp/org" "/usr/share/emacs/25.3/lisp/nxml" "/usr/share/emacs/25.3/lisp/net" ...)
 
-(load "Name.el")
+
+(load "Temp.el")
 t
 
 
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; A simple driver for our Name functions. ;;
+;;; A simple driver for our Temp functions. ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (progn
-  (require 'cl)                              ; Common Lisp's assert
-  (setq aName (Name "John" "Paul" "Jones"))  ; build a Name
+  (require 'cl)                              
+  (setq baseTemp (Temp 0.0 ?C))
+  (setq limitTemp (Temp 0.0 ?C))  ; build Temps
 
-  (assert (equal (getFirst aName) "John" ))  ; test it
-  (assert (equal (getMiddle aName) "Paul" ))
-  (assert (equal (getLast aName) "Jones" ))
-  (assert (equal (getFullName aName) "John Paul Jones" ))
+  (readTemp baseTemp)
+  (readTemp limitTemp)
+  (setq stepValue (string-to-number (read-from-minibuffer "Enter the setp value: ")))
 
-  (setq buf (get-buffer "nameTester.el"))    ; buf = this buffer
-  (assert (eq (printName aName buf) aName) )
-  (terpri buf)                               ; newline
-  (princ "All tests passed!" buf)            ; feedback
-  (terpri buf))                              ; newline
-John Paul Jones
-All tests passed!
-t
+  (setq buf (get-buffer "tempTester.el"))    ; buf = this buffer
+  (princ (getFullTemp baseTemp) buf)
+  (princ "\n" buf)
+  (princ (getFullTemp limitTemp) buf)
+  (princ "\n" buf)
+  (princ stepValue buf)
+  (princ "\n" buf)      
+  (while (lessThan baseTemp limitTemp)
+    (printTemp baseTemp buf)           
+    (raise baseTemp stepValue))
+)
+   0.00 F
+ 100.00 C
+2.5
+   0.00 F	 -17.78 C	 255.37 K
+   4.50 F	 -15.28 C	 257.87 K
+   9.00 F	 -12.78 C	 260.37 K
+  13.50 F	 -10.28 C	 262.87 K
+  18.00 F	  -7.78 C	 265.37 K
+  22.50 F	  -5.28 C	 267.87 K
+  27.00 F	  -2.78 C	 270.37 K
+  31.50 F	  -0.28 C	 272.87 K
+  36.00 F	   2.22 C	 275.37 K
+  40.50 F	   4.72 C	 277.87 K
+  45.00 F	   7.22 C	 280.37 K
+  49.50 F	   9.72 C	 282.87 K
+  54.00 F	  12.22 C	 285.37 K
+  58.50 F	  14.72 C	 287.87 K
+  63.00 F	  17.22 C	 290.37 K
+  67.50 F	  19.72 C	 292.87 K
+  72.00 F	  22.22 C	 295.37 K
+  76.50 F	  24.72 C	 297.87 K
+  81.00 F	  27.22 C	 300.37 K
+  85.50 F	  29.72 C	 302.87 K
+  90.00 F	  32.22 C	 305.37 K
+  94.50 F	  34.72 C	 307.87 K
+  99.00 F	  37.22 C	 310.37 K
+ 103.50 F	  39.72 C	 312.87 K
+ 108.00 F	  42.22 C	 315.37 K
+ 112.50 F	  44.72 C	 317.87 K
+ 117.00 F	  47.22 C	 320.37 K
+ 121.50 F	  49.72 C	 322.87 K
+ 126.00 F	  52.22 C	 325.37 K
+ 130.50 F	  54.72 C	 327.87 K
+ 135.00 F	  57.22 C	 330.37 K
+ 139.50 F	  59.72 C	 332.87 K
+ 144.00 F	  62.22 C	 335.37 K
+ 148.50 F	  64.72 C	 337.87 K
+ 153.00 F	  67.22 C	 340.37 K
+ 157.50 F	  69.72 C	 342.87 K
+ 162.00 F	  72.22 C	 345.37 K
+ 166.50 F	  74.72 C	 347.87 K
+ 171.00 F	  77.22 C	 350.37 K
+ 175.50 F	  79.72 C	 352.87 K
+ 180.00 F	  82.22 C	 355.37 K
+ 184.50 F	  84.72 C	 357.87 K
+ 189.00 F	  87.22 C	 360.37 K
+ 193.50 F	  89.72 C	 362.87 K
+ 198.00 F	  92.22 C	 365.37 K
+ 202.50 F	  94.72 C	 367.87 K
+ 207.00 F	  97.22 C	 370.37 K
+ 211.50 F	  99.72 C	 372.87 K
+nil
+
+   0.00 K
+ 212.00 F
+20.0
+-459.67 F	-273.15 C	   0.00 K
+-423.67 F	-253.15 C	  20.00 K
+-387.67 F	-233.15 C	  40.00 K
+-351.67 F	-213.15 C	  60.00 K
+-315.67 F	-193.15 C	  80.00 K
+-279.67 F	-173.15 C	 100.00 K
+-243.67 F	-153.15 C	 120.00 K
+-207.67 F	-133.15 C	 140.00 K
+-171.67 F	-113.15 C	 160.00 K
+-135.67 F	 -93.15 C	 180.00 K
+ -99.67 F	 -73.15 C	 200.00 K
+ -63.67 F	 -53.15 C	 220.00 K
+ -27.67 F	 -33.15 C	 240.00 K
+   8.33 F	 -13.15 C	 260.00 K
+  44.33 F	   6.85 C	 280.00 K
+  80.33 F	  26.85 C	 300.00 K
+ 116.33 F	  46.85 C	 320.00 K
+ 152.33 F	  66.85 C	 340.00 K
+ 188.33 F	  86.85 C	 360.00 K
+nil
 
 
-;;; Name.el simulates an e-LISP Name type and operations on that type.
+;;; Temp.el simulates an e-LISP Temp type and operations on that type.
 ;;;
-;;; Begun by: Dr. Adams, for CS 214 at Calvin College.
-;;; Completed by: Chan Kim (ck45)
-;;; Date: 4/4/2018
+;;; Prof: Dr. Adams, for CS 214 at Calvin College.
+;;; Student: Chan Kim (ck45)
+;;; Date: 4/9/2018
 ;;;
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; Name constructs a name from three strings.      ;;
-;;; Receive: first, middle and last, three strings. ;;
-;;; Return: the triplet (first middle last).        ;;
+;;; Temp constructs a Temp from two values.         ;;
+;;; Receive: degrees, float; scale, char            ;;
+;;; Return: set to degrees, and scale.              ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(defun Name(first middle last)
-  (list first middle last) )
-
+(defun Temp(degrees scale)
+  (list degrees scale) )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; getFirst extracts the first name of a name object.;
-;;; Receive: theName, a Name.                       
-;;; Return: the first string in theName.           
+;;; isValid(degrees, scale) checks the validation.        
+;;; Receive: degrees, float; scale, a character.                      
+;;; PRE: degrees and scale have been initialized.            
+;;; Return: t or nil.   
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(defun getFirst(theName)
-  (car theName) )
+(defun isValid(degrees scale)
+  (if (and (>= degrees -459.6) (char-equal scale ?F))
+      (setq return t)
+    (if (and (>= degrees -273.15) (char-equal scale ?C))
+	(setq return t)
+      (if (and (>= degrees 0.0) (char-equal scale ?K))
+	  (setq return t)
+	(setq return nil))))
+  return)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; getDegrees extracts the degrees of a Temp object.;
+;;; Receive: theTemp, a Temp.                       
+;;; Return: the degrees in theTemp.           
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defun getDegrees(theTemp)
+  (car theTemp) )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; getMiddle extracts the middle name of a name object.
-;;; Receive: theName, a Name.                      
-;;; Return: the second string in theName.           
+;;; getScale extracts the scale of a Temp object.;
+;;; Receive: theTemp, a Temp.                       
+;;; Return: the scale in theTemp.             
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(defun getMiddle(theName)
-  (car (cdr theName) ) )
+(defun getScale(theTemp)
+  (car (cdr theTemp) ) )
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; setDegrees sets the degrees of a Temp object.;
+;;; Receive: theTemp, a Temp; degrees, float.                       
+;;; Return: theTemp with new degrees.           
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defun setDegrees(theTemp degrees)
+  (setcar theTemp degrees)
+theTemp)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; setScale sets the scale of a Temp object.;
+;;; Receive: theTemp, a Temp; scale, char.                       
+;;; Return: theTemp with a new scale.             
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defun setScale(theTemp scale)
+  (setf (car (cdr theTemp)) scale)
+theTemp)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; setFahrenheit(theTemp), setCelsius(theTemp), setKelvin(theTemp)              
+;;; Receive: theTemp, a Temp.                     
+;;; PRE: theTemp has been initialized.             
+;;; Return: sets to those scales
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defun setFahrenheit(theTemp)
+  (if (char-equal (getScale theTemp) ?C)
+    (progn (setScale theTemp ?F)
+      (setDegrees theTemp (+ 32.0 (* 1.8 (getDegrees theTemp)))))
+  (if (char-equal (getScale theTemp) ?K)
+    (progn (setScale theTemp ?F)
+      (setDegrees theTemp (- (* 1.8 (getDegrees theTemp)) 459.67))
+      )))        
+theTemp)
+
+(defun setCelsius(theTemp)
+  (if (char-equal (getScale theTemp) ?F)
+    (progn (setScale theTemp ?C)
+      (setDegrees theTemp (/ (- (getDegrees theTemp) 32.0) 1.8)))
+  (if (char-equal (getScale theTemp) ?K)
+    (progn (setScale theTemp ?C)
+      (setDegrees theTemp (- (getDegrees theTemp) 273.15)))
+  ))        
+theTemp)
+
+(defun setKelvin(theTemp)
+  (if (char-equal (getScale theTemp) ?C)
+    (progn (setScale theTemp ?K)
+      (setDegrees theTemp (+ 273.15 (getDegrees theTemp))))
+  (if (char-equal (getScale theTemp) ?F)
+    (progn (setScale theTemp ?K)
+      (setDegrees theTemp (* (+ 459.67 (getDegrees theTemp)) (/ 5.0 9.0))))
+  ))        
+theTemp)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; readTemp(theTemp) reads degrees and scale                
+;;; Receive: theTemp, a Temp.                     
+;;; PRE: theTemp has been initialized.             
+;;; Return: sets up degrees and scale if it is valid 
+;;;         otherwise prints an invalid message.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defun readTemp(theTemp)
+  (setq newDegrees 0.0)
+  (setq newScale ?C)
+  (setq values (upcase (read-from-minibuffer "Enter a temperature with its scale: ")))
+  (setq newDegrees (string-to-number values))
+  (setq newScale (string-to-char (byte-to-string (aref values (- (length values) 1)))))
+  (if (isValid newDegrees newScale)
+    (progn (setDegrees theTemp newDegrees)
+      (setScale theTemp newScale))
+    (princ "Invalid value"))
+theTemp)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; raise(theTemp degrees) incriments degrees               
+;;; Receive: theTemp, a Temp; degrees, float.                     
+;;; PRE: theTemp and degrees have been initialized.             
+;;; Return: incriments degrees.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defun raise(theTemp degrees)
+  (setDegrees theTemp (+ (getDegrees theTemp) degrees))
+)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; lower(theTemp degrees) decriments degrees               
+;;; Receive: theTemp, a Temp; degrees, float.                     
+;;; PRE: theTemp and degrees have been initialized.             
+;;; Return: decriments degrees otherwise prints an invalid message. 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defun lower(theTemp degrees)
+  (if (isValid (- (getDegrees theTemp) degrees) (getScale theTemp))
+    (setDegrees theTemp (- (getDegrees theTemp) degrees)))
+theTemp)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; equals(baseTemp limitTemp) retrieves baseTemp = limitTemp               
+;;; Receive: baseTemp, a Temp; limitTemp, a Temp.                     
+;;; PRE: baseTemp and limitTemp have been initialized.             
+;;; Return: true or false.  
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defun equals(baseTemp limitTemp)
+  (let ((copyBase (copy-sequence baseTemp))
+    (copyLimit (copy-sequence limitTemp)))
+    (setCelsius copyBase)
+    (setCelsius copyLimit)
+    (= (getDegrees copyBase) (getDegrees copyLimit)))
+)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; lessThan(baseTemp limitTemp) retrieves baseTemp < limitTemp               
+;;; Receive: baseTemp, a Temp; limitTemp, a Temp.                     
+;;; PRE: baseTemp and limitTemp have been initialized.             
+;;; Return: true or false.  
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defun lessThan(baseTemp limitTemp)
+  (let ((copyBase (copy-sequence baseTemp))
+    (copyLimit (copy-sequence limitTemp)))
+    (setCelsius copyBase)
+    (setCelsius copyLimit)
+    (< (getDegrees copyBase) (getDegrees copyLimit)))
+)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; getLast extracts the last name of a name object.
-;;; Receive: theName, a Name.                    
-;;; Return: the third string in theName.       
+;;; getFullTemp returns a full Temp in degrees scale order. 
+;;; Return: degrees, scale.           
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(defun getLast(theName)
-  (car (cdr (cdr theName) ) ) )
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; getFullName returns a full name in F-M-L order. 
-;;; Return: myFirst, myMiddle, myLast.           
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(defun getFullName (theName)
-   (concat (getFirst theName) " " (getMiddle theName) " " (getLast theName) ))
+(defun getFullTemp (theTemp)
+   (concat (format "%7.2f" (getDegrees theTemp)) " " (char-to-string (getScale theTemp))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; printName displays a name object.         
-;;; Receive: theName, a Name,                 
-;;;          buffer, the name of a buffer.   
-;;; Output: the strings in theName to buffer. ;;
+;;; printTemp displays a Temp object.         
+;;; Receive: theTemp, a Temp,                 
+;;;          buffer, the Temp of a buffer.   
+;;; Output: the strings in theTemp to buffer. ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(defun printName (theName buf)
-   (princ (getFullName theName) buf)
-   theName )
+(defun printTemp (theTemp buf)
+  (let ((copyTemp (copy-sequence theTemp)))
+   (princ (getFullTemp (setFahrenheit theTemp)) buf)
+   (princ "\t" buf)
+   (princ (getFullTemp (setCelsius theTemp)) buf)
+   (princ "\t" buf)
+   (princ (getFullTemp (setKelvin theTemp)) buf)
+   (princ "\n" buf))      
+   theTemp )

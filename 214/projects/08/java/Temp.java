@@ -168,7 +168,7 @@ class Temp {
      * raise(degree) incriments degrees                  
      * Receive: degree, number.                     
      * PRE: degrees has been initialized.             
-     * Return: incriments degrees otherwise prints an invalid message.    
+     * Return: incriments degrees.    
     */
 
     public void raise(double degrees)
