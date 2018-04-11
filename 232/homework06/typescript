@@ -1,0 +1,175 @@
+Script started on 2018-04-10 22:54:56-0400
+]0;chan@chan:~/Sources/school/232/homework06[chan@chan homework06]$ ls
+answers.txt  [0m[01;32mbakeshop[0m  bakeshop.c  typescript
+]0;chan@chan:~/Sources/school/232/homework06[chan@chan homework06]$ gcc bakeshop.c -o bakeshop -lpthr[K[K[K[K[Klpthread
+]0;chan@chan:~/Sources/school/232/homework06[chan@chan homework06]$ ./bakeshop 
+A loaf of bread is completed and available for sale
+Customer 0 has entered the store
+Customer 0 obtains a load of bread
+Customer 2 has entered the store
+Customer 1 has entered the store
+Customer 3 has entered the store
+Customer 4 has entered the store
+A loaf of bread is completed and available for sale
+Customer 0 has paid
+The baker prints the customer a receipt
+Customer 2 obtains a load of bread
+The baker hands the customer a receipt
+Customer 0 gets the receipt
+A loaf of bread is completed and available for sale
+Customer 2 has paid
+The baker prints the customer a receipt
+Customer 1 obtains a load of bread
+The baker hands the customer a receipt
+A loaf of bread is completed and available for sale
+Customer 2 gets the receipt
+Customer 1 has paid
+The baker prints the customer a receipt
+Customer 3 obtains a load of bread
+The baker hands the customer a receipt
+Customer 1 gets the receipt
+A loaf of bread is completed and available for sale
+Customer 3 has paid
+The baker prints the customer a receipt
+Customer 4 obtains a load of bread
+The baker hands the customer a receipt
+Customer 0 leaves the store
+Customer 3 gets the receipt
+A loaf of bread is completed and available for sale
+Customer 2 leaves the store
+Customer 5 has entered the store
+Customer 1 leaves the store
+Customer 6 has entered the store
+Customer 7 has entered the store
+Customer 3 leaves the store
+Customer 5 obtains a load of bread
+Customer 8 has entered the store
+Customer 4 has paid
+The baker prints the customer a receipt
+The baker hands the customer a receipt
+Customer 4 gets the receipt
+A loaf of bread is completed and available for sale
+Customer 5 has paid
+The baker prints the customer a receipt
+Customer 6 obtains a load of bread
+The baker hands the customer a receipt
+Customer 5 gets the receipt
+A loaf of bread is completed and available for sale
+Customer 6 has paid
+The baker prints the customer a receipt
+Customer 7 obtains a load of bread
+Customer 6 gets the receipt
+Customer 6 leaves the store
+The baker hands the customer a receipt
+Customer 4 leaves the store
+Customer 9 has entered the store
+Customer 5 leaves the store
+A loaf of bread is completed and available for sale
+Customer 8 obtains a load of bread
+Customer 7 has paid
+The baker prints the customer a receipt
+The baker hands the customer a receipt
+Customer 7 gets the receipt
+A loaf of bread is completed and available for sale
+Customer 8 has paid
+The baker prints the customer a receipt
+All the baking is done
+Customer 7 leaves the store
+The baker hands the customer a receipt
+Customer 8 gets the receipt
+Customer 8 leaves the store
+Customer 9 obtains a load of bread
+Customer 9 has paid
+The baker prints the customer a receipt
+The baker hands the customer a receipt
+Customer 9 gets the receipt
+Customer 9 leaves the store
+]0;chan@chan:~/Sources/school/232/homework06[chan@chan homework06]$ 
+]0;chan@chan:~/Sources/school/232/homework06[chan@chan homework06]$ 
+]0;chan@chan:~/Sources/school/232/homework06[chan@chan homework06]$ 
+]0;chan@chan:~/Sources/school/232/homework06[chan@chan homework06]$ ./bakeshop 
+A loaf of bread is completed and available for sale
+Customer 1 has entered the store
+Customer 2 has entered the store
+Customer 3 has entered the store
+Customer 0 has entered the store
+Customer 1 obtains a load of bread
+Customer 4 has entered the store
+A loaf of bread is completed and available for sale
+Customer 2 obtains a load of bread
+Customer 1 has paid
+The baker prints the customer a receipt
+The baker hands the customer a receipt
+Customer 1 gets the receipt
+A loaf of bread is completed and available for sale
+Customer 2 has paid
+The baker prints the customer a receipt
+Customer 0 obtains a load of bread
+The baker hands the customer a receipt
+A loaf of bread is completed and available for sale
+Customer 2 gets the receipt
+Customer 0 has paid
+The baker prints the customer a receipt
+Customer 3 obtains a load of bread
+The baker hands the customer a receipt
+Customer 0 gets the receipt
+A loaf of bread is completed and available for sale
+Customer 3 has paid
+The baker prints the customer a receipt
+Customer 4 obtains a load of bread
+The baker hands the customer a receipt
+Customer 1 leaves the store
+Customer 3 gets the receipt
+Customer 5 has entered the store
+Customer 2 leaves the store
+A loaf of bread is completed and available for sale
+Customer 6 has entered the store
+Customer 0 leaves the store
+Customer 3 leaves the store
+Customer 5 obtains a load of bread
+Customer 8 has entered the store
+Customer 7 has entered the store
+Customer 4 has paid
+The baker prints the customer a receipt
+The baker hands the customer a receipt
+Customer 4 gets the receipt
+A loaf of bread is completed and available for sale
+Customer 5 has paid
+The baker prints the customer a receipt
+Customer 6 obtains a load of bread
+The baker hands the customer a receipt
+Customer 5 gets the receipt
+A loaf of bread is completed and available for sale
+Customer 6 has paid
+The baker prints the customer a receipt
+Customer 8 obtains a load of bread
+The baker hands the customer a receipt
+Customer 6 gets the receipt
+Customer 8 has paid
+A loaf of bread is completed and available for sale
+The baker prints the customer a receipt
+Customer 7 obtains a load of bread
+Customer 4 leaves the store
+The baker hands the customer a receipt
+Customer 9 has entered the store
+Customer 5 leaves the store
+A loaf of bread is completed and available for sale
+Customer 6 leaves the store
+Customer 8 gets the receipt
+Customer 9 obtains a load of bread
+Customer 8 leaves the store
+Customer 7 has paid
+The baker prints the customer a receipt
+All the baking is done
+The baker hands the customer a receipt
+Customer 7 gets the receipt
+Customer 7 leaves the store
+Customer 9 has paid
+The baker prints the customer a receipt
+The baker hands the customer a receipt
+Customer 9 gets the receipt
+Customer 9 leaves the store
+]0;chan@chan:~/Sources/school/232/homework06[chan@chan homework06]$ exit
+exit
+
+Script done on 2018-04-10 22:56:13-0400
