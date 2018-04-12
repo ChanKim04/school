@@ -1,16 +1,21 @@
 /* Max.java finds the maximum values in Java linked lists.
  *
  * Begun by: Dr. Adams, CS 214 at Calvin College.
- * Completed by:
- * Date:
+ * Completed by: Chan Kim (ck45)
+ * Date: 4/13/2018
  */
 
-
+import java.util.LinkedList;
+import java.util.Iterator;
+import java.util.Collections;
 
 public class Max {
 
   public static void main(String [] args) {
     // define list1, list2, list3 here ...
+    LinkedList<Integer> list1 = new LinkedList<Integer>();
+    LinkedList<Integer> list2 = new LinkedList<Integer>();
+    LinkedList<Integer> list3 = new LinkedList<Integer>();
 
     list1.add(99);    // 99, 88, 77, 66, 55
     list1.add(88);    // max is first
@@ -30,11 +35,14 @@ public class Max {
     list3.add(88);  
     list3.add(66);  
   
-//    print(list1); 
-//    print(list2); 
-//    print(list3);
+    print(list1); 
+    print(list2); 
+    print(list3);
 
    // display maxima of the 3 lists...
+   System.out.println("Max of list1: " + Collections.max(list1));
+   System.out.println("Max of list2: " + Collections.max(list2));
+   System.out.println("Max of list3: " + Collections.max(list3));
   }
 
   /** print() displays a LinkedList on the console.
@@ -46,6 +54,13 @@ public class Max {
    *                 separated by spaces.
    */
   // replace this line with the definition of print().
-
+  public static void print(LinkedList<Integer> aList)
+  {
+    Iterator<Integer> listIterator = aList.iterator();
+    while (listIterator.hasNext()){
+      System.out.print(listIterator.next() + " ");
+    }
+    System.out.print('\n');
+  }
 }
 

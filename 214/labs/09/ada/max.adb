@@ -35,18 +35,18 @@ begin
   Append(88, List3); 
   Append(66, List3); 
  
---  Put(List1); New_Line;       -- output the 3 lists 
---  Put(List2); New_Line; 
---  Put(list3); New_Line; 
+  Put(List1); New_Line;       -- output the 3 lists 
+  Put(List2); New_Line; 
+  Put(list3); New_Line; 
                               -- display their maxima 
   Put("The maximum value in list 1 is ");  
---  Put( Max(List1) ); 
+  Put( Max(List1) ); 
   New_Line; 
   Put("The maximum value in list 2 is "); 
---  Put( Max(List2) );
+  Put( Max(List2) );
   New_Line; 
   Put("The maximum value in list 3 is ");
---  Put( Max(List3) );
+  Put( Max(List3) );
   New_Line; 
  
 end Max; 

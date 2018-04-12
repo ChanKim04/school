@@ -1,8 +1,8 @@
 # List.rb implements a linked list structure in Ruby.
 #
 # Begun by: Dr. Adams, for CS 214 at Calvin College.
-# Completed by:
-# Date:
+# Completed by: Chan Kim (ck45)
+# Date: 4/13/2018
 #######################################################
 
 require 'test/unit/assertions'
@@ -12,14 +12,18 @@ class List
 
    # initialize a List to be empty
    # Postcondition: first == nil and last == nil and length == 0
-
+    def initialize
+        @first = nil
+        @last = nil
+        @length = 0
+    end
    # Replace this line with a List constructor definition
 
 
    # create reader method for length
 
    # Replace this line with a statement to define a 'length' reader method
-
+   attr_reader :length
 
    # Am I empty?
    # Return: length == 0
@@ -50,16 +54,41 @@ class List
    # Postcondition: my items have been displayed to the screen
 
    # Replace this line with a definition for method 'print'
-
+    def print
+        temp = @first
+        while !temp.nil?
+            printf " #{temp.value}"
+            temp = temp.next
+        end
+    end
 
    # find my maximum item
    # Return: my maximum item
 
    # Replace this line with a definition for method 'max'
-
+    def max
+        temp = @first
+        maxValue = -999999
+        while !temp.nil?
+            if temp.value > maxValue
+                maxValue = temp.value
+            end
+            temp = temp.next
+        end
+        return maxValue
+    end
 
    # Replace this line with a declaration for class Node
    #  (and its methods)
+   class Node
+        def initialize(item, link)
+            @value = item
+            @next = link
+        end
+
+        attr_reader :value
+        attr_accessor :next
+    end
 
 end
 

@@ -1,8 +1,8 @@
 -- list_package.ads declares an Ada linked list and its operations.
 --
 -- Begun by: Dr. Adams, CS 214 at Calvin College.
--- Completed by:
--- Date:
+-- Completed by: Chan Kim (ck45)
+-- Date: 4/13/2018
 ------------------------------------------------------------------
 
 package List_Package is
@@ -50,7 +50,7 @@ package List_Package is
   -------------------------------------
 
   -- replace this line with the declaration of Put()
-
+  procedure Put(A_List : in List);
   ---------------------------------------
   -- Find the maximum value in a list.  -
   -- Receive: aList, a List.            -
@@ -58,12 +58,26 @@ package List_Package is
   ---------------------------------------
 
   -- replace this line with the declaration of Max()
+  function Max(A_List : List) return Integer;
 
  private
    -- replace this line with a forward-dec of List_Node
+  type List_Node;
    -- replace this line with a dec of Node_Ptr
-   -- replace this line with a full dec of List_Node
+  type Node_Ptr is access List_Node;
+   -- replace this line with a full dec of List_Node 
+  type List_Node is 
+    record
+      Its_Value : Integer;
+      Its_Next : Node_Ptr;
+    end record;
    -- replace this line with a full dec of List
+  type List is
+    record
+      Its_First : Node_Ptr;
+      Its_Last : Node_Ptr;
+      Its_Length : Integer;
+    end record;
 
 end List_Package;
 
