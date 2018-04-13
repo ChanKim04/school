@@ -12,24 +12,24 @@ class List
 
    # initialize a List to be empty
    # Postcondition: first == nil and last == nil and length == 0
+
+   # Replace this line with a List constructor definition
     def initialize
         @first = nil
         @last = nil
         @length = 0
     end
-   # Replace this line with a List constructor definition
-
 
    # create reader method for length
 
    # Replace this line with a statement to define a 'length' reader method
-   attr_reader :length
+    attr_reader :length
 
    # Am I empty?
    # Return: length == 0
-   def empty?
-      @length == 0
-   end
+    def empty?
+        @length == 0
+    end
   
    # append a value to me
    # Receive: value, the item to be appended

@@ -5,8 +5,13 @@
 ;;; Date: 4/13/2018
 
 (setq load-path (list "."))              ; setup load-path to WD
+(".")
+
+
 
 (load "mylist.elc")                      ; load module
+t
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; test function Max. ;;
@@ -36,4 +41,12 @@
     (princ "The max in list 3 is " buf)  ; print the max
     (princ (Max list3) buf)              ;  in list3
     (terpri buf)))                       ;  and a newline
+(99 88 77 66 55)
+(55 66 77 88 99)
+(55 77 99 88 66)
+The max in list 1 is 99
+The max in list 2 is 55
+The max in list 3 is 55
+t
+
 
