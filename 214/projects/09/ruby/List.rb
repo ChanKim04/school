@@ -81,6 +81,7 @@ class List
                 return count
             end
             temp = temp.next
+            count++
         end
         return -1
     end
