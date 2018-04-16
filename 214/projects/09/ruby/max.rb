@@ -14,7 +14,7 @@ list4 = List.new
 list1.append(99).append(88).append(77).append(66).append(55)
 list2.append(55).append(66).append(77).append(88).append(99)
 list3.append(55).append(77).append(99).append(88).append(66)
-list2.append(44).append(55).append(66).append(77).append(88)
+list4.append(44).append(55).append(66).append(77).append(88)
 
 list1.print 
 puts
