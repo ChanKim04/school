@@ -18,7 +18,7 @@ ILLEGAL_INSTRUCTION = 2
 
 class CPU:
 
-    def __init__(self, ram, mmu, os, num=0):
+    def __init__(self, ram, os, num=0):
 
         # TODO: the CPU should know nothing about the OS.  The CPU should
         # just execute instructions and handle the interrupts.  We should
@@ -36,7 +36,7 @@ class CPU:
             }
 
         self._ram = ram
-        self._mmu = mmu
+        self._mmu = ram.MMU(ram)
 
         self._os = os
         self._debug = False
@@ -105,6 +105,10 @@ class CPU:
             raise ValueError
         self._registers = registers
 
+    def set_mmu_registers(self, reloc, limit):
+        self._mmu.set_reloc_register(reloc)
+        self._mmu.set_limit_register(limit)
+    
     def isregister(self, s):
         return s in ('reg0', 'reg1', 'reg2', 'pc')
 
@@ -135,7 +139,7 @@ class CPU:
             if self._debug:
                 # print(self._registers)
                 print("CPU {}: executing code at [{}]: {}".format(self._num, self._registers['pc'],
-                                                          self._mmu.get_value(self._registers['pc'])))        # self._ram[self._registers['pc']]
+                                                                  self._mmu.get_value(self._registers['pc'])))        # self._ram[self._registers['pc']]
 
             # Execute the next instruction.
             self.parse_instruction(self._mmu.get_value(self._registers['pc']))                    # self._ram[self._registers['pc']]
@@ -321,7 +325,8 @@ class CPU:
             self._registers[dst] += srcval
         elif dst[0] == '*':    # for *<register>
             if self.isregister(dst[1:]):
-                self._mmu.set_value(self._registers[dst[1:]], (self._mmu.get_value(self._registers[dst[1:]]) + srcval))                   # self._ram[self._registers[dst[1:]]] += srcval
+                self._mmu.set_value(self._registers[dst[1:]], 
+                                   (self._mmu.get_value(self._registers[dst[1:]]) + srcval))                   # self._ram[self._registers[dst[1:]]] += srcval
             else:
                 print("Illegal instruction")
                 return
@@ -336,7 +341,8 @@ class CPU:
             self._registers[dst] -= srcval
         elif dst[0] == '*':    # for *<register>
             if self.isregister(dst[1:]):
-                self._mmu.set_value(self._registers[dst[1:]], (self._mmu.get_value(self._registers[dst[1:]]) - srcval))       # self._ram[self._registers[dst[1:]]] -= srcval    
+                self._mmu.set_value(self._registers[dst[1:]], 
+                                   (self._mmu.get_value(self._registers[dst[1:]]) - srcval))       # self._ram[self._registers[dst[1:]]] -= srcval    
             else:
                 print("Illegal instruction")
                 return

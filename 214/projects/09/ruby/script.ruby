@@ -1,12 +1,10 @@
-Script started on 2018-04-12 20:27:22-0400
-]0;chan@chan:~/Sources/school/214/labs/09/ruby[chan@chan ruby]$ ls
-List.rb  max.rb  script.ruby
-]0;chan@chan:~/Sources/school/214/labs/09/ruby[chan@chan ruby]$ cat l[KList.rb 
+Script started on Mon 16 Apr 2018 12:00:03 PM EDT
+ck45@cs-ssh:~/school/214/projects/09/ruby$ cat l List.rb 
 # List.rb implements a linked list structure in Ruby.
 #
 # Begun by: Dr. Adams, for CS 214 at Calvin College.
 # Completed by: Chan Kim (ck45)
-# Date: 4/13/2018
+# Date: 4/16/2018
 #######################################################
 
 require 'test/unit/assertions'
@@ -16,8 +14,6 @@ class List
 
    # initialize a List to be empty
    # Postcondition: first == nil and last == nil and length == 0
-
-   # Replace this line with a List constructor definition
     def initialize
         @first = nil
         @last = nil
@@ -25,8 +21,6 @@ class List
     end
 
    # create reader method for length
-
-   # Replace this line with a statement to define a 'length' reader method
     attr_reader :length
 
    # Am I empty?
@@ -56,8 +50,6 @@ class List
 
    # print my items
    # Postcondition: my items have been displayed to the screen
-
-   # Replace this line with a definition for method 'print'
     def print
         temp = @first
         while !temp.nil?
@@ -68,8 +60,6 @@ class List
 
    # find my maximum item
    # Return: my maximum item
-
-   # Replace this line with a definition for method 'max'
     def max
         temp = @first
         maxValue = -999999
@@ -82,60 +72,96 @@ class List
         return maxValue
     end
 
-   # Replace this line with a declaration for class Node
-   #  (and its methods)
+   # Receive: aValue, an integer.
+   # Return: the position of aValue within aList, if aValue is present in aList;
+   #        -1, otherwise.    
+    def search(value)
+        temp = @first
+        count = 0
+        while !temp.nil?
+            if temp.value == value
+                return count
+            end
+            temp = temp.next
+            count += 1
+        end
+        return -1
+    end
+
+
+   # a declaration for class Node and its methods
    class Node
         def initialize(item, link)
             @value = item
             @next = link
         end
-
         attr_reader :value
         attr_accessor :next
     end
 
 end
 
-]0;chan@chan:~/Sources/school/214/labs/09/ruby[chan@chan ruby]$ cat max.rb 
+ck45@cs-ssh:~/school/214/projects/09/ruby$ cat max.rb 
 # max.rb tests a Ruby linked list.
 #
 # Begun by: Dr. Adams for CS 214 at Calvin College.
 # Completed by: Chan Kim (ck45)
-# Date: 4/13/2018
+# Date: 4/16/2018
 
 require './List'
 
 list1 = List.new
 list2 = List.new
 list3 = List.new
+list4 = List.new
 
 list1.append(99).append(88).append(77).append(66).append(55)
 list2.append(55).append(66).append(77).append(88).append(99)
 list3.append(55).append(77).append(99).append(88).append(66)
+list4.append(44).append(55).append(66).append(77).append(88)
 
 list1.print 
 puts
 puts "Maximum of list1: #{list1.max}"
+puts
+puts "The position of 99 within list1: #{list1.search(99)}"
 
 list2.print 
 puts
 puts "Maximum of list2: #{list2.max}"
+puts
+puts "The position of 99 within list2: #{list2.search(99)}"
 
 list3.print 
 puts
 puts "Maximum of list3: #{list3.max}"
+puts
+puts "The position of 99 within list3: #{list3.search(99)}"
 
-]0;chan@chan:~/Sources/school/214/labs/09/ruby[chan@chan ruby]$ ls
-List.rb  max.rb  script.ruby
-]0;chan@chan:~/Sources/school/214/labs/09/ruby[chan@chan ruby]$ ruby max.rb 
-[1mTraceback [m(most recent call last):
-	5: from max.rb:7:in `<main>'
-	4: from /usr/lib/ruby/2.5.0/rubygems/core_ext/kernel_require.rb:59:in `require'
-	3: from /usr/lib/ruby/2.5.0/rubygems/core_ext/kernel_require.rb:59:in `require'
-	2: from /home/chan/Sources/school/214/labs/09/ruby/List.rb:8:in `<top (required)>'
-	1: from /usr/lib/ruby/2.5.0/rubygems/core_ext/kernel_require.rb:59:in `require'
-/usr/lib/ruby/2.5.0/rubygems/core_ext/kernel_require.rb:59:in `require': [1mcannot load such file -- test/unit/assertions ([4;1mLoadError[m[1m)
-[m]0;chan@chan:~/Sources/school/214/labs/09/ruby[chan@chan ruby]$ exit
+list4.print 
+puts
+puts "Maximum of list4: #{list4.max}"
+puts
+puts "The position of 99 within list4: #{list4.search(99)}"
+
+ck45@cs-ssh:~/school/214/projects/09/ruby$ ruby max.rb 
+ 99 88 77 66 55
+Maximum of list1: 99
+
+The position of 99 within list1: 0
+ 55 66 77 88 99
+Maximum of list2: 99
+
+The position of 99 within list2: 4
+ 55 77 99 88 66
+Maximum of list3: 99
+
+The position of 99 within list3: 2
+ 44 55 66 77 88
+Maximum of list4: 88
+
+The position of 99 within list4: -1
+ck45@cs-ssh:~/school/214/projects/09/ruby$ exit
 exit
 
-Script done on 2018-04-12 20:27:43-0400
+Script done on Mon 16 Apr 2018 12:00:26 PM EDT

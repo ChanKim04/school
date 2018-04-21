@@ -18,26 +18,29 @@ class RAM:
     def is_legal_addr(self, addr):
         return self._minAddr <= addr <= self._maxAddr
 
-class MMU:
-    def __init__(self, ram):
-        self._ram = ram
-        self._reloc_register = 0
-        self._limit_register = 0
+    class MMU:
+        def __init__(self, ram):
+            self._ram = ram
+            self._reloc_register = 0
+            self._limit_register = 0
+            
+        def get_value(self, addr):
+            if (addr < 0):
+                print("BAD ADDRESS %d: too low" % addr)
+            elif (addr >= self._limit_register):
+                print("BAD ADDRESS %d: too high" % addr)
+            return self._ram[addr + self._reloc_register]
+
+        def set_value(self, addr, val):
+            if (addr < 0):
+                print("BAD ADDRESS %d: too low" % addr)
+            elif (addr >= self._limit_register):
+                print("BAD ADDRESS %d: too high" % addr)        
+            self._ram[addr + self._reloc_register] = val
         
-    def get_value(self, addr):
-        return self._ram[addr]
+        def set_reloc_register(self, val):
+            self._reloc_register = val
 
-    def set_value(self, addr, val):
-        self._ram[addr] = val
-    
-    def set_reloc_register(self, val):
-        self._reloc_register = val
-
-    def set_limit_register(self, val):
-        self._limit_register = val
-
-    def is_legal_addr(self, addr):
-        if addr < self._limit_register
-            return addr += self._reloc_register
-        else:
-            print("BAD ADDRESS %d: too low" % addr)
+        def set_limit_register(self, val):
+            self._limit_register = val
+        

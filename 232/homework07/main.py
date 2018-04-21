@@ -1,6 +1,6 @@
 import calos
 from cpu import CPU, MAX_CHARS_PER_ADDR
-from ram import RAM, MMU
+from ram import RAM
 
 
 '''
@@ -59,9 +59,9 @@ class Monitor:
     def __init__(self, ram):
         self._debug = False
         self._ram = ram
-        self._mmu = mmu
+
         self._os = calos.CalOS()
-        self._cpus = [ CPU(self._ram, self._mmu, self._os, 0) ] # , CPU(self._ram, self._os, 1) ]
+        self._cpus = [ CPU(self._ram, self._os, 0) ] # , CPU(self._ram, self._os, 1) ]
         # self._cpus = [ CPU(self._ram, self._os, 0) ]
         self._os.set_cpus(self._cpus)
         self.set_debug(False)
@@ -227,7 +227,8 @@ class Monitor:
     def _handle_data_label(self, addr, line, pcb):
         
         mem_addr = int(line.split()[1])
-        pcb.set_high_mem(mem_addr)
+        high_addr = addr + mem_addr
+        pcb.set_high_mem(high_addr)
         if self._debug:
             print("__data found at physical location", addr, "but logical addr", mem_addr)            
 
@@ -314,7 +315,7 @@ class Monitor:
         
 # Main
 ram = RAM()
-mmu = MMU(ram)
+
 # Like BIOS
 monitor = Monitor(ram) 
 monitor.run()
