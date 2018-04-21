@@ -1,0 +1,110 @@
+Script started on 2018-02-12 02:48:21-0500
+]0;chan@chan:~/Sources/school/214/labs/02[chan@chan 02]$ cat [K[K[K[Kls
+[0m[01;32mexample1[0m      example2.lex  [01;32mexample4[0m      [01;32mexample5[0m         example5.y    example6.lex~  Makefile           StudentInfo.h
+example1.lex  [01;32mexample3[0m      example4.lex  example5.lex     example5.y~   example6.y     observations.txt   typescript
+[01;32mexample2[0m      example3.lex  example4.y    example5.tab.h~  example6.lex  example6.y~    observations.txt~
+]0;chan@chan:~/Sources/school/214/labs/02[chan@chan 02]$ cat example6.lex
+%{
+#include <stdio.h>
+#include <stdlib.h>           /* atoi() */
+#include <string.h>           /* strcmp() */
+#include "example6.tab.h"
+%}
+%%
+[0-9]+                  yylval = atoi(yytext); return NUMBER;
+heat                    return TOKHEAT;
+on|off                  yylval = !strcmp(yytext,"on"); return STATE;
+set                     return TOKSET;
+temperature             return TOKTEMPERATURE;
+humidity\ to            return TOKHUMIDITY;
+\n                      /* ignore end of line */;
+[ \t]+                  /* ignore whitespace */;
+%%
+]0;chan@chan:~/Sources/school/214/labs/02[chan@chan 02]$ cat example6.y
+%{
+#include <stdio.h>
+#include <string.h>
+
+/* declarations */
+int yylex (void);
+void yyerror (char const *);
+int yyparse(void);
+
+/* definitions */ 
+void yyerror(const char *str) {
+        fprintf(stderr,"error: %s\n",str);
+}
+ 
+int yywrap() {
+        return 1;
+} 
+ 
+int main() {
+        yyparse();
+} 
+
+%}
+
+%token NUMBER TOKHEAT STATE TOKSET TOKTEMPERATURE TOKHUMIDITY
+%%
+
+commands: /* empty */
+        | commands command
+        ;
+
+command:
+        heat_switch
+        | temperature_set
+	| humidity_set
+        ;
+
+heat_switch:
+        TOKHEAT STATE
+        {
+	  
+                  if ($2) {  /* if STATE == 1 */
+                        printf("\tHeat turned on\n");
+                } else {
+                        printf("\tHeat turned off\n");
+                }
+        }
+        ;
+
+temperature_set:
+        TOKSET TOKTEMPERATURE NUMBER
+        {
+	  printf("\tTemperature set to %d\n", $3);
+        }
+        ;
+
+humidity_set:
+        TOKSET TOKHUMIDITY NUMBER
+        {
+	  printf("\tHumidity set to %d\n", $3);
+        }
+        ;
+]0;chan@chan:~/Sources/school/214/labs/02[chan@chan 02]$ flex example6.lex
+]0;chan@chan:~/Sources/school/214/labs/02[chan@chan 02]$ bison -d example6.y
+]0;chan@chan:~/Sources/school/214/labs/02[chan@chan 02]$ gcc[K[K[Kls
+[0m[01;32mexample1[0m      [01;32mexample3[0m      example4.y       example5.y     example6.tab.c  lex.yy.c           StudentInfo.h
+example1.lex  example3.lex  [01;32mexample5[0m         example5.y~    example6.tab.h  Makefile           typescript
+[01;32mexample2[0m      [01;32mexample4[0m      example5.lex     example6.lex   example6.y      observations.txt
+example2.lex  example4.lex  example5.tab.h~  example6.lex~  example6.y~     observations.txt~
+]0;chan@chan:~/Sources/school/214/labs/02[chan@chan 02]$ gcc -o [K[K[Kexample5[K6.tab.c -o example6
+/tmp/ccuRjIGF.o: In function `yyparse':
+example6.tab.c:(.text+0x35f): undefined reference to `yylex'
+collect2: error: ld returned 1 exit status
+]0;chan@chan:~/Sources/school/214/labs/02[chan@chan 02]$ gcc lex.yy.c example6.tab.c -o example6
+]0;chan@chan:~/Sources/school/214/labs/02[chan@chan 02]$ ll[K[K./example6 c[K[K
+heat on
+	Heat turned on
+heat off
+	Heat turned off
+set temperature 5
+	Temperature set to 5
+set humidity to 45
+	Humidity set to 45
+^C
+]0;chan@chan:~/Sources/school/214/labs/02[chan@chan 02]$ exit
+
+Script done on 2018-02-12 02:52:45-0500

@@ -1,0 +1,281 @@
+Script started on 2018-03-25 02:17:37-0400
+]0;chan@chan:~/Sources/school/214/projects/06[chan@chan 06]$ javac -deprecation Array.java 
+]0;chan@chan:~/Sources/school/214/projects/06[chan@chan 06]$ cat Array.java 
+/* Array.java is a driver for methods printArray() and readArray().
+ *
+ * Author: Chan Kim (ck45) for CS 214 at Calvin College
+ * Date: 3/26/2018
+ *
+ * Precondition: get the size of the array from user.
+ * Output: print the result of array.
+ ***************************************************************/
+
+import java.io.*;
+import java.util.Scanner;
+
+public class Array
+{
+  public static void main(String[] args) {
+
+      Scanner keyboard = new Scanner(System.in);
+      System.out.println("How many values are to be in the array?");
+      int itsSize = keyboard.nextInt();
+      
+      double[] anArray = new double[itsSize];
+      System.out.println("Enter values into the array...\n");
+      readArray(anArray, itsSize, keyboard);
+      System.out.println("Print the resulting array...");      
+      printArray(anArray, itsSize);
+  }
+
+  /* printArray() is a method that prints the resulting array.
+   * Receive: anArray, an array of doubles; itsSize, int.
+   * Return: print the array.
+   ************************************************************/
+
+  public static void printArray(double[] anArray, int itsSize)
+  { 
+    for (int i = 0; i < itsSize; i++) {
+      System.out.println(anArray[i]);
+    }
+  }
+
+  /* readArray() is a method that gets values from user and appends the values into the array.  
+   * Receive: anArray, an array of doubles; itsSize, int.
+   * Return: return the array.
+   **************************************************************/
+  
+  public static void readArray(double anArray[], int itsSize, Scanner keyboard)
+  {
+    for (int i = 0; i < itsSize; i++) {
+      anArray[i] = keyboard.nextDouble();
+    }
+  }
+}]0;chan@chan:~/Sources/school/214/projects/06[chan@chan 06]$ java Array 
+How many values are to be in the array?
+3
+Enter values into the array...
+
+3.0
+0.1
+0.04
+Print the resulting array...
+3.0
+0.1
+0.04
+]0;chan@chan:~/Sources/school/214/projects/06[chan@chan 06]$ exit
+exit
+
+Script done on 2018-03-25 02:18:29-0400
+Script started on 2018-03-25 02:18:53-0400
+]0;chan@chan:~/Sources/school/214/projects/06[chan@chan 06]$ ls
+Array.class  array.el~   [0m[01;32marrayprocessing[0m      arrayprocessing.ali  array.rb  [01;34mold[0m         script.elisp
+array.el     Array.java  arrayprocessing.adb  arrayprocessing.o    Makefile  script.ada  script.java
+]0;chan@chan:~/Sources/school/214/projects/06[chan@chan 06]$ gnatmake arrayprocessing.adb 
+gcc -c arrayprocessing.adb
+gnatbind -x arrayprocessing.ali
+gnatlink arrayprocessing.ali
+]0;chan@chan:~/Sources/school/214/projects/06[chan@chan 06]$ ./arrayprocessing 
+How many values are to be in the array?3
+Enter values into the array...3.0
+0.1
+0.04
+Print the resulting array... 3.00000E+00 1.00000E-01 4.00000E-02
+]0;chan@chan:~/Sources/school/214/projects/06[chan@chan 06]$ cat arrayprocessing.a
+arrayprocessing.adb  arrayprocessing.ali  
+[chan@chan 06]$ cat arrayprocessing.adb
+-- arrayprocessing.adb "test-drives" functions readArray and printArray.
+-- Precondition: get the size of the array from user.
+-- Output: print the result of array.
+--
+-- Author: Chan Kim (ck45) for CS 214 at Calvin College
+-- Date: 3/26/2018
+-----------------------------------------------
+
+with Ada.Text_IO; use Ada.Text_IO;             -- Put(String)
+with Ada.Float_Text_IO; use Ada.Float_Text_IO; -- Put(Float)
+
+procedure arrayprocessing is
+
+-- Declare Vector type
+   type Vector is array ( Positive range <>) of Float;
+   itsSize : Integer;
+
+----------------------------------------------
+-- printArray() is a method that prints      -
+--              the resulting array.         -
+-- Receive: anArray, an array of numbers     -
+-- Return: print the array.                  -
+----------------------------------------------
+
+procedure printArray(A: Vector) is 
+begin 
+  for I in A'Range 
+  loop 
+    put(A(i));
+  end loop; 
+end printArray; 
+
+----------------------------------------------
+-- readArray() is a method that gets values  -
+--             from user and appends         -
+--             the values into the array.    -
+-- Receive: anArray, an array of numbers     -
+-- Return: return the array.                 -
+----------------------------------------------
+
+procedure readArray(A: in out Vector) is
+values : Float;
+begin
+    for i in A'Range
+    loop
+        get(values);
+        A(i) := values;
+    end loop;
+end readArray;
+
+begin
+   Put("How many values are to be in the array?");
+   get( Float(itsSize) );
+   declare anArray : Vector(1..itsSize);
+   begin
+   Put("Enter values into the array...");
+   readArray(anArray);
+   Put("Print the resulting array...");
+   printArray(anArray);
+   New_line;
+   end;
+end arrayprocessing;
+
+]0;chan@chan:~/Sources/school/214/projects/06[chan@chan 06]$ exit
+exit
+
+Script done on 2018-03-25 02:19:51-0400
+;;; array.el "test-drives" functions readArray() and printArray().
+;;; Output: print the result of array.
+;;;
+;;; Author: Chan Kim (ck45) for CS 214 at Calvin College
+;;; Date: 3/26/2018
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; readArray() is a method that gets values;;
+;;;              from user and appends       ;;
+;;;              the values into the array.  ;;
+;;; Receive: array, an array of numbers;     ;;
+;;;          itsSize, its size.              ;;
+;;; Return: return the array.                ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defun readArray(array itsSize)
+  (if (> itsSize 0)
+      (progn (setq value (make-vector 1 (read)))
+	     (princ value)
+	     (terpri)
+	     (setq Array (vconcat array value))
+	     (readArray Array (- itsSize 1)))
+    nil)
+  Array)
+readArray
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; printArray() is a method that prints the resulting array.;;
+;;; Receive: array, an array of numbers; itsSize, its size.  ;;
+;;; Return: print the array.                                 ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defun printArray(array itsSize)
+  (if (> itsSize 0)
+      (progn (setq value (aref array (- itsSize 1)))
+	     (princ value)
+	     (terpri)
+	     (printArray array (- itsSize 1)))
+    nil))
+printArray
+
+(defun main ()
+  (princ "How many values are to be in the array? ")
+  (setq itsSize (read))
+  (princ itsSize)
+  (terpri)
+  (setq array [])
+  (princ "Enter values into the array...\n")
+  (setq Array (readArray array itsSize))
+  (princ "Print the resulting array...\n")
+  (printArray Array itsSize))
+main
+
+;;; Test...
+(main)
+How many values are to be in the array? 3
+Enter values into the array...
+[3.0]
+[0.1]
+[0.04]
+Print the resulting array...
+0.04
+0.1
+3.0
+nil
+
+Script started on 2018-03-25 02:20:08-0400
+]0;chan@chan:~/Sources/school/214/projects/06[chan@chan 06]$ ruby[K[K[K[Kcat array.rb 
+# array.rb is a driver for methods printArray() and readArray().
+# Precondition: get the size of the array from user.
+# Output: print the result of array.
+#
+# Author: Chan Kim (ck45) for CS 214 at Calvin College
+# Date: 3/26/2018
+########################################################
+
+###############################################
+# printArray() is a method that prints the resulting array.
+# Receive: anArray, an array of numbers; itsSize, number
+# Return: print the array.
+################################################
+
+def printArray (anArray, itsSize)
+    for i in 1..itsSize
+        puts anArray[i]
+    end
+end
+
+###############################################
+# readArray() is a method that gets values from user and appends the values into the array. 
+# Receive: anArray, an array of numbers; itsSize, number
+# Return: return the array.
+################################################
+
+def readArray (anArray, itsSize)
+    for i in 1..itsSize
+        anArray[i] = gets.chomp.to_f
+    end
+end
+
+def main
+    puts "How many values are to be in the array?"
+    itsSize = gets.chomp.to_f
+    anArray = Array.new(itsSize)
+    puts "Enter values into the array...\n"
+    readArray(anArray, itsSize)
+    puts "Print the resulting array..."
+    printArray(anArray, itsSize)
+end
+
+main
+
+]0;chan@chan:~/Sources/school/214/projects/06[chan@chan 06]$ ruby array.rb 
+How many values are to be in the array?
+3
+Enter values into the array...
+3.0
+0l .1
+0.04
+Print the resulting array...
+3.0
+0.1
+0.04
+]0;chan@chan:~/Sources/school/214/projects/06[chan@chan 06]$ exit
+exit
+
+Script done on 2018-03-25 02:20:41-0400

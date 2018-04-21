@@ -1,0 +1,99 @@
+
+
+Mac52078:~/classes/cs232/new_course/assignments/lab1 vtn2$ python3 main.py
+Monitor: enter ? to see options.
+MON> l 20 mult.asm
+Main found at 20
+Tape loaded from 20 to 32
+MON> d 10
+Enter value (. to end) [10]> 5
+Enter value (. to end) [11]> 3
+Enter value (. to end) [12]> .
+MON> !
+State of the CPU is:
+CPU 0: pc 31, reg0 5, reg1 0, reg2 15
+---------------------------------------------------------------------------
+MON> x 20
+Executing code at [20]: mov 0 12
+CPU 0: pc 21, reg0 0, reg1 0, reg2 0
+Executing code at [21]: mov *10 reg2
+CPU 0: pc 22, reg0 0, reg1 0, reg2 5
+Executing code at [22]: jez reg2 31
+CPU 0: pc 23, reg0 0, reg1 0, reg2 5
+Executing code at [23]: mov *11 reg1
+CPU 0: pc 24, reg0 0, reg1 3, reg2 5
+Executing code at [24]: jez reg1 31
+CPU 0: pc 25, reg0 0, reg1 3, reg2 5
+Executing code at [25]: mov reg2 reg0
+CPU 0: pc 26, reg0 5, reg1 3, reg2 5
+Executing code at [26]: sub 1 reg1
+CPU 0: pc 27, reg0 5, reg1 2, reg2 5
+Executing code at [27]: jez reg1 30
+CPU 0: pc 28, reg0 5, reg1 2, reg2 5
+Executing code at [28]: add reg0 reg2
+CPU 0: pc 29, reg0 5, reg1 2, reg2 10
+Executing code at [29]: jmp 26
+CPU 0: pc 26, reg0 5, reg1 2, reg2 10
+Executing code at [26]: sub 1 reg1
+CPU 0: pc 27, reg0 5, reg1 1, reg2 10
+Executing code at [27]: jez reg1 30
+CPU 0: pc 28, reg0 5, reg1 1, reg2 10
+Executing code at [28]: add reg0 reg2
+CPU 0: pc 29, reg0 5, reg1 1, reg2 15
+Executing code at [29]: jmp 26
+CPU 0: pc 26, reg0 5, reg1 1, reg2 15
+Executing code at [26]: sub 1 reg1
+CPU 0: pc 27, reg0 5, reg1 0, reg2 15
+Executing code at [27]: jez reg1 30
+CPU 0: pc 30, reg0 5, reg1 0, reg2 15
+Executing code at [30]: mov reg2 12
+CPU 0: pc 31, reg0 5, reg1 0, reg2 15
+Executing code at [31]: end
+State of the CPU is:
+CPU 0: pc 31, reg0 5, reg1 0, reg2 15
+---------------------------------------------------------------------------
+MON> s 10 13
+[0010] 5
+[0011] 3
+[0012] 15
+[0013] 0
+State of the CPU is:
+CPU 0: pc 31, reg0 5, reg1 0, reg2 15
+---------------------------------------------------------------------------
+MON> l 100 fib.asm
+Main found at 100
+Tape loaded from 100 to 125
+State of the CPU is:
+CPU 0: pc 31, reg0 5, reg1 0, reg2 15
+---------------------------------------------------------------------------
+MON> d 50
+Enter value (. to end) [50]> 6
+Enter value (. to end) [51]> .
+State of the CPU is:
+CPU 0: pc 31, reg0 5, reg1 0, reg2 15
+---------------------------------------------------------------------------
+MON> x 100
+Executing code at [100]: mov 1 150
+CPU 0: pc 101, reg0 0, reg1 0, reg2 0
+Executing code at [101]: mov 1 151
+CPU 0: pc 102, reg0 0, reg1 0, reg2 0
+Executing code at [102]: mov 1 500
+CPU 0: pc 103, reg0 0, reg1 0, reg2 0
+<... snip ...>
+
+MON> s 500 510
+[0500] 1
+[0501] 1
+[0502] 2
+[0503] 3
+[0504] 5
+[0505] 8
+[0506] 0
+[0507] 0
+[0508] 0
+[0509] 0
+[0510] 0
+State of the CPU is:
+CPU 0: pc 124, reg0 0, reg1 5, reg2 0
+---------------------------------------------------------------------------
+

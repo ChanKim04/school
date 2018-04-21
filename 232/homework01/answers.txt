@@ -1,0 +1,31 @@
+﻿Student:	Chan Kim
+date: 	2/6/18
+
+    1. How many bytes of RAM does the virtual machine have by default?
+		1024
+
+    2. What are the registers that the virtual machine has?
+		Program counter(pc) and three instruction registers(reg0, reg1, reg2)
+
+    3. What arguments does the instruction JLZ take and what does the instruction 	do?
+		Change pc to <dst> if register <reg> is smaller than 0
+
+    4. When does the CPU check if an interrupt has occurred?
+		Run the corresponding handler(s)
+
+    5. What does the Monitor instruction S do?
+		S <start> <end>: show memory from start to end
+		Output the value at the memory locations from <start> to <end>
+
+    6. What does the Monitor instruction ! Do?
+		! : Toggle debugging on or off -- off at startup.
+		On and off to show CPU state and debugging accoridng to bool
+
+    7. Can assembly language files contain comments? How about blank lines?
+		The assembly language files have commant lines and empty lines. However, 		those lines are not loaded into memory but skipped.		
+
+    8. What function is called to write bytes into memory?
+		 _poke_ram(self, starting_addr) is called to write bytes into memory. 			When an user type d <addr>, put data values into RAM starting at addr. 		If the input is valid, ‘self._ram[curr_addr] = data’ writes data into 			the memory location.
+
+    9. Do assembly language programs assume they are loaded into memory at certain 	locations?
+		Yes, fib.asm assumes that the code is loaded at location 100, and 			mult.asm assumes that the code is loaded at location 20.

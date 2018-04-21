@@ -1,0 +1,6 @@
+Lab 01 Grade:
+100/100
+
+Good variable names
+Good headers
+All tests passed

@@ -1,0 +1,9 @@
+Lab 05 Grade:
+97/100
+
+Header comments are all complete
+Method comments on List.cpp are good and descriptive
+All tests of List class passed
+Node destructor and List destructor work correctly
+Should've commented out print statements in Node destructor (~Node())
+-3

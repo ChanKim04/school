@@ -1,0 +1,7 @@
+Lab 11 Grade:
+100/100
+
+Lab files compile without errors
+Headers are good
+Method comments on AccountManager are good
+Tests executed properly OR menu runs fine
