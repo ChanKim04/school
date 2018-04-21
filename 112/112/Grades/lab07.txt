@@ -1,7 +1,0 @@
-Lab 07 Grade:
-100/100
-
-Header comments are all complete
-Method comments on Stack.cpp are good and descriptive
-All tests of Stack class passed
-StackException class defined properly and used in Stack.cpp
