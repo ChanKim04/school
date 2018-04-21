@@ -1,7 +1,0 @@
-Lab 08 Grade:
-100/100
-
-All tests passed
-Header comments present on all user files
-Method comments are done on all relevant methods
-No errors or warnings by compiler
